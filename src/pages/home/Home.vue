@@ -1,0 +1,93 @@
+<template lang="pug">
+  main.hello
+    my-header
+    div.hero
+      article.hero-body.columns
+        section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
+          h3.is-3.subtitle Por um mundo mais aventureiro,
+          h3.is-3.subtitle Repleto de fraternidade e desafios.
+          h3.is-3.subtitle gratidão.. sempre... alerta!
+      div.level.lime.hero-foot
+        nav.level-left
+        nav.level-right
+          div.level-item
+            span.icon: i.fa.fa-circle.is-active
+            - for (var x = 0; x < 3; x++)
+              span.icon: i.fa.fa-circle
+    div.news
+      div.columns.container.is-fluid
+        div.column.is-6.columns
+          div.column
+            h1.title.is-2 Notícias
+            div.columns
+              div.column.is-4.has-text-centered
+                figure.image.is-square
+                  img(src="http://bulma.io/images/placeholders/480x480.png")
+              div.column
+                h5.subtitle titulo da materia em destaque que poderá ter até 3 linhas
+                p.content Lorem ipsum dolor sit amet, con se cte tur adipis elit. Quisque in turpis eu velit iaculis ornare. Praesent dapibus enim a nisl conse ctetur fringilla. In condiment um id urna ut feugiat.
+                button.button Saiba +
+
+        div.column.is-6.columns
+          div.column
+</template>
+
+<script>
+  import Header from '../../components/header/Header.vue'
+
+  export default {
+    components: {
+      'my-header': Header
+    },
+    name: 'home',
+    data () {
+      return {
+        msg: ''
+      }
+    }
+  }
+</script>
+
+<style scoped lang="sass">
+  @import '~assets/sass/config.sass'
+  .hero
+    background-blend-mode: multiply
+    background-color: rgba(0, 0, 0, 0.3)
+    background-image: url('~assets/images/home-banner.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: 0 100%
+    .hero-body
+      padding-top: 12rem
+      min-height: 25rem
+      article
+        text-align: left
+      .subtitle
+        margin-bottom: 0px
+        color: white
+        text-transform: uppercase
+        font-family: 'Roboto'
+        font-weight: 300
+    .hero-foot
+      min-height: 3rem
+      background: rgba(176, 211, 83, 0.6)
+      .level-right
+        +mobile
+          margin-top: 0.75rem
+        +desktop
+          padding-right: 5%
+        .icon
+          margin-left: 0.25rem
+        .fa-circle
+          color: rgba(255, 255, 255, 0.7)
+          &.is-active
+            color: darken($verde-limao, 30%)
+
+  .news
+    margin-top: 0
+    background: #f6fce6
+    .subtitle
+      text-transform: uppercase
+      font-weight: bold
+      margin-bottom: 10px
+</style>
