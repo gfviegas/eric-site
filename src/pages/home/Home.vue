@@ -15,29 +15,34 @@
             - for (var x = 0; x < 3; x++)
               span.icon: i.fa.fa-circle
     div.news
-      div.columns.container.is-fluid
-        div.column.is-6.columns
+      div.columns.container
+        div.column.is-7.columns.is-offset-1
           div.column
             h1.title.is-2 Notícias
-            div.columns
+            div.columns.align-items-center
               div.column.is-4.has-text-centered
                 figure.image.is-square
                   img(src="http://bulma.io/images/placeholders/480x480.png")
-              div.column
-                h5.subtitle titulo da materia em destaque que poderá ter até 3 linhas
+              div.column.new-content
+                h5.subtitle.is-5 titulo da materia em destaque que poderá ter até 3 linhas
                 p.content Lorem ipsum dolor sit amet, con se cte tur adipis elit. Quisque in turpis eu velit iaculis ornare. Praesent dapibus enim a nisl conse ctetur fringilla. In condiment um id urna ut feugiat.
-                button.button Saiba +
+                more-button(c-class="is-primary") Saiba +
 
-        div.column.is-6.columns
+        div.column.is-5.columns
           div.column
+            search-field
 </template>
 
 <script>
   import Header from '../../components/header/Header.vue'
+  import MoreButton from '../../components/buttons/MoreButton.vue'
+  import SearchField from '../../components/input/SearchField.vue'
 
   export default {
     components: {
-      'my-header': Header
+      'my-header': Header,
+      'more-button': MoreButton,
+      'search-field': SearchField
     },
     name: 'home',
     data () {
@@ -60,7 +65,7 @@
     .hero-body
       padding-top: 12rem
       min-height: 25rem
-      article
+      section.container
         text-align: left
       .subtitle
         margin-bottom: 0px
@@ -84,10 +89,16 @@
             color: darken($verde-limao, 30%)
 
   .news
-    margin-top: 0
+    padding-top: 1rem
     background: #f6fce6
+    > .container
+      padding-top: 2%
+    .title
+      color: $primary
     .subtitle
       text-transform: uppercase
       font-weight: bold
       margin-bottom: 10px
+    .new-content
+      text-align: justify
 </style>
