@@ -23,6 +23,9 @@
   .control
     .input
       background: $primary
+      color: white
+      font-family: 'Roboto'
+      font-style: italic
       +placeholder
         color: white
         text-transform: uppercase

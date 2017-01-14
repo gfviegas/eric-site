@@ -24,25 +24,35 @@
                 figure.image.is-square
                   img(src="http://bulma.io/images/placeholders/480x480.png")
               div.column.new-content
-                h5.subtitle.is-5 titulo da materia em destaque que poderá ter até 3 linhas
+                h5.subtitle.is-5 titulo da materia em destaque, blá blá blá blá blá blá
                 p.content Lorem ipsum dolor sit amet, con se cte tur adipis elit. Quisque in turpis eu velit iaculis ornare. Praesent dapibus enim a nisl conse ctetur fringilla. In condiment um id urna ut feugiat.
                 more-button(c-class="is-primary") Saiba +
 
-        div.column.is-5.columns
+        div.column.is-5.columns.right-column
           div.column
             search-field
+            - for (var x = 0; x < 3; x++)
+              new-highlight
+            more-button(c-class="is-primary") Saiba +
+    br
+    br
+    br
+    br
+    br
 </template>
 
 <script>
   import Header from '../../components/header/Header.vue'
   import MoreButton from '../../components/buttons/MoreButton.vue'
   import SearchField from '../../components/input/SearchField.vue'
+  import NewHighlight from '../../components/news/NewHighlight.vue'
 
   export default {
     components: {
       'my-header': Header,
       'more-button': MoreButton,
-      'search-field': SearchField
+      'search-field': SearchField,
+      'new-highlight': NewHighlight
     },
     name: 'home',
     data () {
@@ -91,6 +101,7 @@
   .news
     padding-top: 1rem
     background: #f6fce6
+    text-align: justify
     > .container
       padding-top: 2%
     .title
@@ -99,6 +110,7 @@
       text-transform: uppercase
       font-weight: bold
       margin-bottom: 10px
-    .new-content
-      text-align: justify
+    .right-column
+      +desktop
+        padding-left: 2rem
 </style>
