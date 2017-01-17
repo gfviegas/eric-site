@@ -29,4 +29,5 @@
     text-transform: uppercase
     font-weight: bold
     font-family: 'Roboto'
+    text-align: justify
 </style>

@@ -1,7 +1,7 @@
 <template lang="pug">
   main.hello
     my-header
-    div.hero
+    div.home-banner.hero
       article.hero-body.columns
         section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
           h3.is-3.subtitle Por um mundo mais aventureiro,
@@ -34,6 +34,10 @@
             - for (var x = 0; x < 3; x++)
               new-highlight
             more-button(c-class="is-primary") Saiba +
+    div.parallax.hero
+      article.hero-body
+        div.container.has-text-centered
+          h2.subtitle.is-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     br
     br
     br
@@ -65,7 +69,8 @@
 
 <style scoped lang="sass">
   @import '~assets/sass/config.sass'
-  .hero
+  // HOME BANNER
+  .home-banner
     background-blend-mode: multiply
     background-color: rgba(0, 0, 0, 0.3)
     background-image: url('~assets/images/home-banner.jpg')
@@ -97,13 +102,11 @@
           color: rgba(255, 255, 255, 0.7)
           &.is-active
             color: darken($verde-limao, 30%)
-
+  // NEWS SECTION
   .news
     padding-top: 1rem
     background: #f6fce6
     text-align: justify
-    > .container
-      padding-top: 2%
     .title
       color: $primary
     .subtitle
@@ -113,4 +116,20 @@
     .right-column
       +desktop
         padding-left: 2rem
+  // PARALLAX SECTION
+  .parallax
+    background-blend-mode: multiply
+    background-color: rgba(18, 119, 126, 0.6)
+    background-image: url('~assets/images/home-parallax.jpg')
+    background-attachment: fixed
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    .hero-body
+      .subtitle
+        padding: 1rem 0
+        color: white
+        font-family: 'Roboto'
+        text-transform: uppercase
+
 </style>
