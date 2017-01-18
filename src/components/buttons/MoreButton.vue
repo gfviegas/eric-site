@@ -24,4 +24,7 @@
     font-weight: bold
     padding-left: 3rem !important
     font-family: 'Roboto'
+    &.is-warning
+      background: #faf5e4 !important
+      color: #a58514 !important
 </style>

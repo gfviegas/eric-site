@@ -15,8 +15,8 @@
             - for (var x = 0; x < 3; x++)
               span.icon: i.fa.fa-circle
     div.news
-      div.columns.container
-        div.column.is-7.columns.is-offset-1
+      div.columns.container.container-responsive
+        div.column.is-7.columns
           div.column
             h1.title.is-2 Notícias
             div.columns.align-items-center
@@ -29,7 +29,7 @@
                 more-button(c-class="is-primary") Saiba +
 
         div.column.is-5.columns.right-column
-          div.column
+          div.column.news-highlight
             search-field
             - for (var x = 0; x < 3; x++)
               new-highlight
@@ -38,6 +38,48 @@
       article.hero-body
         div.container.has-text-centered
           h2.subtitle.is-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    div.about
+      div.columns.container.container-responsive
+        div.column.is-7.columns
+          div.column
+            h1.title.is-2 Um minuto sobre...
+            p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        div.column.is-4.right-column
+          figure.image.is-2by1
+            img(src="http://bulma.io/images/placeholders/640x320.png")
+          more-button(c-class="is-warning") Veja Lista
+    div.events
+      div.columns.container.container-responsive
+        div.column.columns
+          div.column
+            h1.title.is-2 Cursos e Eventos de Formação
+            div.column.columns.justify-center
+              div.column.is-narrow.hero
+                div.hero-head
+                  p Curso Preliminar
+                div.hero-foot
+                  p teófilo otoni
+                  p vale do aço
+                  p 21 a 22 fevereiro 2017
+                  span.more-icon: | +
+              div.column.is-narrow.hero
+                div.hero-head
+                  p Módulo Interpretação Livro Jungle
+                div.hero-foot
+                  p Itajubá
+                  p Sul de Minas
+                  p 21 a 22 fevereiro 2017
+                  span.more-icon: | +
+              div.column.is-narrow.hero
+                div.hero-head
+                  p Módulo Aperfeiçoamento em Didática
+                div.hero-foot
+                  p Belo Horizonte
+                  p Metropolitano
+                  p 21 a 22 fevereiro 2017
+                  span.more-icon: | +
+    br
+    br
     br
     br
     br
@@ -104,9 +146,13 @@
             color: darken($verde-limao, 30%)
   // NEWS SECTION
   .news
+    padding-bottom: 5rem
+    text-align: left
+    +desktop
+      text-align: justify
+      padding-bottom: 1rem
     padding-top: 1rem
     background: #f6fce6
-    text-align: justify
     .title
       color: $primary
     .subtitle
@@ -131,5 +177,69 @@
         color: white
         font-family: 'Roboto'
         text-transform: uppercase
-
+  // ABOUT SECTION
+  .about
+    padding-bottom: 7rem
+    text-align: left
+    +desktop
+      text-align: justify
+      padding-bottom: 2rem
+    padding-top: 2rem
+    background: $warning
+    .title
+      color: #faedbd
+    .right-column
+      +desktop
+        padding-left: 2rem
+      button
+        margin-top: 2rem
+        margin-bottom: 1rem
+  // EVENTS SECTION
+  .events
+    background: white
+    padding-top: 2rem
+    padding-bottom: 5rem
+    text-align: left
+    +desktop
+      text-align: justify
+      padding-bottom: 2rem
+    .justify-center
+      justify-content: space-between
+    .hero
+      background-blend-mode: multiply
+      background-color: rgba(0, 0, 0, 0.6)
+      background-image: url('~assets/images/event-bg.jpg')
+      background-position: center
+      background-size: cover
+      text-transform: uppercase
+      padding: 0
+      min-height: 12rem
+      +mobile
+        width: auto
+        margin-bottom: 2rem
+      +desktop
+        width: 22rem
+        margin-bottom: 0
+      .hero-head
+        text-align: left
+        height: 50%
+        padding: 1rem
+        color: white
+        font-weight: bold
+      .hero-foot
+        display: flex
+        flex-direction: column
+        justify-content: center
+        height: 50%
+        padding: 1rem
+        background-blend-mode: multiply
+        background-color: rgba(27, 143, 150, 0.7)
+        color: white
+        line-height: 1.25rem
+        .more-icon
+          position: relative
+          bottom: 1rem
+          left: 90%
+          color: $verde-limao
+          font-size: 3rem
 </style>

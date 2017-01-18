@@ -4,7 +4,7 @@
       figure.image.is-2by1
         img(src="http://bulma.io/images/placeholders/640x320.png")
     div.column.is-9
-      h6.subtitle.is-6 Titulo da matéria em destaque
+      h6.subtitle.content.is-6 Titulo da matéria em destaque
 </template>
 
 <script>
@@ -30,4 +30,5 @@
     font-weight: bold
     font-family: 'Roboto'
     text-align: justify
+    margin-bottom: 1.5rem
 </style>
