@@ -1,6 +1,6 @@
 <template lang="pug">
   main.hello
-    my-header
+    main-header
     div.home-banner.hero
       article.hero-body.columns
         section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
@@ -78,27 +78,47 @@
                   p Metropolitano
                   p 21 a 22 fevereiro 2017
                   span.more-icon: | +
-    br
-    br
-    br
-    br
-    br
-    br
-    br
+    div.shortcuts
+      div.columns.container.container-responsive
+        div.column.columns
+          div.column
+            h1.title.is-2 Acesso Rápido
+            div.column.columns.justify-center.shortcuts-column
+              shortcut(c-class="is-light-blue" icon="bookshelf")
+                p Documentos
+                p Ofícios, resoluções e outros
+              shortcut(c-class="is-verde-limao" icon="knot")
+                p Calendário de Cursos de Formação pra Adultos - 2017
+              shortcut(c-class="is-pink" icon="calendar")
+                p Calendário de Eventos 2017
+            div.column.columns.justify-center.shortcuts-column
+              shortcut(c-class="is-red" icon="letter")
+                p Newsletter Regional
+                p Informativo da Região Escoteira de Minas Gerais
+              shortcut(c-class="is-dark-green" icon="people")
+                p Conheça os Grupos Escoteiros de Minas Gerais
+              shortcut(c-class="is-purple" icon="bureau")
+                p Documentos
+                p Ofícios, Resoluções e Outros
+    main-footer
 </template>
 
 <script>
   import Header from '../../components/header/Header.vue'
+  import Footer from '../../components/footer/Footer.vue'
   import MoreButton from '../../components/buttons/MoreButton.vue'
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
+  import Shortcut from '../../components/shortcut/Shortcut.vue'
 
   export default {
     components: {
-      'my-header': Header,
+      'main-header': Header,
       'more-button': MoreButton,
       'search-field': SearchField,
-      'new-highlight': NewHighlight
+      'new-highlight': NewHighlight,
+      'shortcut': Shortcut,
+      'main-footer': Footer
     },
     name: 'home',
     data () {
@@ -242,4 +262,23 @@
           left: 90%
           color: $verde-limao
           font-size: 3rem
+  // SHORTCUTS SECTION
+  .shortcuts
+    background: #ecf9ff
+    border-top: 3px solid #1b6c96
+    padding-top: 2rem
+    padding-bottom: 5rem
+    text-align: left
+    +desktop
+      text-align: justify
+      padding-bottom: 2rem
+    .title
+      color: #1c9ad5
+      margin-bottom: 1.5rem
+    .justify-center
+      +desktop
+        justify-content: space-between
+    .shortcuts-column
+      margin-top: 2rem
+
 </style>
