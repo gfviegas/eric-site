@@ -19,8 +19,13 @@
               span.icon: i.fa.fa-user-circle-o
           div.menu-custom
             router-link.is-tab.nav-item(to="/") Home
-            - for (var x = 0; x < 6; x++)
-              a.nav-item.is-tab Menu Item
+            a.nav-item.is-tab Institucional
+            a.nav-item.is-tab Notícias
+            a.nav-item.is-tab Escotismo
+            a.nav-item.is-tab Eventos
+            a.nav-item.is-tab Pra Você
+            a.nav-item.is-tab Contato
+            a.nav-item.is-tab Seja Escoteiro
 </template>
 
 <script>
@@ -65,6 +70,8 @@ export default {
         span
           background-color: $verde-limao
       .nav-right
+        +tablet-only
+          display: none
         +desktop
           padding-right: 5%
           .row
