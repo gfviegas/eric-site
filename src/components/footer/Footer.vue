@@ -4,7 +4,7 @@
       div.column.is-narrow
         a.nav-item.logo-item
           img(src="~assets/images/logo.png" alt="Logo")
-      div.column.adress.justify-content-center.common-content
+      div.column.adress.justify-content-center.common-content.is-narrow
         p Rua Mariano Procópio, 90 - mariano procópio
         p Juiz de Fora - Minas Gerais
         p Cep: 32.035-780
@@ -44,6 +44,10 @@ export default {
     padding: 0!important
     background: #1b6c96 !important
 
+    *
+      +mobile
+        text-align: center
+
     +desktop
       .columns
         margin-bottom: 0 !important
@@ -62,6 +66,7 @@ export default {
       background-size: cover
       background-position: 30% 0
     .logo-item
+      display: inline-block
       background: white
       border-radius: 1rem 1rem 0 0
       padding: 1rem
