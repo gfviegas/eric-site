@@ -1,6 +1,5 @@
 <template lang="pug">
-  main.hello
-    main-header
+  main
     div.home-banner.hero
       article.hero-body.columns
         section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
@@ -100,12 +99,9 @@
               shortcut(c-class="is-purple" icon="bureau")
                 p Documentos
                 p Ofícios, Resoluções e Outros
-    main-footer
 </template>
 
 <script>
-  import Header from '../../components/header/Header.vue'
-  import Footer from '../../components/footer/Footer.vue'
   import MoreButton from '../../components/buttons/MoreButton.vue'
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
@@ -113,12 +109,10 @@
 
   export default {
     components: {
-      'main-header': Header,
       'more-button': MoreButton,
       'search-field': SearchField,
       'new-highlight': NewHighlight,
-      'shortcut': Shortcut,
-      'main-footer': Footer
+      'shortcut': Shortcut
     },
     name: 'home',
     data () {

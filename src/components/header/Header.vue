@@ -18,8 +18,8 @@
             a.nav-item Login &nbsp;&nbsp;
               span.icon: i.fa.fa-user-circle-o
           div.menu-custom
-            router-link.is-tab.nav-item(to="/") Home
-            a.nav-item.is-tab Institucional
+            router-link.is-tab.nav-item(exact)(:to="{name: 'home'}") Home
+            router-link.is-tab.nav-item(exact)(:to="{name: 'institutionalHome'}") Institucional
             a.nav-item.is-tab Notícias
             a.nav-item.is-tab Escotismo
             a.nav-item.is-tab Eventos

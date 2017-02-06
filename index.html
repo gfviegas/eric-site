@@ -23,10 +23,24 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.0/css/bulma.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .fade-enter-active, .fade-leave-active {
+      transition-property: opacity;
+      transition-duration: .25s;
+    }
+
+    .fade-enter, .fade-leave-active {
+      opacity: 0
+    }
+    </style>
   </head>
   <body>
     <div id="app">
-      <router-view></router-view>
+      <main-header></main-header>
+      <transition name="fade">
+        <router-view></router-view>
+      </transition>
+      <main-footer></main-footer>
     </div>
   </body>
 </html>
