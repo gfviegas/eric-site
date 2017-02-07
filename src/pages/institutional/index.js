@@ -1,6 +1,11 @@
 import Institutional from './Institutional.vue'
 import InstitutionalHome from './home/InstitutionalHome.vue'
+
 import RegionalBoard from './regional-board/RegionalBoard.vue'
+import FiscalCommittee from './fiscal-committee/FiscalCommittee.vue'
+import YoungLeaders from './young-leaders/YoungLeaders.vue'
+import EmeritusTrainers from './emeritus-trainers/EmeritusTrainers.vue'
+import Ombudsman from './ombudsman/Ombudsman.vue'
 
 const routes = {
   path: '/institucional',
@@ -18,22 +23,27 @@ const routes = {
     },
     {
       path: '/comissao-fiscal',
-      component: InstitutionalHome
+      name: 'fiscalCommittee',
+      component: FiscalCommittee
     },
     {
       path: '/jovens-lideres',
-      component: InstitutionalHome
+      name: 'youngLeaders',
+      component: YoungLeaders
     },
     {
       path: '/formadores-emeritos',
-      component: InstitutionalHome
+      name: 'emeritusTrainers',
+      component: EmeritusTrainers
     },
     {
       path: '/ouvidoria',
-      component: InstitutionalHome
+      name: 'ombudsman',
+      component: Ombudsman
     },
     {
       path: '/escritorio-regional',
+      name: '',
       component: InstitutionalHome
     }
   ]

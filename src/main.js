@@ -34,11 +34,14 @@ const routes = [
 ]
 
 // Object.assign(InstitutionalRoutes, ...routes)
-console.log(routes)
 
 const router = new VueRouter({
   routes,
-  linkActiveClass: 'is-active'
+  linkActiveClass: 'is-active',
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
 
 new Vue({

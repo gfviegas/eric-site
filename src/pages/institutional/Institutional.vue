@@ -13,7 +13,7 @@
             span.icon: i.fa.fa-circle.is-active
             - for (var x = 0; x < 3; x++)
               span.icon: i.fa.fa-circle
-    transition
+    transition(name="fade")
       router-view
     div.shortcuts
       div.columns.container.container-responsive
