@@ -59,23 +59,27 @@
         div.column.is-4
           div.card
             div.card-image
-              figure.image.is-4by3
-                img(src="http://bulma.io/images/placeholders/1280x960.png")
+              router-link(:to="{name: 'ombudsman'}")
+                figure.image.is-4by3
+                  img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Ouvidoria
+                  h4.title.is-4
+                    router-link(:to="{name: 'ombudsman'}") Ouvidoria
               div.content
                 | Sugestões, avaliações, críticas e reclamações sobre qualquer fornecimento de serviços e/ou produtos por parte desta Unidade Escoteira Regional por meio de seu Escritório Regional e Loja Escoteira
         div.column.is-4
           div.card
             div.card-image
-              figure.image.is-4by3
-                img(src="http://bulma.io/images/placeholders/1280x960.png")
+              router-link(:to="{name: 'regionalOffice'}")
+                figure.image.is-4by3
+                  img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Escritorio Regional
+                  h4.title.is-4
+                    router-link(:to="{name: 'regionalOffice'}") Escritorio Regional
               div.content
                 | O Serviço Profissional Escoteiro visa a dar apoio a tarefa junto a Diretoria Regional bem como aos Grupos Escoteiros da Região de Minas Gerais.
 
@@ -100,6 +104,8 @@
         text-transform: lowercase
       padding-top: 2rem
       padding-bottom: 1rem
+      .columns
+        justify-content: center
       .card-content
         a
           color: rgb(0, 35, 112)

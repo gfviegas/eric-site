@@ -84,6 +84,8 @@
       > .subtitle
       padding-top: 2rem
       padding-bottom: 2rem
+      .columns
+        justify-content: center
       .card-content
         a
           color: rgb(0, 35, 112)

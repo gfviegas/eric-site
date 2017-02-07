@@ -1,23 +1,33 @@
 <template lang="pug">
   div.ombudsman
     div.container.container-responsive.main-container
-      h2.title.is-2 Núcleo Regional de Jovens Líderes
-      h5.subtitle.is-5 O Núcleo Regional de Jovens Líderes é a estrutura gestora da Rede de Jovens em nível regional, sendo composto por 4 jovens escolhidos por seus pares durante o Fórum Regional, esses jovens trabalham coordenando e, principalmente, animando as diversas iniciativas juvenis e também fazem a representação juvenil dentro das estruturas do nível regional.
-      br
-      h3.title.is-3 O que é a Rede Nacional de Jovens Líderes?
+      h2.title.is-2 Ouvidoria dos Escoteiros de Minas Gerais
       div.content
-        p A Rede Nacional de Jovens Líderes é a estrutura gestora de toda a política de participação juvenil da UEB, seja ela dentro ou fora do movimento escoteiro, a rede é formada por três pilares: núcleos, fóruns e sistema de regras, tem como principal foco a mobilização e comunicação, sendo esta uma excelente definição da rede, a rede têm como objetivos:
+        p Compete à Ouvidoria Escoteira Regional:
         ol
-          li no âmbito da seção escoteira, apoiar a correta aplicação do método escoteiro, em especial as práticas democráticas previstas pelo Programa de Jovens.
-          li no âmbito da organização escoteira, com a inserção participativa nos processos de tomadas de decisão.
-          li no âmbito da sociedade, com a promoção de iniciativas de ação e desenvolvimento comunitário.
-        p Sendo esta uma ferramenta de caráter temporário para através dela e outras iniciativas alcançar o objetivo de inserção qualitativa do jovem no processo de tomada de decisão em qualquer ambiente.
+          li
+            | Receber, examinar e encaminhar a Diretoria Regional na pessoa de seu Diretor Presidente e aos Departamentos competentes as reclamações ou representações de pessoas associados, pessoas físicas, jurídicas e Unidades Escoteiras Locais sobre:
+            ul
+              li Sugestões, avaliações, críticas e reclamações sobre qualquer fornecimento de serviços e/ou produtos por parte desta Unidade Escoteira Regional por meio de seu Escritório Regional e Loja Escoteira;
+              li Sugestões, avaliações, críticas e reclamações sobre qualquer mau funcionamento dos serviços e infraestrutura organizados e produzidos por esta Unidade Escoteira Regional por meio de seu Escritório Regional, Coordenadorias e Comissões Regionais.
+          li Propor medidas para sanar as violações, as ilegalidades e os abusos constatados;
+          li Propor medidas necessárias à boa prestação dos serviços no intuito de atender demandas dos associados, bem como ao aperfeiçoamento da organização dos diversos departamentos, coordenadorias, comissões e setores da administração regional.
+          li Propor, quando cabível, a abertura de sindicância ou inquérito destinado a apurar irregularidades de que tenha conhecimento;
+          li ail: ouvidoria@escoteirosmg.org.br;
+          li Responder aos associados e/ou às Unidades Escoteiras Locais sobre as demandas por eles encaminhados;
+          li Realizar audiências e reuniões de avaliações quando julgar necessário, mediante ajuste com a Diretoria Regional, por meio de seu Diretor Presidente.
       br
-      h3.title.is-3 Quem são os Jovens Líderes?
+      h3.title.is-3 Sistema de Funcionamento
       div.content
-        p Membros da UEB, que possuem de 18 a 25 anos de idade, sendo pioneiros, escotistas ou dirigentes, com participação efetiva nos processos de tomada de decisão da Organização Escoteira, de modo a contribuir para os objetivos da “política de envolvimento dos jovens”, atuantes em qualquer seção ou função nos diversos níveis da organização e no contexto social no qual estão inseridos
+        ol
+          li Todas as demandas exclusivamente pelo e-mail ouvidoria@escoteirosmg.org.br.
+          li Todos os demandantes deverão ser identificados com nome, endereço e telefone de contato, n.º do registro se for associado ou responsável legal por associados, cargo se for representante de UEL, e RG ou CPF caso não seja associado da UEB.
+          li As demandas provenientes de associados ou responsáveis de associados poderão ser encaminhadas copias das mesmas para o Diretor Presidente da UEL para que o mesmo acompanhe seu tramite e solução.
+          li Todas as demandas receberão numero de protocolo, encaminhada assim que recebidas, e serão classificadas em Tramite Normal com resposta prevista em até 5 (cinco) dias úteis, ou Tramite Urgente com resposta na medida do possível em 48 (quarenta e oito) horas.
+          li Uma vez não recebida o numero de protocolo como confirmação do recebimento caberá o demandante entrar em contato urgente com o Escritório Regional, e informar-se se esta ocorrendo alguma falha de comunicação, nesta hipótese poderá protocolar lá por escrito sua demanda devendo o Escritório Regional entra em contato imediato com o Ouvidor.
+        p Por demanda se entende toda e qualquer sugestão, avaliação, crítica ou reclamação de qualquer serviço ou produto da União dos Escoteiros do Brasil da Região de Minas Gerais.
       br
-      h3.title.is-3 Membros do Núcleo Regional de Jovens Líderes
+      h3.title.is-3 Membros da Ouvidoria
       div.columns.is-multiline
         div.column.is-4
           div.card
@@ -27,50 +37,10 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Lucas Oliveira Godinho
+                  h4.title.is-4 Israel dos Reis
               div.content
-                p Coordenador 2014-2015
-                p Email: #[a(href="mailto:godinho@souescoteiro.org.br") godinho@souescoteiro.org.br]
-        div.column.is-4
-          div.card
-            div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Bruna Caroline Dias de Andrade
-              div.content
-                p Coordenadora 2015-2016
-                p Email: #[a(href="mailto:b.runadeandrade@hotmail.com") b.runadeandrade@hotmail.com]
-        div.column.is-4
-          div.card
-            div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Paulo Henrique do Anjos
-              div.content
-                p Comunicador 2014-2015
-                p Email: #[a(href="mailto:phanjosgv@hotmail.com") phanjosgv@hotmail.com]
-        div.column.is-4
-          div.card
-            div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Wesley Assis
-              div.content
-                p Comunicador 2015-2016
-                p Email: #[a(href="mailto:wesleyassis9@souescoteiro.org.br") wesleyassis9@souescoteiro.org.br]
-      br
-      h3.title.is-3 Site da Rede Regional de Jovens Líderes
-      div.content
-        p Acesse o #[a(href="http://jovenslideresmg.wordpress.com/") site da Rede Regional de Jovens Líderes].
+                p Ouvidor Regional
+                p Email: #[a(href="mailto:ouvidoria@escoteirosmg.org.br") ouvidoria@escoteirosmg.org.br]
 </template>
 
 <script>
@@ -89,6 +59,8 @@
       > .subtitle
       padding-top: 2rem
       padding-bottom: 2rem
+      .columns
+        justify-content: center
       .card-content
         a
           color: rgb(0, 35, 112)

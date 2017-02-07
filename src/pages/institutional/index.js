@@ -6,6 +6,7 @@ import FiscalCommittee from './fiscal-committee/FiscalCommittee.vue'
 import YoungLeaders from './young-leaders/YoungLeaders.vue'
 import EmeritusTrainers from './emeritus-trainers/EmeritusTrainers.vue'
 import Ombudsman from './ombudsman/Ombudsman.vue'
+import RegionalOffice from './regional-office/RegionalOffice.vue'
 
 const routes = {
   path: '/institucional',
@@ -43,8 +44,8 @@ const routes = {
     },
     {
       path: '/escritorio-regional',
-      name: '',
-      component: InstitutionalHome
+      name: 'regionalOffice',
+      component: RegionalOffice
     }
   ]
 }
