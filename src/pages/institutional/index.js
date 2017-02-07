@@ -18,32 +18,32 @@ const routes = {
       component: InstitutionalHome
     },
     {
-      path: '/diretoria-regional',
+      path: 'diretoria-regional',
       name: 'regionalBoard',
       component: RegionalBoard
     },
     {
-      path: '/comissao-fiscal',
+      path: 'comissao-fiscal',
       name: 'fiscalCommittee',
       component: FiscalCommittee
     },
     {
-      path: '/jovens-lideres',
+      path: 'jovens-lideres',
       name: 'youngLeaders',
       component: YoungLeaders
     },
     {
-      path: '/formadores-emeritos',
+      path: 'formadores-emeritos',
       name: 'emeritusTrainers',
       component: EmeritusTrainers
     },
     {
-      path: '/ouvidoria',
+      path: 'ouvidoria',
       name: 'ombudsman',
       component: Ombudsman
     },
     {
-      path: '/escritorio-regional',
+      path: 'escritorio-regional',
       name: 'regionalOffice',
       component: RegionalOffice
     }
