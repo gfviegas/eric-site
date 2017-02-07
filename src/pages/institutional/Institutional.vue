@@ -20,7 +20,7 @@
         div.column.columns
           div.column
             h1.title.is-2 Acesso Rápido
-            div.column.columns.justify-center.shortcuts-column
+            div.column.columns.justify-center.shortcuts-column.is-multiline
               shortcut(c-class="is-light-blue" icon="bookshelf")
                 p Documentos
                 p Ofícios, resoluções e outros
@@ -28,7 +28,6 @@
                 p Calendário de Cursos de Formação pra Adultos - 2017
               shortcut(c-class="is-pink" icon="calendar")
                 p Calendário de Eventos 2017
-            div.column.columns.justify-center.shortcuts-column
               shortcut(c-class="is-red" icon="letter")
                 p Newsletter Regional
                 p Informativo da Região Escoteira de Minas Gerais

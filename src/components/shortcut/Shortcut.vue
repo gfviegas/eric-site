@@ -26,10 +26,8 @@
     text-transform: uppercase
     +mobile, +tablet
       width: auto
-      margin-bottom: 2rem !important
     +desktop
       width: 22rem
-      margin-bottom: 0 !important
     p
       font-size: 1.15rem
       text-align: left
