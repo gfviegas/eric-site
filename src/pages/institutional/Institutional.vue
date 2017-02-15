@@ -96,6 +96,8 @@
     padding-top: 2rem
     padding-bottom: 5rem
     text-align: left
+    .columns:last-child
+      margin-bottom: auto
     +desktop
       text-align: justify
       padding-bottom: 2rem

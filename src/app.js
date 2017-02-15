@@ -18,6 +18,13 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 Vue.use(VueRouter)
 
+Vue.filter('stripped', value => {
+  return value.replace(/(<([^>]+)>)/ig, '')
+})
+Vue.filter('imgSrc', value => {
+  return `${process.env.IMG_URL}${value}`
+})
+
 const routes = [
   {
     path: '/',
@@ -44,10 +51,12 @@ const router = new VueRouter({
   }
 })
 
-new Vue({
+const app = new Vue({
   router,
   components: {
     'main-header': Header,
     'main-footer': Footer
   }
-}).$mount('#app')
+})
+
+export { app, router }

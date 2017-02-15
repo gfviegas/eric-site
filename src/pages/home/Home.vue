@@ -13,7 +13,7 @@
             span.icon: i.fa.fa-circle.is-active
             - for (var x = 0; x < 3; x++)
               span.icon: i.fa.fa-circle
-    div.news
+    div.news(v-if="news && news.length")
       div.columns.container.container-responsive
         div.column.is-7.columns
           div.column
@@ -21,17 +21,17 @@
             div.columns.align-items-center
               div.column.is-4.has-text-centered
                 figure.image.is-square
-                  img(src="http://bulma.io/images/placeholders/480x480.png")
+                  img(:src="news[0].image | imgSrc")
               div.column.new-content
-                h5.subtitle.is-5 titulo da materia em destaque, blá blá blá blá blá blá
-                p.content Lorem ipsum dolor sit amet, con se cte tur adipis elit. Quisque in turpis eu velit iaculis ornare. Praesent dapibus enim a nisl conse ctetur fringilla. In condiment um id urna ut feugiat.
+                h5.subtitle.is-5 {{ news[0].title }}
+                p.content {{ news[0].content | stripped }}
                 more-button(c-class="is-primary") Saiba +
 
         div.column.is-5.columns.right-column
           div.column.news-highlight
             search-field
-            - for (var x = 0; x < 3; x++)
-              new-highlight
+            div(v-for="i in (news.length - 1)")
+              new-highlight(:data="news[i]")
             more-button(c-class="is-primary") Saiba +
     div.parallax.hero
       article.hero-body
@@ -105,6 +105,7 @@
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
   import Shortcut from '../../components/shortcut/Shortcut.vue'
+  import newsService from '../../services/news'
 
   export default {
     components: {
@@ -116,8 +117,22 @@
     name: 'home',
     data () {
       return {
+        news: [],
         msg: ''
       }
+    },
+    methods: {
+    },
+    beforeRouteEnter (to, from, next) {
+      newsService.get({page: 1, limit: 4}).then((response) => {
+        next(vm => {
+          vm.news = response.body.news
+        })
+      }, (response) => {
+        next(vm => {
+          vm.news = []
+        })
+      })
     }
   }
 </script>
@@ -262,6 +277,8 @@
     padding-top: 2rem
     padding-bottom: 5rem
     text-align: left
+    .columns:last-child
+      margin-bottom: auto
     +desktop
       text-align: justify
       padding-bottom: 2rem
