@@ -11,6 +11,7 @@ import Home from './pages/home/Home.vue'
 
 // INSTITUTIONAL
 import { routes as InstitutionalRoutes } from './pages/institutional'
+import { routes as NewsRoutes } from './pages/news'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -35,6 +36,7 @@ const routes = [
     component: Home
   },
   {...InstitutionalRoutes},
+  {...NewsRoutes},
 
   // Redirect to Home
   {

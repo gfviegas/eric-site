@@ -1,22 +1,28 @@
-import Institutional from './Institutional.vue'
-import InstitutionalHome from './home/InstitutionalHome.vue'
+import News from './News.vue'
+import NewsHome from './home/NewsHome.vue'
 
-import RegionalBoard from './regional-board/RegionalBoard.vue'
+// import NewsContent from './news-content/NewsContent.vue'
 
 const routes = {
   path: '/noticias',
-  component: Institutional,
+  component: News,
   children: [
     {
       path: '',
       name: 'newsList',
-      component: InstitutionalHome
-    },
-    {
-      path: '',
-      name: 'newsContent',
-      component: RegionalBoard
+      meta: {
+        breadcrumb: 'Notícias / Lista'
+      },
+      component: NewsHome
     }
+    // {
+    //   path: '',
+    //   name: 'newsContent',
+    //   meta: {
+    //     breadcrumb: 'Notícias / Notícia'
+    //   },
+    //   component: NewsContent
+    // }
   ]
 }
 
