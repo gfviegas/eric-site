@@ -77,34 +77,14 @@
                   p Metropolitano
                   p 21 a 22 fevereiro 2017
                   span.more-icon: | +
-    div.shortcuts
-      div.columns.container.container-responsive
-        div.column.columns
-          div.column
-            h1.title.is-2 Acesso Rápido
-            div.column.columns.justify-center.shortcuts-column.is-multiline
-              shortcut(c-class="is-light-blue" icon="bookshelf")
-                p Documentos
-                p Ofícios, resoluções e outros
-              shortcut(c-class="is-verde-limao" icon="knot")
-                p Calendário de Cursos de Formação pra Adultos - 2017
-              shortcut(c-class="is-pink" icon="calendar")
-                p Calendário de Eventos 2017
-              shortcut(c-class="is-red" icon="letter")
-                p Newsletter Regional
-                p Informativo da Região Escoteira de Minas Gerais
-              shortcut(c-class="is-dark-green" icon="people")
-                p Conheça os Grupos Escoteiros de Minas Gerais
-              shortcut(c-class="is-purple" icon="bureau")
-                p Documentos
-                p Ofícios, Resoluções e Outros
+    shortcuts
 </template>
 
 <script>
   import MoreButton from '../../components/buttons/MoreButton.vue'
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
-  import Shortcut from '../../components/shortcut/Shortcut.vue'
+  import Shortcuts from '../../components/shortcuts/Shortcuts.vue'
   import newsService from '../../services/news'
 
   export default {
@@ -112,7 +92,7 @@
       'more-button': MoreButton,
       'search-field': SearchField,
       'new-highlight': NewHighlight,
-      'shortcut': Shortcut
+      'shortcuts': Shortcuts
     },
     name: 'home',
     data () {
@@ -270,25 +250,4 @@
           left: 90%
           color: $verde-limao
           font-size: 3rem
-  // SHORTCUTS SECTION
-  .shortcuts
-    background: #ecf9ff
-    border-top: 3px solid #1b6c96
-    padding-top: 2rem
-    padding-bottom: 5rem
-    text-align: left
-    .columns:last-child
-      margin-bottom: auto
-    +desktop
-      text-align: justify
-      padding-bottom: 2rem
-    .title
-      color: #1c9ad5
-      margin-bottom: 1.5rem
-    .justify-center
-      +desktop
-        justify-content: space-between
-    .shortcuts-column
-      margin-top: 2rem
-
 </style>
