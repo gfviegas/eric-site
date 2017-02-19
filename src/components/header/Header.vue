@@ -3,7 +3,7 @@
     nav.nav
       div.nav-left
         a.nav-item.logo-item
-          img(src="~assets/images/logo.png" alt="Logo")
+          img(src="~assets/images/logo.png" alt="Logo Escoteiros MG")
 
       span.nav-toggle(v-on:click="toggleMenuVisibility()")
         span
@@ -61,7 +61,11 @@ export default {
           top: 0
           left: 10%
           padding: 1rem
+          width: 65%
+          +desktop
+            width: 25%
           img
+            width: 100%
             max-height: 8rem
       .nav-toggle
         background: transparent

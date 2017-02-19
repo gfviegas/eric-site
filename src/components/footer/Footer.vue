@@ -1,7 +1,7 @@
 <template lang="pug">
   footer.footer
     div.columns.container.container-responsive
-      div.column.is-narrow
+      div.column.is-narrow.logo-column
         a.nav-item.logo-item
           img(src="~assets/images/logo.png" alt="Logo")
       div.column.adress.justify-content-center.common-content.is-narrow
@@ -65,13 +65,19 @@ export default {
       background-repeat: repeat-x
       background-size: cover
       background-position: 30% 0
-    .logo-item
-      display: inline-block
-      background: white
-      border-radius: 1rem 1rem 0 0
-      padding: 1rem
-      img
-        max-height: 8rem
+    .logo-column
+      +desktop
+        width: 25%
+      .logo-item
+        display: flex
+        background: white
+        border-radius: 1rem 1rem 0 0
+        padding: 1rem
+        +desktop
+          height: 10rem
+          justify-content: center
+        img
+          max-height: 8rem
     .common-content
       text-transform: uppercase
       padding-top: 2rem
