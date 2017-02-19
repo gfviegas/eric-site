@@ -16,7 +16,7 @@ const routes = {
       path: '',
       name: 'institutionalHome',
       meta: {
-        breadcumb: 'Institucional / Home'
+        breadcrumb: 'Institucional / Home'
       },
       component: InstitutionalHome
     },
@@ -24,7 +24,7 @@ const routes = {
       path: 'diretoria-regional',
       name: 'regionalBoard',
       meta: {
-        breadcumb: 'Institucional / Diretoria Regional'
+        breadcrumb: 'Institucional / Diretoria Regional'
       },
       component: RegionalBoard
     },
@@ -32,7 +32,7 @@ const routes = {
       path: 'comissao-fiscal',
       name: 'fiscalCommittee',
       meta: {
-        breadcumb: 'Institucional / Comissão Fiscal'
+        breadcrumb: 'Institucional / Comissão Fiscal'
       },
       component: FiscalCommittee
     },
@@ -40,7 +40,7 @@ const routes = {
       path: 'jovens-lideres',
       name: 'youngLeaders',
       meta: {
-        breadcumb: 'Institucional / Jovens Líderes'
+        breadcrumb: 'Institucional / Jovens Líderes'
       },
       component: YoungLeaders
     },
@@ -48,7 +48,7 @@ const routes = {
       path: 'formadores-emeritos',
       name: 'emeritusTrainers',
       meta: {
-        breadcumb: 'Institucional / Formadores Eméritos'
+        breadcrumb: 'Institucional / Formadores Eméritos'
       },
       component: EmeritusTrainers
     },
@@ -56,7 +56,7 @@ const routes = {
       path: 'ouvidoria',
       name: 'ombudsman',
       meta: {
-        breadcumb: 'Institucional / Ouvidoria'
+        breadcrumb: 'Institucional / Ouvidoria'
       },
       component: Ombudsman
     },
@@ -64,7 +64,7 @@ const routes = {
       path: 'escritorio-regional',
       name: 'regionalOffice',
       meta: {
-        breadcumb: 'Institucional / Escritório Regional'
+        breadcrumb: 'Institucional / Escritório Regional'
       },
       component: RegionalOffice
     }

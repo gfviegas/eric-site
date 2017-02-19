@@ -7,7 +7,7 @@
           h3.is-3.subtitle Repleto de fraternidade e desafios.
           h3.is-3.subtitle gratidão.. sempre... alerta!
       div.hero-foot
-        breadcrumb(text="Home")
+        breadcrumb
     div.news(v-if="news && news.length")
       div.columns.container.container-responsive
         div.column.is-7.columns

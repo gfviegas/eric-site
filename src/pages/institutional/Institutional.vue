@@ -7,7 +7,7 @@
           h3.is-3.subtitle Repleto de fraternidade e desafios.
           h3.is-3.subtitle gratidão.. sempre... alerta!
       div.hero-foot
-        breadcrumb(:text="breadcumbText")
+        breadcrumb
     transition(name="fade")
       router-view
     shortcuts
@@ -26,11 +26,6 @@
     data () {
       return {
         msg: ''
-      }
-    },
-    computed: {
-      breadcumbText () {
-        return this.$route.meta.breadcumb
       }
     }
   }

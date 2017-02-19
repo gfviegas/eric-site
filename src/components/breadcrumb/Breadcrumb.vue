@@ -12,8 +12,10 @@ div.level.lime
 
 <script>
   export default {
-    props: {
-      text: String
+    computed: {
+      text () {
+        return this.$route.meta.breadcrumb
+      }
     }
   }
 </script>

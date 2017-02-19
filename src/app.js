@@ -30,7 +30,7 @@ const routes = [
     path: '/',
     name: 'home',
     meta: {
-      breadcumb: 'Home'
+      breadcrumb: 'Home'
     },
     component: Home
   },
