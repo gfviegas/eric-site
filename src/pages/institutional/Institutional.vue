@@ -6,29 +6,31 @@
           h3.is-3.subtitle Por um mundo mais aventureiro,
           h3.is-3.subtitle Repleto de fraternidade e desafios.
           h3.is-3.subtitle gratidão.. sempre... alerta!
-      div.level.lime.hero-foot
-        nav.level-left
-        nav.level-right
-          div.level-item
-            span.icon: i.fa.fa-circle.is-active
-            - for (var x = 0; x < 3; x++)
-              span.icon: i.fa.fa-circle
+      div.hero-foot
+        breadcrumb(:text="breadcumbText")
     transition(name="fade")
       router-view
     shortcuts
 </template>
 
 <script>
+  import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import Shortcuts from '../../components/shortcuts/Shortcuts.vue'
 
   export default {
     components: {
-      'shortcuts': Shortcuts
+      'shortcuts': Shortcuts,
+      'breadcrumb': Breadcrumb
     },
     name: 'institutional',
     data () {
       return {
         msg: ''
+      }
+    },
+    computed: {
+      breadcumbText () {
+        return this.$route.meta.breadcumb
       }
     }
   }

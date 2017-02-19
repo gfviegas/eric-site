@@ -29,6 +29,9 @@ const routes = [
   {
     path: '/',
     name: 'home',
+    meta: {
+      breadcumb: 'Home'
+    },
     component: Home
   },
   {...InstitutionalRoutes},

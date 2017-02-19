@@ -6,13 +6,8 @@
           h3.is-3.subtitle Por um mundo mais aventureiro,
           h3.is-3.subtitle Repleto de fraternidade e desafios.
           h3.is-3.subtitle gratidão.. sempre... alerta!
-      div.level.lime.hero-foot
-        nav.level-left
-        nav.level-right
-          div.level-item
-            span.icon: i.fa.fa-circle.is-active
-            - for (var x = 0; x < 3; x++)
-              span.icon: i.fa.fa-circle
+      div.hero-foot
+        breadcrumb(text="Home")
     div.news(v-if="news && news.length")
       div.columns.container.container-responsive
         div.column.is-7.columns
@@ -85,6 +80,7 @@
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
   import Shortcuts from '../../components/shortcuts/Shortcuts.vue'
+  import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import newsService from '../../services/news'
 
   export default {
@@ -92,7 +88,8 @@
       'more-button': MoreButton,
       'search-field': SearchField,
       'new-highlight': NewHighlight,
-      'shortcuts': Shortcuts
+      'shortcuts': Shortcuts,
+      'breadcrumb': Breadcrumb
     },
     name: 'home',
     data () {
@@ -138,20 +135,6 @@
         text-transform: uppercase
         font-family: 'Roboto'
         font-weight: 300
-    .hero-foot
-      min-height: 3rem
-      background: rgba(176, 211, 83, 0.6)
-      .level-right
-        +mobile
-          margin-top: 0.75rem
-        +desktop
-          padding-right: 5%
-        .icon
-          margin-left: 0.25rem
-        .fa-circle
-          color: rgba(255, 255, 255, 0.7)
-          &.is-active
-            color: darken($verde-limao, 30%)
   // NEWS SECTION
   .news
     padding-bottom: 5rem
