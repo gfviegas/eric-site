@@ -1,48 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700')
 
-// Override variables here
-// You can add new ones or update existing ones:
+// Vars
 $family-serif: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif !default
-
 $verde-limao: #b0d353
 $primary: #98bb3b
 $warning: #ecc22d
 
-
-// Override generated variables here
+// Values
 $family-primary: $family-serif
 
 @import "~bulma/bulma.sass"
 
-html
-  width: 100%
-  overflow-x: hidden
-
-  body
-    overflow: hidden
-    width: 100%
-  // height: 100%
-  // margin: 0px
-  // padding: 0px
-*
-  -webkit-font-smoothing: antialiased
-h1
-  text-transform: uppercase
-  font-family: 'Roboto'
-
-.align-items-center
-  align-items: center
-.justify-content-center
-  justify-content: center
-  display: flex
-  flex-direction: column
-.container-responsive
-  +mobile
-    margin-left: 1rem
-    margin-right: 1rem
-  margin-left: auto
-  margin-right: auto
-  justify-content: space-around
-.columns
-  &:not(:last-child)
-    margin-bottom: 1.75rem
+@import "./global.sass"

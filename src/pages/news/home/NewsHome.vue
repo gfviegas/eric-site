@@ -9,7 +9,8 @@
             img(:src="newsContent.image | imgSrc")
         div.media-content
           div.content
-            h4.title.is-4 {{newsContent.title}}
+            router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}")
+              h4.title.is-4 {{newsContent.title}}
             div.news-date
               small {{newsContent.created_at | moment("L")}}
             p.news-preview {{ newsContent.content | stripped }}
