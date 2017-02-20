@@ -16,6 +16,13 @@ import { routes as NewsRoutes } from './pages/news'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
+const moment = require('moment')
+require('moment/locale/pt-br')
+
+Vue.use(require('vue-moment'), {
+  moment
+})
+
 Vue.use(VueResource)
 Vue.use(VueRouter)
 

@@ -1,17 +1,18 @@
 <template lang="pug">
   div.news-home
-    div.container.container-responsive.main-container
+    div.container.container-responsive.main-container(v-if="news && news.length")
       h2.title.is-2 Título
       h4.subtitle.is-4 Fique por dentro das novidades
-      article.media(v-if="news && news.length")
+      article.media(v-for="newsContent in news")
         div.media-left
           figure.image.is-2by1
-            img(:src="news[0].image | imgSrc")
+            img(:src="newsContent.image | imgSrc")
         div.media-content
           div.content
-            p
-              h4.title.is-4 {{news[0].title}}
-            p {{ news[0].content | stripped }}
+            h4.title.is-4 {{newsContent.title}}
+            div.news-date
+              small {{newsContent.created_at | moment("L")}}
+            p.news-preview {{ newsContent.content | stripped }}
     br
 </template>
 
@@ -52,4 +53,15 @@
       .media-left
         justify-content: center
         width: 20%
+      .media-content
+        .title
+          margin-bottom: 0
+        .news-date
+          margin-bottom: 1.5rem
+        .news-preview
+          overflow: hidden
+          display: -webkit-box
+          -webkit-line-clamp: 2
+          -webkit-box-orient: vertical
+          text-overflow: ellipsis
 </style>
