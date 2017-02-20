@@ -20,14 +20,16 @@
               div.column.new-content
                 h5.subtitle.is-5 {{ news[0].title }}
                 p.content {{ news[0].content | stripped }}
-                more-button(c-class="is-primary") Saiba +
+                router-link(:to="{ name: 'newsContent', params: { slug: news[0].slug }}")
+                  more-button(c-class="is-primary") Saiba +
 
         div.column.is-5.columns.right-column
           div.column.news-highlight
             search-field
             div(v-for="i in (news.length - 1)")
               new-highlight(:data="news[i]")
-            more-button(c-class="is-primary") Saiba +
+            router-link(:to="{ name: 'newsList' }")
+              more-button(c-class="is-primary") Saiba +
     div.parallax.hero
       article.hero-body
         div.container.has-text-centered

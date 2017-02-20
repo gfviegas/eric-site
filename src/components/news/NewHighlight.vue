@@ -1,10 +1,11 @@
 <template lang="pug">
-  div.columns
-    div.column.is-3
-      figure.image.is-2by1
-        img(:src="data.image | imgSrc")
-    div.column.is-9
-      h6.subtitle.content.is-6 {{data.title}}
+  router-link(:to="{ name: 'newsContent', params: { slug: data.slug }}")
+    div.columns
+      div.column.is-3
+        figure.image.is-2by1
+          img(:src="data.image | imgSrc")
+      div.column.is-9
+        h6.subtitle.content.is-6 {{data.title}}
 </template>
 
 <script>
