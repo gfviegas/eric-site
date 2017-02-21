@@ -76,8 +76,7 @@
           margin-bottom: 1.5rem
         .news-preview
           overflow: hidden
-          display: -webkit-box
-          -webkit-line-clamp: 2
-          -webkit-box-orient: vertical
           text-overflow: ellipsis
+          line-height: 1.5rem
+          height: 3rem
 </style>
