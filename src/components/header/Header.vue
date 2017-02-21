@@ -47,7 +47,9 @@ export default {
   },
   watch: {
     $route (route) {
-      this.menuShown = false
+      if (this.menuShown) {
+        this.toggleMenuVisibility()
+      }
     }
   }
 }
