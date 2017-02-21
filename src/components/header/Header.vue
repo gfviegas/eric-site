@@ -26,6 +26,9 @@
             a.nav-item.is-tab Pra Você
             a.nav-item.is-tab Contato
             a.nav-item.is-tab Seja Escoteiro
+          a.is-hidden-desktop.close-menu
+            span.icon(@click="toggleMenuVisibility()")
+              i.fa.fa-times
 </template>
 
 <script>
@@ -39,6 +42,7 @@ export default {
   methods: {
     toggleMenuVisibility () {
       this.menuShown = !this.menuShown
+      document.querySelector('html').classList.toggle('noscroll')
     }
   },
   watch: {
@@ -79,6 +83,12 @@ export default {
         span
           background-color: $verde-limao
       .nav-right
+        .close-menu
+          display: flex
+          width: 100%
+          justify-content: flex-end
+          padding: 1rem 3rem
+
         +tablet-only
           display: none
         +desktop
@@ -86,10 +96,15 @@ export default {
           .row
             padding-top: 1%
         &.is-active
+          .row
+            display: flex
+            width: 100%
+            flex-direction: column-reverse
           +mobile
             background-color: rgba(0, 0, 0, 0.85)
             height: 100vh
             position: absolute
+            top: 0
           +tablet-only
             padding-right: 0
             background-color: rgba(0, 0, 0, 0.85)
@@ -118,11 +133,17 @@ export default {
             font-family: 'Roboto'
             font-weight: 300
             color: white
+
+            text-transform: uppercase
+            margin: 0.5rem 0
+
+            +desktop
+              text-transform: capitalize
             &.is-tab
               +desktop
                 padding: 0
-              margin-right: 0.5rem
-              margin-left: 0.5rem
+                margin-right: 0.5rem
+                margin-left: 0.5rem
               text-transform: uppercase
               &:hover
                 border-bottom: none
