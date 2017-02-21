@@ -24,7 +24,14 @@ div.level.lime
   @import '~assets/sass/config.sass'
   .level
     min-height: 3rem
-    background: rgba(176, 211, 83, 0.6)
+    background: rgba(152, 181, 73, 0.9)
+    display: flex
+    width: 100%
+    justify-content: flex-end
+    flex-direction: column
+    +desktop
+      justify-content: flex-start
+      flex-direction: row
     .level-left
       +mobile
         margin-top: 0.75rem

@@ -51,10 +51,19 @@
         text-transform: lowercase
       padding-top: 2rem
       padding-bottom: 1rem
+      article
+        flex-direction: column
+        +desktop
+          flex-direction: row
       .media-left
         justify-content: center
-        width: 20%
+        width: 100%
+        +desktop
+          width: 20%
       .media-content
+        padding-top: 1rem
+        +desktop
+          padding-top: 0
         .title
           margin-bottom: 0
         .news-date

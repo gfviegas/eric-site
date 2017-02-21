@@ -42,18 +42,4 @@
         text-transform: uppercase
         font-family: 'Roboto'
         font-weight: 300
-    .hero-foot
-      min-height: 3rem
-      background: rgba(176, 211, 83, 0.6)
-      .level-right
-        +mobile
-          margin-top: 0.75rem
-        +desktop
-          padding-right: 5%
-        .icon
-          margin-left: 0.25rem
-        .fa-circle
-          color: rgba(255, 255, 255, 0.7)
-          &.is-active
-            color: darken($verde-limao, 30%)
 </style>

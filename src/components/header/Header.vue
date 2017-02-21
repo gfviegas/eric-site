@@ -40,6 +40,11 @@ export default {
     toggleMenuVisibility () {
       this.menuShown = !this.menuShown
     }
+  },
+  watch: {
+    $route (route) {
+      this.menuShown = false
+    }
   }
 }
 </script>
