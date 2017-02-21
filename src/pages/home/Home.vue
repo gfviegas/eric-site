@@ -102,15 +102,10 @@
     },
     methods: {
     },
-    beforeRouteEnter (to, from, next) {
+    created () {
+      const vm = this
       newsService.get({page: 1, limit: 4}).then((response) => {
-        next(vm => {
-          vm.news = response.body.news
-        })
-      }, (response) => {
-        next(vm => {
-          vm.news = []
-        })
+        vm.news = response.body.news
       })
     }
   }
