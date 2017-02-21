@@ -141,6 +141,12 @@
       padding-bottom: 1rem
     padding-top: 1rem
     background: #f6fce6
+    .new-content
+      .content
+        overflow: hidden
+        text-overflow: ellipsis
+        line-height: 1.5rem
+        height: 6rem
     .title
       color: $primary
     .subtitle
