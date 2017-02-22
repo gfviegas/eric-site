@@ -16,6 +16,7 @@ import { routes as NewsRoutes } from './pages/news'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import SocialSharing from 'vue-social-sharing'
+import VueHead from 'vue-head'
 
 const moment = require('moment')
 require('moment/locale/pt-br')
@@ -27,6 +28,10 @@ Vue.use(require('vue-moment'), {
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.use(SocialSharing)
+Vue.use(VueHead, {
+  separator: ' | ',
+  complement: 'Escoteiros de Minas'
+})
 
 Vue.filter('stripped', value => {
   return value.replace(/(<([^>]+)>)/ig, '')
@@ -53,8 +58,6 @@ const routes = [
     redirect: '/'
   }
 ]
-
-// Object.assign(InstitutionalRoutes, ...routes)
 
 const router = new VueRouter({
   routes,

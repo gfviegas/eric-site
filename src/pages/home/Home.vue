@@ -84,6 +84,7 @@
   import Shortcuts from '../../components/shortcuts/Shortcuts.vue'
   import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import newsService from '../../services/news'
+  import { getSeoTitle, getSeoMeta } from '../../services/seo'
 
   export default {
     components: {
@@ -93,11 +94,18 @@
       'shortcuts': Shortcuts,
       'breadcrumb': Breadcrumb
     },
-    name: 'home',
+    head: {
+      title: getSeoTitle('Home'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Home description'
+        })
+      }
+    },
     data () {
       return {
         news: [],
-        msg: ''
+        msg: 'Stuff'
       }
     },
     methods: {

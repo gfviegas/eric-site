@@ -88,8 +88,17 @@
 </template>
 
 <script>
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
   export default {
-    name: 'institutional-home'
+    head: {
+      title: getSeoTitle('Institucional'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Institucional description'
+        })
+      }
+    }
   }
 </script>
 
