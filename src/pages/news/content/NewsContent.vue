@@ -42,9 +42,20 @@
 
 <script>
   import newsService from '../../../services/news'
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
 
   export default {
-    name: 'news-content',
+    head: {
+      title () {
+        return getSeoTitle(this.news.title)
+      },
+      meta () {
+        return getSeoMeta({
+          description: this.news.content.replace(/(<([^>]+)>)/ig, '').substring(0, 147) + '...',
+          image: `${process.env.IMG_URL}${this.news.image}`
+        })
+      }
+    },
     data () {
       return {
         news: {
@@ -81,12 +92,14 @@
         // return window.location.href
       }
     },
-    created () {
-      const vm = this
-      newsService.find(this.$route.params.slug).then((response) => {
-        vm.news = response.body
-        newsService.updateViews(vm.news._id, {views: (vm.news.views + 1)}).then((response) => {
-          vm.news.views += 1
+    beforeRouteEnter (to, from, next) {
+      newsService.find(to.params.slug).then((response) => {
+        next((vm) => {
+          vm.news = response.body
+          vm.$emit('updateHead')
+          newsService.updateViews(vm.news._id, {views: (vm.news.views + 1)}).then((response) => {
+            vm.news.views += 1
+          })
         })
       })
     }

@@ -1,7 +1,7 @@
 
 const getSeoTitle = (title) => {
   return {
-    inner: title || 'Home'
+    inner: title
   }
 }
 
