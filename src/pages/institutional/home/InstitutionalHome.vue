@@ -95,7 +95,7 @@
       title: getSeoTitle('Institucional'),
       meta: () => {
         return getSeoMeta({
-          description: 'Institucional description'
+          description: 'Conheça a instituição Escoteira - Escoteiros de Minas Gerais'
         })
       }
     }

@@ -46,8 +46,17 @@
 </template>
 
 <script>
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
   export default {
-    name: 'regional-office'
+    head: {
+      title: getSeoTitle('Escritório Regional'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Conheça o Escritório Regionaal dos Escoteiros de Minas Gerais'
+        })
+      }
+    }
   }
 </script>
 

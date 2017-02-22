@@ -74,8 +74,17 @@
 </template>
 
 <script>
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
   export default {
-    name: 'young-leaders'
+    head: {
+      title: getSeoTitle('Jovens Líderes'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Saiba mais sobre os Jovens Líderes dos Escoteiros de Minas Gerais'
+        })
+      }
+    }
   }
 </script>
 

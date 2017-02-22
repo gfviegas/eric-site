@@ -98,7 +98,7 @@
       title: getSeoTitle('Home'),
       meta: () => {
         return getSeoMeta({
-          description: 'Home description'
+          description: 'Site Oficial dos Escoteiros de Minas Gerais'
         })
       }
     },

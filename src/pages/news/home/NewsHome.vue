@@ -19,9 +19,19 @@
 
 <script>
   import newsService from '../../../services/news'
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
 
   export default {
-    name: 'news-home',
+    head: {
+      title () {
+        return getSeoTitle('Notícias')
+      },
+      meta () {
+        return getSeoMeta({
+          description: 'Confira as notícias da Região Escoteira de Minas Gerais.'
+        })
+      }
+    },
     data () {
       return {
         news: []

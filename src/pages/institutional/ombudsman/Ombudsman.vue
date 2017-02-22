@@ -44,8 +44,17 @@
 </template>
 
 <script>
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
   export default {
-    name: 'ombudsman'
+    head: {
+      title: getSeoTitle('Ouvidoria'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Conheça a Ouvidoria dos Escoteiros de Minas Gerais'
+        })
+      }
+    }
   }
 </script>
 

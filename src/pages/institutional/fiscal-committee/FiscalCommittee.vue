@@ -45,8 +45,17 @@
 </template>
 
 <script>
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
   export default {
-    name: 'fiscal-committee'
+    head: {
+      title: getSeoTitle('Comitê Fiscal'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Conheça o Comitê Fiscal dos Escoteiros de Minas Gerais'
+        })
+      }
+    }
   }
 </script>
 

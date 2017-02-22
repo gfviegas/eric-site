@@ -69,8 +69,17 @@
 </template>
 
 <script>
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
   export default {
-    name: 'institutional-home'
+    head: {
+      title: getSeoTitle('Diretoria Regional'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Conheça a Diretoria Regional dos Escoteiros de Minas Gerais'
+        })
+      }
+    }
   }
 </script>
 

@@ -53,11 +53,11 @@ const getSeoMeta = (params) => {
     },
     {
       p: 'twitter:image',
-      c: params.image || ''
+      c: params.image || require('../../assets/images/logo.png')
     },
     {
       p: 'og:image',
-      c: params.image || ''
+      c: params.image || require('../../assets/images/logo.png')
     }
   ]
 }

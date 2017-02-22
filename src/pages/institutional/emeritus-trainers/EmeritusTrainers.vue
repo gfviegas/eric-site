@@ -74,8 +74,17 @@
 </template>
 
 <script>
+  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
   export default {
-    name: 'emeritus-trainers'
+    head: {
+      title: getSeoTitle('Formadores Eméritos'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Conheça os Formadores Eméritos dos Escoteiros de Minas Gerais'
+        })
+      }
+    }
   }
 </script>
 
