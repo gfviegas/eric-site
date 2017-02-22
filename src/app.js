@@ -15,6 +15,7 @@ import { routes as NewsRoutes } from './pages/news'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
+import SocialSharing from 'vue-social-sharing'
 
 const moment = require('moment')
 require('moment/locale/pt-br')
@@ -25,6 +26,7 @@ Vue.use(require('vue-moment'), {
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
+Vue.use(SocialSharing)
 
 Vue.filter('stripped', value => {
   return value.replace(/(<([^>]+)>)/ig, '')
