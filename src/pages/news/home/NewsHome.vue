@@ -33,17 +33,6 @@
         vm.news = response.body.news
       })
     }
-    // beforeRouteEnter (to, from, next) {
-    //   newsService.get({page: 1, limit: 4}).then((response) => {
-    //     next(vm => {
-    //       vm.news = response.body.news
-    //     })
-    //   }, (response) => {
-    //     next(vm => {
-    //       vm.news = []
-    //     })
-    //   })
-    // }
   }
 </script>
 

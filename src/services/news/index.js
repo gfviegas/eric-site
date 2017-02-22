@@ -18,5 +18,8 @@ export default {
   },
   update (id, data) {
     return app.$http.patch(API_URL + `news/${id}`, data)
+  },
+  updateViews (id, data) {
+    return app.$http.patch(API_URL + `news/${id}/views`, data)
   }
 }
