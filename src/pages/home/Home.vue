@@ -36,13 +36,13 @@
           h2.subtitle.is-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     div.about
       div.columns.container.container-responsive
-        div.column.is-7.columns
+        div.column.is-8.columns
           div.column
             h1.title.is-2 Um minuto sobre...
             p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        div.column.is-4.right-column
-          figure.image.is-2by1
-            img(src="http://bulma.io/images/placeholders/640x320.png")
+        div.column.is-3.right-column
+          figure.image.is-square
+            img(src="http://bulma.io/images/placeholders/480x480.png")
           more-button(c-class="is-warning") Veja Lista
     div.events
       div.columns.container.container-responsive
@@ -112,13 +112,13 @@
     },
     created () {
       const vm = this
-      // this.$on('okHead', () => {
-      //   if (!window.prerenderReady) {
-      //     setTimeout(() => {
-      //       console.log('TRIGGED')
-      //     }, 1500)
-      //   }
-      // })
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
       newsService.get({page: 1, limit: 4}).then((response) => {
         vm.news = response.body.news
       })

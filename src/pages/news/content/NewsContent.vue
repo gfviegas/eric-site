@@ -3,7 +3,8 @@
     div.container.container-responsive.main-container.columns
       div.column.is-7.content-container
         h2.title.is-2 {{news.title}}
-        img(:src="news.image | imgSrc")
+        div.news-image-container
+          img(:src="news.image | imgSrc")
         div.news-content-container
           div.news-content(v-html="news.content")
       div.column.is-5.more-container
@@ -92,6 +93,17 @@
         // return window.location.href
       }
     },
+    created () {
+      let ran = 0
+      this.$on('okHead', () => {
+        ran++
+        if (ran >= 1 && !window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
+    },
     beforeRouteEnter (to, from, next) {
       newsService.find(to.params.slug).then((response) => {
         next((vm) => {
@@ -117,6 +129,10 @@
       padding-bottom: 1rem
       .news-content-container
         padding-top: 2rem
+    .news-image-container
+      width: 100%
+      display: flex
+      justify-content: center
     .info-news-container
       padding: 0 2rem
       .info-row

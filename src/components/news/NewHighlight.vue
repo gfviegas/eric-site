@@ -1,8 +1,8 @@
 <template lang="pug">
   router-link(:to="{ name: 'newsContent', params: { slug: data.slug }}")
     div.columns
-      div.column.is-3
-        figure.image.is-2by1
+      div.column.is-2
+        figure.image.is-square
           img(:src="data.image | imgSrc")
       div.column.is-9
         h6.subtitle.content.is-6 {{data.title}}

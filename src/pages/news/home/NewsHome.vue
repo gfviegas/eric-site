@@ -5,7 +5,7 @@
       h4.subtitle.is-4 Fique por dentro das novidades
       article.media(v-for="newsContent in news")
         div.media-left
-          figure.image.is-2by1
+          router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}").image.is-square
             img(:src="newsContent.image | imgSrc")
         div.media-content
           div.content
@@ -39,6 +39,13 @@
     },
     created () {
       const vm = this
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
       newsService.get({page: 1, limit: 4}).then((response) => {
         vm.news = response.body.news
       })
@@ -64,8 +71,10 @@
         justify-content: center
         width: 100%
         +desktop
-          width: 20%
+          width: 15%
       .media-content
+        display: flex
+        align-self: center
         padding-top: 1rem
         +desktop
           padding-top: 0
