@@ -11,6 +11,7 @@ import Home from './pages/home/Home.vue'
 
 // INSTITUTIONAL
 import { routes as InstitutionalRoutes } from './pages/institutional'
+import { routes as ScoutRoutes } from './pages/scout'
 import { routes as NewsRoutes } from './pages/news'
 
 import VueRouter from 'vue-router'
@@ -51,6 +52,7 @@ const routes = [
   },
   {...InstitutionalRoutes},
   {...NewsRoutes},
+  {...ScoutRoutes},
 
   // Redirect to Home
   {
@@ -62,10 +64,10 @@ const routes = [
 const router = new VueRouter({
   routes,
   linkActiveClass: 'is-active',
-  mode: 'history',
-  scrollBehavior (to, from, savedPosition) {
-    return { x: 0, y: 0 }
-  }
+  mode: 'history'
+  // scrollBehavior (to, from, savedPosition) {
+  //   return { x: 0, y: 0 }
+  // }
 })
 
 const app = new Vue({

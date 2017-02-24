@@ -21,7 +21,7 @@
             router-link.is-tab.nav-item(exact)(:to="{name: 'home'}") Home
             router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional
             router-link.is-tab.nav-item(:to="{name: 'newsList'}") Notícias
-            a.nav-item.is-tab Escotismo
+            router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
             a.nav-item.is-tab Eventos
             a.nav-item.is-tab Pra Você
             a.nav-item.is-tab Contato
