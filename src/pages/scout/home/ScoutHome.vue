@@ -45,7 +45,7 @@
           p "Como Escoteiro, você olhará para o futuro e não irá dissipar tempo e dinheiro com prazeres do momento, mas, ao contrário, fará uso das oportunidades do momento tendo em vista o futuro sucesso. Você fará isso com a idéia de não ser um ônus, mas uma ajuda para os demais." Baden-Powell
         li
           span.title.is-5 O escoteiro é limpo de corpo e alma.
-          p "O Escoteiro é limpo em pensamento, palavra e ação. Como Escoteiro, espera-se que você tenha não só uma mente limpa, como também uma vontade limpa; seja capaz de controlar quaisquer tendências intemperadas do sexo; dê um exemplo aos demais sendo puro, franco, honesto em tudo que pensa, diz ou faz." Baden-Powell    */
+          p "O Escoteiro é limpo em pensamento, palavra e ação. Como Escoteiro, espera-se que você tenha não só uma mente limpa, como também uma vontade limpa; seja capaz de controlar quaisquer tendências intemperadas do sexo; dê um exemplo aos demais sendo puro, franco, honesto em tudo que pensa, diz ou faz." Baden-Powell
 </template>
 
 <script>

@@ -112,6 +112,13 @@
     },
     created () {
       const vm = this
+      // this.$on('okHead', () => {
+      //   if (!window.prerenderReady) {
+      //     setTimeout(() => {
+      //       console.log('TRIGGED')
+      //     }, 1500)
+      //   }
+      // })
       newsService.get({page: 1, limit: 4}).then((response) => {
         vm.news = response.body.news
       })

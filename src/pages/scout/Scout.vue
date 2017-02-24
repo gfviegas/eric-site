@@ -18,8 +18,8 @@
                 li
                   router-link(exact)(:to="{name: 'scoutHome'}") O Escotismo
                   router-link(exact)(:to="{name: 'scoutValues'}") Valores
-                  a Método Escoteiro
-                  a Modalidades
+                  router-link(exact)(:to="{name: 'scoutMethod'}") Método Escoteiro
+                  router-link(exact)(:to="{name: 'scoutModality'}") Modalidades
           div.column.is-9.content-column
             transition(name="fade")
               router-view
