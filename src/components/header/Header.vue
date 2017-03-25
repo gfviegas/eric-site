@@ -13,19 +13,18 @@
       div.nav-right.nav-menu(v-bind:class="{ 'is-active': menuShown }")
         div.row
           div.menu-custom
-            a.nav-item Meu Sigue
-            a.nav-item Sigue Administrativo
-            a.nav-item Login &nbsp;&nbsp;
-              span.icon: i.fa.fa-user-circle-o
+            a.nav-item(href="http://sigue.escoteiros.org.br/siguejovem/" target="BLANK") Meu Sigue
+            a.nav-item(href="http://sigue.escoteiros.org.br/sigue/" target="BLANK") Sigue Administrativo
+            //- a.nav-item Login &nbsp;&nbsp;
+              //- span.icon: i.fa.fa-user-circle-o
           div.menu-custom
             router-link.is-tab.nav-item(exact)(:to="{name: 'home'}") Home
             router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional
             router-link.is-tab.nav-item(:to="{name: 'newsList'}") Notícias
             router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
-            a.nav-item.is-tab Eventos
-            a.nav-item.is-tab Pra Você
-            a.nav-item.is-tab Contato
-            a.nav-item.is-tab Seja Escoteiro
+            a.nav-item.is-tab Documentos
+            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Formulários
+            a.nav-item.is-tab(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
           a.is-hidden-desktop.close-menu
             span.icon(@click="toggleMenuVisibility()")
               i.fa.fa-times

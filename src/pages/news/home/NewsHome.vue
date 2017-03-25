@@ -1,7 +1,7 @@
 <template lang="pug">
   div.news-home
     div.container.container-responsive.main-container(v-if="news && news.length")
-      h2.title.is-2 Título
+      h2.title.is-2 Notícias
       h4.subtitle.is-4 Fique por dentro das novidades
       article.media(v-for="newsContent in news")
         div.media-left

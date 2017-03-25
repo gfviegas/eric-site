@@ -33,7 +33,7 @@
     div.parallax.hero
       article.hero-body
         div.container.has-text-centered
-          h2.subtitle.is-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          h2.subtitle.is-3 Escoteiros de Minas Gerais
     div.about
       div.columns.container.container-responsive
         div.column.is-8.columns

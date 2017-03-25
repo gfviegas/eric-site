@@ -13,13 +13,15 @@
         p escritorio@escoteirodeminas.org.br
       div.column.social.justify-content-center.common-content
         p
-          span.icon
+          a.icon.social(href="https://www.facebook.com/EscoteirosDeMinasGerais" target="BLANK")
             i.fa.fa-twitter
-          span.icon.padded-left
+          a.icon.social.padded-left(href="https://twitter.com/EscoteirosMG" target="BLANK")
             i.fa.fa-facebook
     div.columns.footer-foot
       div.content.has-text-centered.container.column
-        p Copyright 2017 © ESCOTEIROS DE MINAS  Todos os direitos reservados
+        p.
+          Copyright 2017 © ESCOTEIROS DE MINAS - Todos os direitos reservados #[br]
+          #[small Desenvolvido por #[a(href="http://gfviegas.com" target="BLANK") Gustavo Viegas]]
 </template>
 
 <script>
