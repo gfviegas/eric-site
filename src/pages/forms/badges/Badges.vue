@@ -62,7 +62,7 @@
             label.label Distintivo Especial Solicitado
           div.control
             div.select.is-fullwidth
-              select(name="form.badge" v-model="form.badge" v-validate="validations.badge" data-vv-as="Distintivo Solicitado" v-bind:class="{'is-danger': errors.has('form.badge')}")
+              select(name="form.badge" v-model="form.reward" v-validate="validations.reward" data-vv-as="Distintivo Solicitado" v-bind:class="{'is-danger': errors.has('form.reward')}")
                 option(default value="") Selecione...
                 option(value="Cruzeiro do Sul") Cruzeiro do Sul
                 option(value="Lis de Ouro") Lis de Ouro
@@ -86,15 +86,33 @@
 <script>
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
   import rewardsService from '../../../services/rewards'
+  import { router } from '../../../app'
 
   export default {
+    notifications: {
+      showInvalidFormNotification: {
+        title: 'Formulário Inválido',
+        message: 'Existem campos inválidos ou obrigatórios não preenchidos no formulário!',
+        type: 'error'
+      },
+      showCreateErrorNotification: {
+        title: 'Erro de Servidor',
+        message: 'Houve um erro inesperado. Tente mais tarde!',
+        type: 'error'
+      },
+      showCreateSuccessNotification: {
+        title: 'Sucesso!',
+        message: 'Seu pedido foi realizado com sucesso!',
+        type: 'success'
+      }
+    },
     data () {
       const emailValidations = {rules: {required: true, email: true}}
       const registerValidations = {rules: {required: true, regex: /[0-9]*-([0-9])/}}
       const phoneValidations = {rules: {required: true}}
       const resumeValidations = {rules: {max: 350, min: 50, required: true}}
       const nameValidations = {rules: {max: 50, required: true}}
-      const badgeValidations = {rules: {required: true}}
+      const rewardValidations = {rules: {required: true}}
 
       const groupNumberValidations = {rules: {max: 3, numeric: true, required: true}}
       const groupNameValidations = {rules: {max: 100, required: true}}
@@ -109,7 +127,7 @@
           cellphone: phoneValidations,
           resume: resumeValidations,
           name: nameValidations,
-          badge: badgeValidations,
+          reward: rewardValidations,
           group: {
             number: groupNumberValidations,
             name: groupNameValidations
@@ -129,26 +147,28 @@
         .then(() => {
           let data = {
             type: 'badge',
-            badge: this.form.badge,
+            reward: this.form.reward,
             resume: this.form.resume,
             author: this.author,
             gifted: this.gifted
           }
-          console.log(this.author, this.gifted)
 
           rewardsService.create(data)
           .then((response) => {
-
+            this.showCreateSuccessNotification()
+            router.push({name: 'formsSuccess', params: {id: response.body._id}})
           })
           .catch((response) => {
-
+            this.showCreateErrorNotification()
           })
-        }).catch(() => {
+          .finally(() => {
+            this.submitting = false
+          })
         })
-
-        window.setTimeout(() => {
+        .catch(() => {
+          this.showInvalidFormNotification()
           this.submitting = false
-        }, 2500)
+        })
       }
     },
     head: {

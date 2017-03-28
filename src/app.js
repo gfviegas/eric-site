@@ -21,6 +21,8 @@ import SocialSharing from 'vue-social-sharing'
 import VueHead from 'vue-head'
 import VeeValidate, { Validator } from 'vee-validate'
 import Messages from 'vee-validate/dist/locale/pt_BR'
+import VueNotifications from 'vue-notifications'
+import miniToastr from 'mini-toastr'
 
 const moment = require('moment')
 require('moment/locale/pt-br')
@@ -78,11 +80,37 @@ const router = new VueRouter({
   // }
 })
 
+const toast = function ({title, message, type, timeout, cb}) {
+  return miniToastr[type](message, title, timeout, cb)
+}
+
+const options = {
+  success: toast,
+  error: toast,
+  info: toast,
+  warn: toast
+}
+
+// Activate plugin
+Vue.use(VueNotifications, options)
+
 const app = new Vue({
   router,
   components: {
     'main-header': Header,
     'main-footer': Footer
+  },
+  mounted () {
+    const types = {
+      success: 'success',
+      error: 'error',
+      info: 'info',
+      warn: 'warn'
+    }
+    miniToastr.init({types: types, timeout: 5000})
+    miniToastr.setIcon('error', 'i', {'class': 'fa fa-warning'})
+    miniToastr.setIcon('info', 'i', {'class': 'fa fa-info-circle'})
+    miniToastr.setIcon('success', 'i', {'class': 'fa fa-check-circle-o'})
   }
 })
 

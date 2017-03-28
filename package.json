@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "bulma": "^0.3.0",
+    "mini-toastr": "^0.6.5",
     "moment": "^2.17.1",
     "pug": "^2.0.0-beta6",
     "v-mask": "^1.0.4",
@@ -22,6 +23,7 @@
     "vue-head": "^2.0.10",
     "vue-inputmask": "^0.1.2",
     "vue-moment": "^2.0.2",
+    "vue-notifications": "^0.7.6",
     "vue-resource": "^1.0.3",
     "vue-router": "^2.1.1",
     "vue-social-sharing": "^2.1.1"

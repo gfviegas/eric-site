@@ -13,11 +13,15 @@
         div.columns.is-multiline
           div.column.is-2.menu-column
             aside.menu
-              p.menu-label Menu
+              p.menu-label Solicitar
               ul.menu-list
                 li
                   router-link(exact)(:to="{name: 'formsBadges'}") Distintivos Especiais
                   router-link(exact)(:to="{name: 'formsRewards'}") Condecorações e Recompensas
+              p.menu-label Consultar
+              ul.menu-list
+                li
+                  router-link(exact)(:to="{name: 'formsTracker'}") Acompanhar Pedido
           div.column.is-9.content-column
             transition(name="fade")
               router-view

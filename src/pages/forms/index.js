@@ -3,6 +3,8 @@ import FormsHome from './home/FormsHome.vue'
 
 import Badges from './badges/Badges.vue'
 import Rewards from './rewards/Rewards.vue'
+import Success from './success/Success.vue'
+import Tracker from './tracker/Tracker.vue'
 
 const routes = {
   path: '/formularios',
@@ -31,6 +33,22 @@ const routes = {
         breadcrumb: 'Formulários / Condecorações e Recompensas'
       },
       component: Rewards
+    },
+    {
+      path: 'sucesso/:id',
+      name: 'formsSuccess',
+      meta: {
+        breadcrumb: 'Formulários / Resultado'
+      },
+      component: Success
+    },
+    {
+      path: 'acompanhamento',
+      name: 'formsTracker',
+      meta: {
+        breadcrumb: 'Formulários / Acompanhamento'
+      },
+      component: Tracker
     }
   ]
 }
