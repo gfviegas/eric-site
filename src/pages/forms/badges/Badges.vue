@@ -36,7 +36,7 @@
           div.control-label
             label.label Função no Escotismo
           div.control
-            input.input(type="text" placeholder="Ex: Diretor Técnico" v-model="author.function")
+            input.input(type="text" placeholder="Ex: Diretor Técnico" v-model="author.role")
         br
         p.subtitle.is-5.has-text-centered Dados do Agraciado
         div.field.control.is-horizontal
@@ -85,7 +85,7 @@
 
 <script>
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
-  import formsService from '../../../services/forms'
+  import rewardsService from '../../../services/rewards'
 
   export default {
     data () {
@@ -136,9 +136,13 @@
           }
           console.log(this.author, this.gifted)
 
-          // EX:
-          // {"type":"badge","author":{"group":{"number":"83","name":"Olave Saint Clair"},"register":"32323-1","email":"gustavo83geosc@gmail.com","phone":"3135957005","cellphone":"3135957005","function":"Pioneiro"},"gifted":{"group":{"number":"83","name":"Olave Saint Clair"},"name":"Maria da Silva","register":"065432-1"}}
-          formsService.createBadge(data)
+          rewardsService.create(data)
+          .then((response) => {
+
+          })
+          .catch((response) => {
+
+          })
         }).catch(() => {
         })
 
