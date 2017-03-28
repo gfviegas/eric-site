@@ -19,6 +19,8 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import SocialSharing from 'vue-social-sharing'
 import VueHead from 'vue-head'
+import VeeValidate, { Validator } from 'vee-validate'
+import Messages from 'vee-validate/dist/locale/pt_BR'
 
 const moment = require('moment')
 require('moment/locale/pt-br')
@@ -27,6 +29,10 @@ Vue.use(require('vue-moment'), {
   moment
 })
 
+Validator.addLocale(Messages)
+Vue.use(VeeValidate, {
+  locale: 'pt_BR'
+})
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.use(SocialSharing)
