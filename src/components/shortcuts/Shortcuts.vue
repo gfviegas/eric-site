@@ -5,19 +5,19 @@ div.shortcuts
       div.column
         h1.title.is-2 Acesso Rápido
         div.column.columns.justify-center.shortcuts-column.is-multiline
-          shortcut(c-class="is-light-blue" icon="bookshelf")
+          shortcut(c-class="is-light-blue" icon="bookshelf" v-bind:route="{name: 'home'}")
             p Documentos
             p Ofícios, resoluções e outros
-          shortcut(c-class="is-verde-limao" icon="knot")
+          shortcut(c-class="is-verde-limao" icon="knot" v-bind:route="{name: 'home'}")
             p Calendário de Cursos de Formação pra Adultos - 2017
-          shortcut(c-class="is-pink" icon="calendar")
+          shortcut(c-class="is-pink" icon="calendar" v-bind:route="{name: 'home'}")
             p Calendário de Eventos 2017
-          shortcut(c-class="is-red" icon="letter")
+          shortcut(c-class="is-red" icon="letter" v-bind:route="{name: 'newsletterForm'}")
             p Newsletter Regional
             p Informativo da Região Escoteira de Minas Gerais
-          shortcut(c-class="is-dark-green" icon="people")
+          shortcut(c-class="is-dark-green" icon="people" url="http://www.escoteirocomorgulho.com.br/#six")
             p Conheça os Grupos Escoteiros de Minas Gerais
-          shortcut(c-class="is-purple" icon="bureau")
+          shortcut(c-class="is-purple" icon="bureau" v-bind:route="{name: 'home'}")
             p Documentos
             p Ofícios, Resoluções e Outros
 </template>

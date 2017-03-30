@@ -176,18 +176,18 @@
 
           rewardsService.create(data)
           .then((response) => {
-            this.showCreateSuccessNotification()
+            this.showCreateSuccessNotification({show: true})
             router.push({name: 'formsSuccess', params: {id: response.body._id}})
           })
           .catch((response) => {
-            this.showCreateErrorNotification()
+            this.showCreateErrorNotification({show: true})
           })
           .finally(() => {
             this.submitting = false
           })
         })
         .catch(() => {
-          this.showInvalidFormNotification()
+          this.showInvalidFormNotification({show: true})
           this.submitting = false
         })
       }

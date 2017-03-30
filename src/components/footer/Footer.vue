@@ -13,10 +13,10 @@
         p escritorio@escoteirodeminas.org.br
       div.column.social.justify-content-center.common-content
         p
-          a.icon.social(href="https://www.facebook.com/EscoteirosDeMinasGerais" target="BLANK")
-            i.fa.fa-twitter
           a.icon.social.padded-left(href="https://twitter.com/EscoteirosMG" target="BLANK")
-            i.fa.fa-facebook
+            i.fa.fa-twitter
+          a.icon.social(href="https://www.facebook.com/EscoteirosDeMinasGerais" target="BLANK")
+              i.fa.fa-facebook
     div.columns.footer-foot
       div.content.has-text-centered.container.column
         p.

@@ -23,7 +23,7 @@
             router-link.is-tab.nav-item(:to="{name: 'newsList'}") Notícias
             router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
             a.nav-item.is-tab Documentos
-            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Formulários
+            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Solicitações
             a.nav-item.is-tab(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
           a.is-hidden-desktop.close-menu
             span.icon(@click="toggleMenuVisibility()")
