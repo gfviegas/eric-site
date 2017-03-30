@@ -8,8 +8,8 @@
           div.card
             div.card-image
               router-link(:to="{name: 'regionalBoard'}")
-                figure.image.is-4by3
-                  img(src="http://bulma.io/images/placeholders/1280x960.png")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
@@ -20,9 +20,35 @@
         div.column.is-4
           div.card
             div.card-image
+              router-link(:to="{name: 'regionalBoard'}")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
+            div.card-content
+              div.media
+                div.media-content
+                  h4.title.is-4
+                    router-link(:to="{name: 'regionalBoard'}") Coordenadores Regionais
+              div.content
+                | A Região Escoteira de Minas Gerais possui diversos coordenadores para os mais variados tópicos. Confira!
+        div.column.is-4
+          div.card
+            div.card-image
+              router-link(:to="{name: 'regionalBoard'}")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
+            div.card-content
+              div.media
+                div.media-content
+                  h4.title.is-4
+                    router-link(:to="{name: 'regionalBoard'}") Diretores Distritais
+              div.content
+                | A Região Escoteira de Minas Gerais possui X distritos, que possuem seus respectivos diretores e equipes.
+        div.column.is-4
+          div.card
+            div.card-image
               router-link(:to="{name: 'fiscalCommittee'}")
-                figure.image.is-4by3
-                  img(src="http://bulma.io/images/placeholders/1280x960.png")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
@@ -34,8 +60,8 @@
           div.card
             div.card-image
               router-link(:to="{name: 'youngLeaders'}")
-                figure.image.is-4by3
-                  img(src="http://bulma.io/images/placeholders/1280x960.png")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
@@ -47,8 +73,8 @@
           div.card
             div.card-image
               router-link(:to="{name: 'emeritusTrainers'}")
-                figure.image.is-4by3
-                  img(src="http://bulma.io/images/placeholders/1280x960.png")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
@@ -60,8 +86,8 @@
           div.card
             div.card-image
               router-link(:to="{name: 'ombudsman'}")
-                figure.image.is-4by3
-                  img(src="http://bulma.io/images/placeholders/1280x960.png")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
@@ -73,8 +99,8 @@
           div.card
             div.card-image
               router-link(:to="{name: 'regionalOffice'}")
-                figure.image.is-4by3
-                  img(src="http://bulma.io/images/placeholders/1280x960.png")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content

@@ -9,8 +9,8 @@
         div.column.is-4
           div.card
             div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
+              //- figure.image.is-3by2
+              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
@@ -21,8 +21,8 @@
         div.column.is-4
           div.card
             div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
+              //- figure.image.is-3by2
+              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
@@ -33,8 +33,8 @@
         div.column.is-4
           div.card
             div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
+              //- figure.image.is-3by2
+              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
@@ -45,8 +45,8 @@
         div.column.is-4
           div.card
             div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
+              //- figure.image.is-3by2
+              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
@@ -57,8 +57,8 @@
         div.column.is-4
           div.card
             div.card-image
-              figure.image.is-3by2
-                img(src="http://bulma.io/images/placeholders/480x320.png")
+              //- figure.image.is-3by2
+              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content

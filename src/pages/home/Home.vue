@@ -3,9 +3,9 @@
     div.home-banner.hero
       article.hero-body.columns
         section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
-          h3.is-3.subtitle Por um mundo mais aventureiro,
-          h3.is-3.subtitle Repleto de fraternidade e desafios.
-          h3.is-3.subtitle gratidão.. sempre... alerta!
+          h3.is-3.subtitle "A criança não aprende o que os mais velhos dizem,
+          h3.is-3.subtitle mas o que eles fazem."
+          h3.is-3.subtitle Baden Powell
       div.hero-foot
         breadcrumb
     div.news(v-if="news && news.length")
@@ -33,7 +33,7 @@
     div.parallax.hero
       article.hero-body
         div.container.has-text-centered
-          h2.subtitle.is-3 Escoteiros de Minas Gerais
+          h2.subtitle.is-3 Melhor Possível! Sempre Alerta! Servir!
     div.about
       div.columns.container.container-responsive
         div.column.is-7.columns
