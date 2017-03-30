@@ -1,6 +1,7 @@
 import Documents from './Documents.vue'
 import Home from './home/Home.vue'
 
+import Ordinances from './ordinances/Ordinances.vue'
 import Notices from './notices/Notices.vue'
 import Books from './books/Books.vue'
 
@@ -23,6 +24,14 @@ const routes = {
         breadcrumb: 'Documentos / Editais'
       },
       component: Notices
+    },
+    {
+      path: 'portarias',
+      name: 'documentsOrdinances',
+      meta: {
+        breadcrumb: 'Documentos / Portarias'
+      },
+      component: Ordinances
     },
     {
       path: 'apostilas',

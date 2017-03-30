@@ -42,7 +42,7 @@
     },
     methods: {
       getFileSrc (name) {
-        return `${process.env.IMG_URL}files/${name}`
+        return `${process.env.IMG_URL}files/apostilas/${name}`
       }
     }
   }

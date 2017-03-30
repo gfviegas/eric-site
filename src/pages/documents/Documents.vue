@@ -17,8 +17,8 @@
               ul.menu-list
                 li
                   router-link(exact)(:to="{name: 'documentsBooks'}") Apostilas
-                  router-link(exact)(:to="{name: 'documentsNotices'}") Editais
-                  //- router-link(exact)(:to="{name: 'formsRewards'}") Editais
+                  //- router-link(exact)(:to="{name: 'documentsNotices'}") Editais
+                  router-link(exact)(:to="{name: 'documentsOrdinances'}") Portarias
           div.column.is-9.content-column
             transition(name="fade")
               router-view
