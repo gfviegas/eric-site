@@ -5,18 +5,8 @@
       p Veja as apostilas de diversos conteúdos
 
       ul
-        li
-          a(v-bind:href="getFileSrc('modulo_programacao_reunioes.pdf')") Módulo de Programação de Reuniões
-        li
-          a(v-bind:href="getFileSrc('modulo_historias.pdf')") Módulo de Aperfeiçoamento de Contação de Histórias
-        li
-          a(v-bind:href="getFileSrc('modulo_ramo_escoteiro.pdf')") Módulo do Ramo Escoteiro
-        li
-          a(v-bind:href="getFileSrc('modulo_ramo_senior.pdf')") Módulo do Ramo Sênior
-        li
-          a(v-bind:href="getFileSrc('modulo_topografia.pdf')") Módulo de Aperfeiçoamento de Topografia e Orientação
-        li
-          a(v-bind:href="getFileSrc('modulo_cancoes.pdf')") Módulo Técnico de Canções Escoteiras
+        li(v-for="file in filesSorted")
+          a(v-bind:href="getFileSrc(file.path)") {{file.name}}
 </template>
 
 <script>
@@ -43,6 +33,33 @@
     methods: {
       getFileSrc (name) {
         return `${process.env.IMG_URL}files/apostilas/${name}`
+      }
+    },
+    computed: {
+      filesSorted () {
+        return this.files.sort((a, b) => {
+          let nameA = a.name.toUpperCase()
+          let nameB = b.name.toUpperCase()
+          if (nameA < nameB) {
+            return -1
+          }
+          if (nameA > nameB) {
+            return 1
+          }
+          return 0
+        })
+      }
+    },
+    data () {
+      return {
+        files: [
+          {name: 'Módulo de Programação de Reuniões', path: 'modulo_programacao_reunioes.pdf'},
+          {name: 'Módulo de Aperfeiçoamento de Contação de Histórias', path: 'modulo_historias.pdf'},
+          {name: 'Módulo do Ramo Escoteiro', path: 'modulo_ramo_escoteiro.pdf'},
+          {name: 'Módulo do Ramo Sênior', path: 'modulo_ramo_senior.pdf'},
+          {name: 'Módulo de Aperfeiçoamento de Topografia e Orientação', path: 'modulo_topografia.pdf'},
+          {name: 'Módulo Técnico de Canções Escoteiras', path: 'modulo_cancoes.pdf'}
+        ]
       }
     }
   }
