@@ -14,6 +14,7 @@ import { routes as InstitutionalRoutes } from './pages/institutional'
 import { routes as ScoutRoutes } from './pages/scout'
 import { routes as NewsRoutes } from './pages/news'
 import { routes as FormsRoutes } from './pages/forms'
+import { routes as NewsletterRoutes } from './pages/newsletter'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -63,6 +64,7 @@ const routes = [
   {...NewsRoutes},
   {...ScoutRoutes},
   {...FormsRoutes},
+  {...NewsletterRoutes},
 
   // Redirect to Home
   {
@@ -80,8 +82,10 @@ const router = new VueRouter({
   // }
 })
 
-const toast = function ({title, message, type, timeout, cb}) {
-  return miniToastr[type](message, title, timeout, cb)
+const toast = function ({title, message, type, timeout, cb, show}) {
+  if (show) {
+    return miniToastr[type](message, title, timeout, cb)
+  }
 }
 
 const options = {
