@@ -10,7 +10,7 @@
         p Cep: 32.035-780
         p (32) 3215-7674
       div.column.email.justify-content-center.common-content
-        p escritorio@escoteirodeminas.org.br
+        p escritorio@escoteirosmg.org.br
       div.column.social.justify-content-center.common-content
         p
           a.icon.social.padded-left(href="https://twitter.com/EscoteirosMG" target="BLANK")
