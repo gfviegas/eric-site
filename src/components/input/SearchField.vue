@@ -21,6 +21,8 @@
 <style scoped lang="sass">
   @import '~assets/sass/config.sass'
   .control
+    // PROVISORIO
+    visibility: hidden
     .input
       background: $primary
       color: white

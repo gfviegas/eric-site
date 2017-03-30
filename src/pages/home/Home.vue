@@ -1,20 +1,14 @@
 <template lang="pug">
-  main.hello
-    main-header
+  main
     div.home-banner.hero
       article.hero-body.columns
         section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
-          h3.is-3.subtitle Por um mundo mais aventureiro,
-          h3.is-3.subtitle Repleto de fraternidade e desafios.
-          h3.is-3.subtitle gratidão.. sempre... alerta!
-      div.level.lime.hero-foot
-        nav.level-left
-        nav.level-right
-          div.level-item
-            span.icon: i.fa.fa-circle.is-active
-            - for (var x = 0; x < 3; x++)
-              span.icon: i.fa.fa-circle
-    div.news
+          h3.is-3.subtitle "A criança não aprende o que os mais velhos dizem,
+          h3.is-3.subtitle mas o que eles fazem."
+          h3.is-3.subtitle Baden Powell
+      div.hero-foot
+        breadcrumb
+    div.news(v-if="news && news.length")
       div.columns.container.container-responsive
         div.column.is-7.columns
           div.column
@@ -22,109 +16,111 @@
             div.columns.align-items-center
               div.column.is-4.has-text-centered
                 figure.image.is-square
-                  img(src="http://bulma.io/images/placeholders/480x480.png")
+                  img(:src="news[0].image | imgSrc")
               div.column.new-content
-                h5.subtitle.is-5 titulo da materia em destaque, blá blá blá blá blá blá
-                p.content Lorem ipsum dolor sit amet, con se cte tur adipis elit. Quisque in turpis eu velit iaculis ornare. Praesent dapibus enim a nisl conse ctetur fringilla. In condiment um id urna ut feugiat.
-                more-button(c-class="is-primary") Saiba +
+                h5.subtitle.is-5 {{ news[0].title }}
+                p.content {{ news[0].content | stripped }}
+                router-link(:to="{ name: 'newsContent', params: { slug: news[0].slug }}")
+                  more-button(c-class="is-primary") Saiba +
 
         div.column.is-5.columns.right-column
           div.column.news-highlight
             search-field
-            - for (var x = 0; x < 3; x++)
-              new-highlight
-            more-button(c-class="is-primary") Saiba +
+            div(v-for="i in (news.length - 1)")
+              new-highlight(:data="news[i]")
+            router-link(:to="{ name: 'newsList' }")
+              more-button(c-class="is-primary") Saiba +
     div.parallax.hero
       article.hero-body
         div.container.has-text-centered
-          h2.subtitle.is-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          h2.subtitle.is-3 Melhor Possível! Sempre Alerta! Servir!
     div.about
       div.columns.container.container-responsive
         div.column.is-7.columns
           div.column
             h1.title.is-2 Um minuto sobre...
-            p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        div.column.is-4.right-column
-          figure.image.is-2by1
-            img(src="http://bulma.io/images/placeholders/640x320.png")
-          more-button(c-class="is-warning") Veja Lista
-    div.events
-      div.columns.container.container-responsive
-        div.column.columns
-          div.column
-            h1.title.is-2 Cursos e Eventos de Formação
-            div.column.columns.justify-center
-              div.column.is-narrow.hero
-                div.hero-head
-                  p Curso Preliminar
-                div.hero-foot
-                  p teófilo otoni
-                  p vale do aço
-                  p 21 a 22 fevereiro 2017
-                  span.more-icon: | +
-              div.column.is-narrow.hero
-                div.hero-head
-                  p Módulo Interpretação Livro Jungle
-                div.hero-foot
-                  p Itajubá
-                  p Sul de Minas
-                  p 21 a 22 fevereiro 2017
-                  span.more-icon: | +
-              div.column.is-narrow.hero
-                div.hero-head
-                  p Módulo Aperfeiçoamento em Didática
-                div.hero-foot
-                  p Belo Horizonte
-                  p Metropolitano
-                  p 21 a 22 fevereiro 2017
-                  span.more-icon: | +
-    div.shortcuts
-      div.columns.container.container-responsive
-        div.column.columns
-          div.column
-            h1.title.is-2 Acesso Rápido
-            div.column.columns.justify-center.shortcuts-column
-              shortcut(c-class="is-light-blue" icon="bookshelf")
-                p Documentos
-                p Ofícios, resoluções e outros
-              shortcut(c-class="is-verde-limao" icon="knot")
-                p Calendário de Cursos de Formação pra Adultos - 2017
-              shortcut(c-class="is-pink" icon="calendar")
-                p Calendário de Eventos 2017
-            div.column.columns.justify-center.shortcuts-column
-              shortcut(c-class="is-red" icon="letter")
-                p Newsletter Regional
-                p Informativo da Região Escoteira de Minas Gerais
-              shortcut(c-class="is-dark-green" icon="people")
-                p Conheça os Grupos Escoteiros de Minas Gerais
-              shortcut(c-class="is-purple" icon="bureau")
-                p Documentos
-                p Ofícios, Resoluções e Outros
-    main-footer
+            p.content Saiba mais sobre os Escoteiros de Minas Gerais nas redes sociais!
+        div.column.is-6.right-column
+          video(controls)
+            source(src="~assets/videos/redes_sociais.mp4" type="video/mp4")
+    //- div.events
+    //-   div.columns.container.container-responsive
+    //-     div.column.columns
+    //-       div.column
+    //-         h1.title.is-2 Cursos e Eventos de Formação
+    //-         div.column.columns.justify-center
+    //-           div.column.is-narrow.hero
+    //-             div.hero-head
+    //-               p Curso Preliminar
+    //-             div.hero-foot
+    //-               p teófilo otoni
+    //-               p vale do aço
+    //-               p 21 a 22 fevereiro 2017
+    //-               span.more-icon: | +
+    //-           div.column.is-narrow.hero
+    //-             div.hero-head
+    //-               p Módulo Interpretação Livro Jungle
+    //-             div.hero-foot
+    //-               p Itajubá
+    //-               p Sul de Minas
+    //-               p 21 a 22 fevereiro 2017
+    //-               span.more-icon: | +
+    //-           div.column.is-narrow.hero
+    //-             div.hero-head
+    //-               p Módulo Aperfeiçoamento em Didática
+    //-             div.hero-foot
+    //-               p Belo Horizonte
+    //-               p Metropolitano
+    //-               p 21 a 22 fevereiro 2017
+    //-               span.more-icon: | +
+    shortcuts
 </template>
 
 <script>
-  import Header from '../../components/header/Header.vue'
-  import Footer from '../../components/footer/Footer.vue'
   import MoreButton from '../../components/buttons/MoreButton.vue'
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
-  import Shortcut from '../../components/shortcut/Shortcut.vue'
+  import Shortcuts from '../../components/shortcuts/Shortcuts.vue'
+  import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
+  import newsService from '../../services/news'
+  import { getSeoTitle, getSeoMeta } from '../../services/seo'
 
   export default {
     components: {
-      'main-header': Header,
       'more-button': MoreButton,
       'search-field': SearchField,
       'new-highlight': NewHighlight,
-      'shortcut': Shortcut,
-      'main-footer': Footer
+      'shortcuts': Shortcuts,
+      'breadcrumb': Breadcrumb
     },
-    name: 'home',
+    head: {
+      title: getSeoTitle('Home'),
+      meta: () => {
+        return getSeoMeta({
+          description: 'Site Oficial dos Escoteiros de Minas Gerais'
+        })
+      }
+    },
     data () {
       return {
-        msg: ''
+        news: [],
+        msg: 'Stuff'
       }
+    },
+    methods: {
+    },
+    created () {
+      const vm = this
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
+      newsService.get({page: 1, limit: 4}).then((response) => {
+        vm.news = response.body.news
+      })
     }
   }
 </script>
@@ -150,20 +146,6 @@
         text-transform: uppercase
         font-family: 'Roboto'
         font-weight: 300
-    .hero-foot
-      min-height: 3rem
-      background: rgba(176, 211, 83, 0.6)
-      .level-right
-        +mobile
-          margin-top: 0.75rem
-        +desktop
-          padding-right: 5%
-        .icon
-          margin-left: 0.25rem
-        .fa-circle
-          color: rgba(255, 255, 255, 0.7)
-          &.is-active
-            color: darken($verde-limao, 30%)
   // NEWS SECTION
   .news
     padding-bottom: 5rem
@@ -173,6 +155,12 @@
       padding-bottom: 1rem
     padding-top: 1rem
     background: #f6fce6
+    .new-content
+      .content
+        overflow: hidden
+        text-overflow: ellipsis
+        line-height: 1.5rem
+        height: 6rem
     .title
       color: $primary
     .subtitle
@@ -193,7 +181,7 @@
     background-size: cover
     .hero-body
       .subtitle
-        padding: 1rem 0
+        padding: 4rem 0
         color: white
         font-family: 'Roboto'
         text-transform: uppercase
@@ -262,23 +250,4 @@
           left: 90%
           color: $verde-limao
           font-size: 3rem
-  // SHORTCUTS SECTION
-  .shortcuts
-    background: #ecf9ff
-    border-top: 3px solid #1b6c96
-    padding-top: 2rem
-    padding-bottom: 5rem
-    text-align: left
-    +desktop
-      text-align: justify
-      padding-bottom: 2rem
-    .title
-      color: #1c9ad5
-      margin-bottom: 1.5rem
-    .justify-center
-      +desktop
-        justify-content: space-between
-    .shortcuts-column
-      margin-top: 2rem
-
 </style>

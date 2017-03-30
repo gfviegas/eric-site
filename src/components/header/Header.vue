@@ -3,7 +3,7 @@
     nav.nav
       div.nav-left
         a.nav-item.logo-item
-          img(src="~assets/images/logo.png" alt="Logo")
+          img(src="~assets/images/logo.png" alt="Logo Escoteiros MG")
 
       span.nav-toggle(v-on:click="toggleMenuVisibility()")
         span
@@ -13,19 +13,21 @@
       div.nav-right.nav-menu(v-bind:class="{ 'is-active': menuShown }")
         div.row
           div.menu-custom
-            a.nav-item Meu Sigue
-            a.nav-item Sigue Administrativo
-            a.nav-item Login &nbsp;&nbsp;
-              span.icon: i.fa.fa-user-circle-o
+            a.nav-item(href="http://sigue.escoteiros.org.br/siguejovem/" target="BLANK") Meu Sigue
+            a.nav-item(href="http://sigue.escoteiros.org.br/sigue/" target="BLANK") Sigue Administrativo
+            //- a.nav-item Login &nbsp;&nbsp;
+              //- span.icon: i.fa.fa-user-circle-o
           div.menu-custom
-            router-link.is-tab.nav-item(to="/") Home
-            a.nav-item.is-tab Institucional
-            a.nav-item.is-tab Notícias
-            a.nav-item.is-tab Escotismo
-            a.nav-item.is-tab Eventos
-            a.nav-item.is-tab Pra Você
-            a.nav-item.is-tab Contato
-            a.nav-item.is-tab Seja Escoteiro
+            router-link.is-tab.nav-item(exact)(:to="{name: 'home'}") Home
+            router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional
+            router-link.is-tab.nav-item(:to="{name: 'newsList'}") Notícias
+            router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
+            router-link.is-tab.nav-item(:to="{name: 'documentsHome'}") Documentos
+            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Solicitações
+            a.nav-item.is-tab(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
+          a.is-hidden-desktop.close-menu
+            span.icon(@click="toggleMenuVisibility()")
+              i.fa.fa-times
 </template>
 
 <script>
@@ -39,6 +41,14 @@ export default {
   methods: {
     toggleMenuVisibility () {
       this.menuShown = !this.menuShown
+      document.querySelector('html').classList.toggle('noscroll')
+    }
+  },
+  watch: {
+    $route (route) {
+      if (this.menuShown) {
+        this.toggleMenuVisibility()
+      }
     }
   }
 }
@@ -61,7 +71,11 @@ export default {
           top: 0
           left: 10%
           padding: 1rem
+          width: 65%
+          +desktop
+            width: 25%
           img
+            width: 100%
             max-height: 8rem
       .nav-toggle
         background: transparent
@@ -70,6 +84,12 @@ export default {
         span
           background-color: $verde-limao
       .nav-right
+        .close-menu
+          display: flex
+          width: 100%
+          justify-content: flex-end
+          padding: 1rem 3rem
+
         +tablet-only
           display: none
         +desktop
@@ -77,10 +97,15 @@ export default {
           .row
             padding-top: 1%
         &.is-active
+          .row
+            display: flex
+            width: 100%
+            flex-direction: column-reverse
           +mobile
             background-color: rgba(0, 0, 0, 0.85)
             height: 100vh
             position: absolute
+            top: 0
           +tablet-only
             padding-right: 0
             background-color: rgba(0, 0, 0, 0.85)
@@ -109,11 +134,17 @@ export default {
             font-family: 'Roboto'
             font-weight: 300
             color: white
+
+            text-transform: uppercase
+            margin: 0.5rem 0
+
+            +desktop
+              text-transform: capitalize
             &.is-tab
               +desktop
                 padding: 0
-              margin-right: 0.5rem
-              margin-left: 0.5rem
+                margin-right: 0.5rem
+                margin-left: 0.5rem
               text-transform: uppercase
               &:hover
                 border-bottom: none

@@ -1,16 +1,17 @@
 <template lang="pug">
-  div.columns
-    div.column.is-3
-      figure.image.is-2by1
-        img(src="http://bulma.io/images/placeholders/640x320.png")
-    div.column.is-9
-      h6.subtitle.content.is-6 Titulo da matéria em destaque
+  router-link(:to="{ name: 'newsContent', params: { slug: data.slug }}")
+    div.columns
+      div.column.is-2
+        figure.image.is-square
+          img(:src="data.image | imgSrc")
+      div.column.is-9
+        h6.subtitle.content.is-6 {{data.title}}
 </template>
 
 <script>
   export default {
     name: 'new-highlight',
-    props: ['text', 'cClass'],
+    props: ['text', 'cClass', 'data'],
     data: () => {
       return {
       }

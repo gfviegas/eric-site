@@ -1,17 +1,30 @@
 <template lang="pug">
   div.column.is-narrow.columns.box(v-bind:class="cClass")
-    div.column.is-one-third.icon-section(v-bind:style="{backgroundImage: url }")
-    div.column.content-section: slot
+    a.shortcut-link(@click="changeRoute()")
+      div.column.is-one-third.icon-section(v-bind:style="{backgroundImage: bgUrl}")
+      div.column.content-section: slot
 </template>
 
 <script>
+  import { router } from '../../app'
+
   export default {
     name: 'shortcut',
-    props: ['p1', 'p2', 'icon', 'cClass'],
+    props: ['p1', 'p2', 'icon', 'cClass', 'route', 'url'],
     computed: {
-      url () {
+      bgUrl () {
         const img = require('../../assets/images/shortcut-icons/' + this.icon.toLowerCase() + '.png')
         return 'url(' + img + ')'
+      }
+    },
+    methods: {
+      changeRoute () {
+        if (this.route) {
+          console.log(this.route)
+          router.push(this.route)
+        } else if (this.url) {
+          window.open(this.url, '_BLANK')
+        }
       }
     }
   }
@@ -26,14 +39,15 @@
     text-transform: uppercase
     +mobile, +tablet
       width: auto
-      margin-bottom: 2rem !important
     +desktop
       width: 22rem
-      margin-bottom: 0 !important
     p
       font-size: 1.15rem
       text-align: left
+    *
       color: white
+    .shortcut-link
+      display: flex
 
     // COLORS
     &.is-light-blue

@@ -12,7 +12,7 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/index.js'
   },
   output: {
     path: config.build.assetsRoot,
@@ -77,6 +77,10 @@ module.exports = {
         }
       },
       {
+        test: /\.mp4$/,
+        loader: 'file',
+      },
+      {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url',
         query: {
@@ -95,6 +99,10 @@ module.exports = {
       require('autoprefixer')({
         browsers: ['last 2 versions']
       })
-    ]
+    ],
+    transformToRequire: {
+      video: 'src',
+      source: 'src'
+    }
   }
 }
