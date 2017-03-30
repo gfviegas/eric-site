@@ -3,25 +3,22 @@
     div.scout-banner.hero
       article.hero-body.columns
         section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
-          h1.is-2.subtitle Solicitações
+          h1.is-2.subtitle Documentos
       div.hero-foot
         breadcrumb
     div.scout-container
       div.container.container-responsive.main-container
-        h2.title.is-2 Solicitações
-        h4.subtitle.is-4 Solicite ceritificados, recompensas e distintivos
+        h2.title.is-2 Documentos
+        h4.subtitle.is-4 Acesse apostilas, editais, e outros
         div.columns.is-multiline
           div.column.is-2.menu-column
             aside.menu
-              p.menu-label Solicitar
+              p.menu-label Documentos
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'formsBadges'}") Distintivos Especiais
-                  router-link(exact)(:to="{name: 'formsRewards'}") Condecorações e Recompensas
-              p.menu-label Consultar
-              ul.menu-list
-                li
-                  router-link(exact)(:to="{name: 'formsTracker'}") Acompanhar Pedido
+                  router-link(exact)(:to="{name: 'documentsModules'}") Módulos
+                  router-link(exact)(:to="{name: 'documentsNotices'}") Editais
+                  //- router-link(exact)(:to="{name: 'formsRewards'}") Editais
           div.column.is-9.content-column
             transition(name="fade")
               router-view
@@ -52,7 +49,7 @@
   .scout-banner
     background-blend-mode: multiply
     background-color: rgba(0, 0, 0, 0.3)
-    background-image: url('~assets/images/forms-banner.jpg')
+    background-image: url('~assets/images/documents-banner.jpg')
     background-size: cover
     background-repeat: no-repeat
     background-position: 0 60%

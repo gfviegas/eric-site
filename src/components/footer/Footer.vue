@@ -91,7 +91,7 @@ export default {
     .social
       display: inline-block
       .icon.padded-left
-        padding-left: 1.3rem
+        // padding-left: 1.3rem
     .footer-foot
       background: #0d3a52
       +desktop

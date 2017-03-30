@@ -5,10 +5,10 @@ div.shortcuts
       div.column
         h1.title.is-2 Acesso Rápido
         div.column.columns.justify-center.shortcuts-column.is-multiline
-          shortcut(c-class="is-light-blue" icon="bookshelf" v-bind:route="{name: 'home'}")
+          shortcut(c-class="is-light-blue" icon="bookshelf" v-bind:route="{name: 'documentsHome'}")
             p Documentos
             p Ofícios, resoluções e outros
-          shortcut(c-class="is-verde-limao" icon="knot" v-bind:route="{name: 'home'}")
+          shortcut(c-class="is-verde-limao" icon="knot" v-bind:url="coursesCalendarUrl")
             p Calendário de Cursos de Formação pra Adultos - 2017
           shortcut(c-class="is-pink" icon="calendar" v-bind:url="calendarUrl")
             p Calendário de Eventos 2017
@@ -30,7 +30,8 @@ div.shortcuts
     },
     data () {
       return {
-        calendarUrl: `${process.env.IMG_URL}files/calendario_2017.pdf`
+        calendarUrl: `${process.env.IMG_URL}files/calendario_2017.pdf`,
+        coursesCalendarUrl: `${process.env.IMG_URL}files/calendario_cursos_2017.pdf`
       }
     }
   }

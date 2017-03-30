@@ -15,6 +15,7 @@ import { routes as ScoutRoutes } from './pages/scout'
 import { routes as NewsRoutes } from './pages/news'
 import { routes as FormsRoutes } from './pages/forms'
 import { routes as NewsletterRoutes } from './pages/newsletter'
+import { routes as DocumentsRoutes } from './pages/documents'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -65,6 +66,7 @@ const routes = [
   {...ScoutRoutes},
   {...FormsRoutes},
   {...NewsletterRoutes},
+  {...DocumentsRoutes},
 
   // Redirect to Home
   {
