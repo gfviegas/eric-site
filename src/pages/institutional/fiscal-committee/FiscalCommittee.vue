@@ -14,10 +14,10 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Davidson Campos Soares Barbosa
+                  h4.title.is-4 Regis Moreira Pinto
               div.content
                 p Comissão Fiscal Regional - Titular
-                p Email: #[a(href="mailto:dcsbarbosa@gmail.com") dcsbarbosa@gmail.com]
+                p Email: #[a(href="mailto:ch.regis7@yahoo.com.br") ch.regis7@yahoo.com.br]
         div.column.is-4
           div.card
             div.card-image
@@ -26,10 +26,10 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Paulo Henrique Maciel Barbosa
+                  h4.title.is-4 Alexandre Gabriel de Assumpção
               div.content
                 p Comissão Fiscal Regional - Titular
-                p Email: #[a(href="mailto:paulohenriquemb@gmail.com") paulohenriquemb@gmail.com]
+                p Email: #[a(href="mailto:chefecaiuas@gmail.com") chefecaiuas@gmail.com]
         div.column.is-4
           div.card
             div.card-image
@@ -41,7 +41,7 @@
                   h4.title.is-4 Saulo Antônio dos Passos
               div.content
                 p Comissão Fiscal Regional - Titular
-                p Email: #[a(href="mailto:passoscontabilidade@crcmg.org.br") passoscontabilidade@crcmg.org.br]
+                p Email: #[a(href="mailto:contabilidade@passoscontabilidade.cnt.br") contabilidade@passoscontabilidade.cnt.br]
 </template>
 
 <script>

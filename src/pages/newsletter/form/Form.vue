@@ -27,6 +27,15 @@
           description: 'Formulário para inscrição no Newsletter dos Escoteiros de Minas Gerais'
         })
       }
+    },
+    created () {
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
     }
   }
 </script>

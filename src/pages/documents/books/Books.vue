@@ -1,8 +1,8 @@
 <template lang="pug">
   div.scout-method
     div.content-block
-      h3.title.is-3 MÓDULOS
-      p Veja os módulos de diversos conteúdos
+      h3.title.is-3 APOSTILAS
+      p Veja as apostilas de diversos conteúdos
 
       ul
         li
@@ -31,9 +31,18 @@
         })
       }
     },
+    created () {
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
+    },
     methods: {
       getFileSrc (name) {
-        return `${process.env.IMG_URL}/files/${name}`
+        return `${process.env.IMG_URL}files/${name}`
       }
     }
   }

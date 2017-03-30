@@ -37,6 +37,15 @@ div.scout-bp
           description: 'Conheça sobre Baden-Powell, o criador do escotismo - Escoteiros de Minas Gerais'
         })
       }
+    },
+    created () {
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
     }
   }
 </script>

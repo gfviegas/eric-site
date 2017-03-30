@@ -2,7 +2,7 @@ import Documents from './Documents.vue'
 import Home from './home/Home.vue'
 
 import Notices from './notices/Notices.vue'
-import Modules from './modules/Modules.vue'
+import Books from './books/Books.vue'
 
 const routes = {
   path: '/documentos',
@@ -25,12 +25,12 @@ const routes = {
       component: Notices
     },
     {
-      path: 'modulos',
-      name: 'documentsModules',
+      path: 'apostilas',
+      name: 'documentsBooks',
       meta: {
-        breadcrumb: 'Documentos / Módulos'
+        breadcrumb: 'Documentos / Apostilas'
       },
-      component: Modules
+      component: Books
     }
   ]
 }

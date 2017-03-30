@@ -199,6 +199,15 @@
           description: 'Preencha o formulário de condecorações e recompensas - Escoteiros de Minas Gerais'
         })
       }
+    },
+    created () {
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
     }
   }
 </script>

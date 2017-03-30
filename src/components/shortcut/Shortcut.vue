@@ -1,7 +1,7 @@
 <template lang="pug">
   div.column.is-narrow.columns.box(v-bind:class="cClass")
-    div.column.is-one-third.icon-section(v-bind:style="{backgroundImage: bgUrl}")
-    a(@click="changeRoute()")
+    a.shortcut-link(@click="changeRoute()")
+      div.column.is-one-third.icon-section(v-bind:style="{backgroundImage: bgUrl}")
       div.column.content-section: slot
 </template>
 
@@ -46,6 +46,8 @@
       text-align: left
     *
       color: white
+    .shortcut-link
+      display: flex
 
     // COLORS
     &.is-light-blue

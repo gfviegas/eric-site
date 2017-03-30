@@ -59,6 +59,15 @@
           description: 'Conheça o que é o Escotismo e o que fazemos - Escoteiros de Minas Gerais'
         })
       }
+    },
+    created () {
+      this.$on('okHead', () => {
+        if (!window.prerenderReady) {
+          setTimeout(() => {
+            window.prerenderReady = true
+          }, 1500)
+        }
+      })
     }
   }
 </script>

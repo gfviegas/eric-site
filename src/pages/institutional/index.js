@@ -2,10 +2,13 @@ import Institutional from './Institutional.vue'
 import InstitutionalHome from './home/InstitutionalHome.vue'
 
 import RegionalBoard from './regional-board/RegionalBoard.vue'
+import RegionalCoordinators from './regional-coordinators/RegionalCoordinators.vue'
+import Districts from './districts/Districts.vue'
 import FiscalCommittee from './fiscal-committee/FiscalCommittee.vue'
 import YoungLeaders from './young-leaders/YoungLeaders.vue'
 import EmeritusTrainers from './emeritus-trainers/EmeritusTrainers.vue'
 import Ombudsman from './ombudsman/Ombudsman.vue'
+import Ethics from './ethics/Ethics.vue'
 import RegionalOffice from './regional-office/RegionalOffice.vue'
 
 const routes = {
@@ -27,6 +30,22 @@ const routes = {
         breadcrumb: 'Institucional / Diretoria Regional'
       },
       component: RegionalBoard
+    },
+    {
+      path: 'coordenadores-regional',
+      name: 'regionalCoordinators',
+      meta: {
+        breadcrumb: 'Institucional / Coordenadores Regional'
+      },
+      component: RegionalCoordinators
+    },
+    {
+      path: 'diretores-distritais',
+      name: 'districts',
+      meta: {
+        breadcrumb: 'Institucional / Diretores Distritais'
+      },
+      component: Districts
     },
     {
       path: 'comissao-fiscal',
@@ -59,6 +78,14 @@ const routes = {
         breadcrumb: 'Institucional / Ouvidoria'
       },
       component: Ombudsman
+    },
+    {
+      path: 'comissao-de-etica',
+      name: 'ethics',
+      meta: {
+        breadcrumb: 'Institucional / Comissão de Ética e Disciplina'
+      },
+      component: Ethics
     },
     {
       path: 'escritorio-regional',

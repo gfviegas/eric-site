@@ -20,29 +20,29 @@
         div.column.is-4
           div.card
             div.card-image
-              router-link(:to="{name: 'regionalBoard'}")
+              router-link(:to="{name: 'regionalCoordinators'}")
                 //- figure.image.is-4by3
                 //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
                   h4.title.is-4
-                    router-link(:to="{name: 'regionalBoard'}") Coordenadores Regionais
+                    router-link(:to="{name: 'regionalCoordinators'}") Coordenadores Regionais
               div.content
                 | A Região Escoteira de Minas Gerais possui diversos coordenadores para os mais variados tópicos. Confira!
         div.column.is-4
           div.card
             div.card-image
-              router-link(:to="{name: 'regionalBoard'}")
+              router-link(:to="{name: 'districts'}")
                 //- figure.image.is-4by3
                 //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
             div.card-content
               div.media
                 div.media-content
                   h4.title.is-4
-                    router-link(:to="{name: 'regionalBoard'}") Diretores Distritais
+                    router-link(:to="{name: 'districts'}") Diretores Distritais
               div.content
-                | A Região Escoteira de Minas Gerais possui X distritos, que possuem seus respectivos diretores e equipes.
+                | A Região Escoteira de Minas Gerais possui 13 distritos, que possuem seus respectivos diretores e equipes.
         div.column.is-4
           div.card
             div.card-image
@@ -56,6 +56,19 @@
                     router-link(:to="{name: 'fiscalCommittee'}") Comissão Fiscal
               div.content
                 | A Comissão Fiscal Regional é o órgão de fiscalização e orientação da gestão patrimonial e financeira regional, composta por três membros titulares, sendo um eleito anualmente, por eles próprios, seu Presidente, e por até três suplente.
+        div.column.is-4
+          div.card
+            div.card-image
+              router-link(:to="{name: 'ethics'}")
+                //- figure.image.is-4by3
+                //-   img(src="http://bulma.io/images/placeholders/1280x960.png")
+            div.card-content
+              div.media
+                div.media-content
+                  h4.title.is-4
+                    router-link(:to="{name: 'ethics'}") Comissão de Ética e Disciplina
+              div.content
+                | Conheça a Comissão Regional de Ética e Disciplina.
         div.column.is-4
           div.card
             div.card-image

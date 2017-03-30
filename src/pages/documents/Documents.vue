@@ -16,7 +16,7 @@
               p.menu-label Documentos
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'documentsModules'}") Módulos
+                  router-link(exact)(:to="{name: 'documentsBooks'}") Apostilas
                   router-link(exact)(:to="{name: 'documentsNotices'}") Editais
                   //- router-link(exact)(:to="{name: 'formsRewards'}") Editais
           div.column.is-9.content-column
