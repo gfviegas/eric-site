@@ -4,6 +4,8 @@ import ScoutHome from './home/ScoutHome.vue'
 import ScoutValues from './values/ScoutValues.vue'
 import ScoutMethod from './method/ScoutMethod.vue'
 import ScoutModality from './modality/ScoutModality.vue'
+import ScoutBP from './bp/ScoutBP.vue'
+import ScoutCaio from './caio/ScoutCaio.vue'
 
 const routes = {
   path: '/escotismo',
@@ -40,6 +42,22 @@ const routes = {
         breadcrumb: 'Escotismo / Sobre / Modalidades'
       },
       component: ScoutModality
+    },
+    {
+      path: 'baden-powell',
+      name: 'scoutBP',
+      meta: {
+        breadcrumb: 'Escotismo / Personagens / Baden-Powell'
+      },
+      component: ScoutBP
+    },
+    {
+      path: 'caio-vianna-martins',
+      name: 'scoutCaio',
+      meta: {
+        breadcrumb: 'Escotismo / Personagens / Caio Vianna'
+      },
+      component: ScoutCaio
     }
   ]
 }
