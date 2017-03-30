@@ -55,10 +55,10 @@
   .scout-banner
     background-blend-mode: multiply
     background-color: rgba(0, 0, 0, 0.3)
-    background-image: url('~assets/images/home-banner.jpg')
+    background-image: url('~assets/images/scout-banner.jpg')
     background-size: cover
     background-repeat: no-repeat
-    background-position: 0 100%
+    background-position: 0 85%
     .hero-body
       padding-top: 12rem
       min-height: 25rem

@@ -16,7 +16,7 @@
           a.icon.social.padded-left(href="https://twitter.com/EscoteirosMG" target="BLANK")
             i.fa.fa-twitter
           a.icon.social(href="https://www.facebook.com/EscoteirosDeMinasGerais" target="BLANK")
-              i.fa.fa-facebook
+            i.fa.fa-facebook
     div.columns.footer-foot
       div.content.has-text-centered.container.column
         p.
@@ -89,6 +89,7 @@ export default {
     .email, .social
       color: white
     .social
+      display: inline-block
       .icon.padded-left
         padding-left: 1.3rem
     .footer-foot

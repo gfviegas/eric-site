@@ -34,7 +34,7 @@
                     img(src="~assets/images/social-icons/mail.png")
 
           //- COMMENTS
-          div.info-row
+          div.info-row(v-if="news.fb_post_id")
             span.description Comentários
             //- span.title.is-2
           div.fb-comments(v-if="news.fb_post_id" data-href="https://www.facebook.com/EscoteirosDeMinasGerais/photos/rpp.338324906247237/1331981963548188/?type=3&theater" data-width="100%" data-numposts="10")
@@ -77,20 +77,19 @@
         console.log('teste')
       },
       shareTumblr () {
-        const urlToShare = 'http://google.com'
+        const urlToShare = window.location.href
         const tumblrShareUrl = `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${urlToShare}`
         window.open(tumblrShareUrl, '_blank', 'left=50,top=50,width=500,height=500,toolbar=1,resizable=0')
       },
       shareEmail () {
-        const urlToShare = 'http://google.com'
+        const urlToShare = window.location.href
         const emailUrl = `mailto:?subject=Notícia da REMG&body=Confira essa notícia da Região Escoteira de Minas Gerais: ${urlToShare}`
         window.open(emailUrl)
       }
     },
     computed: {
       urlToShare () {
-        return 'http://google.com'
-        // return window.location.href
+        return window.location.href
       }
     },
     created () {

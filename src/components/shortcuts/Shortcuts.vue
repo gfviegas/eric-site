@@ -10,16 +10,15 @@ div.shortcuts
             p Ofícios, resoluções e outros
           shortcut(c-class="is-verde-limao" icon="knot" v-bind:route="{name: 'home'}")
             p Calendário de Cursos de Formação pra Adultos - 2017
-          shortcut(c-class="is-pink" icon="calendar" v-bind:route="{name: 'home'}")
+          shortcut(c-class="is-pink" icon="calendar" v-bind:url="calendarUrl")
             p Calendário de Eventos 2017
           shortcut(c-class="is-red" icon="letter" v-bind:route="{name: 'newsletterForm'}")
             p Newsletter Regional
             p Informativo da Região Escoteira de Minas Gerais
           shortcut(c-class="is-dark-green" icon="people" url="http://www.escoteirocomorgulho.com.br/#six")
             p Conheça os Grupos Escoteiros de Minas Gerais
-          shortcut(c-class="is-purple" icon="bureau" v-bind:route="{name: 'home'}")
-            p Documentos
-            p Ofícios, Resoluções e Outros
+          shortcut(c-class="is-purple" icon="bureau" url="http://www.escoteiros.org.br/")
+            p Site Oficial dos Escoteiros do brasil
 </template>
 
 <script>
@@ -28,6 +27,11 @@ div.shortcuts
   export default {
     components: {
       'shortcut': Shortcut
+    },
+    data () {
+      return {
+        calendarUrl: `${process.env.IMG_URL}files/calendario_2017.pdf`
+      }
     }
   }
 </script>

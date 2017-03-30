@@ -36,44 +36,43 @@
           h2.subtitle.is-3 Escoteiros de Minas Gerais
     div.about
       div.columns.container.container-responsive
-        div.column.is-8.columns
+        div.column.is-7.columns
           div.column
             h1.title.is-2 Um minuto sobre...
-            p.content Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        div.column.is-3.right-column
-          figure.image.is-square
-            img(src="http://bulma.io/images/placeholders/480x480.png")
-          more-button(c-class="is-warning") Veja Lista
-    div.events
-      div.columns.container.container-responsive
-        div.column.columns
-          div.column
-            h1.title.is-2 Cursos e Eventos de Formação
-            div.column.columns.justify-center
-              div.column.is-narrow.hero
-                div.hero-head
-                  p Curso Preliminar
-                div.hero-foot
-                  p teófilo otoni
-                  p vale do aço
-                  p 21 a 22 fevereiro 2017
-                  span.more-icon: | +
-              div.column.is-narrow.hero
-                div.hero-head
-                  p Módulo Interpretação Livro Jungle
-                div.hero-foot
-                  p Itajubá
-                  p Sul de Minas
-                  p 21 a 22 fevereiro 2017
-                  span.more-icon: | +
-              div.column.is-narrow.hero
-                div.hero-head
-                  p Módulo Aperfeiçoamento em Didática
-                div.hero-foot
-                  p Belo Horizonte
-                  p Metropolitano
-                  p 21 a 22 fevereiro 2017
-                  span.more-icon: | +
+            p.content Saiba mais sobre os Escoteiros de Minas Gerais nas redes sociais!
+        div.column.is-6.right-column
+          video(controls)
+            source(src="~assets/videos/redes_sociais.mp4" type="video/mp4")
+    //- div.events
+    //-   div.columns.container.container-responsive
+    //-     div.column.columns
+    //-       div.column
+    //-         h1.title.is-2 Cursos e Eventos de Formação
+    //-         div.column.columns.justify-center
+    //-           div.column.is-narrow.hero
+    //-             div.hero-head
+    //-               p Curso Preliminar
+    //-             div.hero-foot
+    //-               p teófilo otoni
+    //-               p vale do aço
+    //-               p 21 a 22 fevereiro 2017
+    //-               span.more-icon: | +
+    //-           div.column.is-narrow.hero
+    //-             div.hero-head
+    //-               p Módulo Interpretação Livro Jungle
+    //-             div.hero-foot
+    //-               p Itajubá
+    //-               p Sul de Minas
+    //-               p 21 a 22 fevereiro 2017
+    //-               span.more-icon: | +
+    //-           div.column.is-narrow.hero
+    //-             div.hero-head
+    //-               p Módulo Aperfeiçoamento em Didática
+    //-             div.hero-foot
+    //-               p Belo Horizonte
+    //-               p Metropolitano
+    //-               p 21 a 22 fevereiro 2017
+    //-               span.more-icon: | +
     shortcuts
 </template>
 
@@ -182,7 +181,7 @@
     background-size: cover
     .hero-body
       .subtitle
-        padding: 1rem 0
+        padding: 4rem 0
         color: white
         font-family: 'Roboto'
         text-transform: uppercase
