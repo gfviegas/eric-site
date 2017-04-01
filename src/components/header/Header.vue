@@ -15,7 +15,7 @@
           div.menu-custom
             a.nav-item(href="http://sigue.escoteiros.org.br/siguejovem/" target="BLANK") Meu Sigue
             a.nav-item(href="http://sigue.escoteiros.org.br/sigue/" target="BLANK") Sigue Administrativo
-            a.nav-item(href="https://br718.hostgator.com.br:2096/" target="BLANK") Webmail
+            a.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
           div.menu-custom
             router-link.is-tab.nav-item(exact)(:to="{name: 'home'}") Home
             router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional

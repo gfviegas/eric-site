@@ -2,6 +2,8 @@
   div.ombudsman
     div.container.container-responsive.main-container
       h2.title.is-2 Comissão de Ética e Disciplina
+      h5.title.is-5 A Comissão de Ética e Disciplina Regional é o órgão responsável pela instrução e emissão de pareceres em procedimentos disciplinares no âmbito regional, composta por três membros titulares, com mandatos de 3 (três) anos, elegendo eles próprios seu presidente, e por até três suplentes que são convocados no impedimento dos titulares.
+      br
       h3.title.is-3 Membros da Comissão
       div.columns.is-multiline
         div.column.is-4

@@ -13,6 +13,11 @@
             input.input(type="text" placeholder="Ex: 012345-6" name="author.register" v-model="author.register" v-validate="validations.register" data-vv-as="Registro do Solicitador" v-bind:class="{'is-danger': errors.has('author.register')}")
         div.field.control.is-horizontal
           div.control-label
+            label.label Nome
+          div.control
+            input.input(type="text" placeholder="Ex: Robert Smith" name="author.name" v-model="author.name" v-validate="validations.name" data-vv-as="Nome do Solicitador" v-bind:class="{'is-danger': errors.has('author.name')}")
+        div.field.control.is-horizontal
+          div.control-label
             label.label Email
           div.control
             input.input(type="text" placeholder="Ex: joao@gmail.com" name="author.email" v-model="author.email" v-validate="validations.email" data-vv-as="Email do Solicitador" v-bind:class="{'is-danger': errors.has('author.email')}")
@@ -89,11 +94,11 @@
                 option(value="Trofeu Jatobá: 50 anos de fundação GE") Trofeu Jatobá: 50 anos de fundação GE
                 option(value="Trofeu Jacarandá: 75 anos de fundação GE") Trofeu Jacarandá: 75 anos de fundação GE
                 option(value="Trofeu Jequitibá: 100 anos de fundação GE") Trofeu Jequitibá: 100 anos de fundação GE
-                option(value="Distintivo Semeador +1") Distintivo Semeador +1
-                option(value="Distintivo Semeador +3") Distintivo Semeador +3
-                option(value="Distintivo Semeador +5") Distintivo Semeador +5
-                option(value="Distintivo Semeador +10") Distintivo Semeador +10
-                option(value="Distintivo Semeador +15") Distintivo Semeador +15
+                //- option(value="Distintivo Semeador +1") Distintivo Semeador +1
+                //- option(value="Distintivo Semeador +3") Distintivo Semeador +3
+                //- option(value="Distintivo Semeador +5") Distintivo Semeador +5
+                //- option(value="Distintivo Semeador +10") Distintivo Semeador +10
+                //- option(value="Distintivo Semeador +15") Distintivo Semeador +15
         div.field.control.is-horizontal
           div.control-label
             label.label Justificativa

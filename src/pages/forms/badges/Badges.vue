@@ -13,6 +13,11 @@
             input.input(type="text" placeholder="Ex: 012345-6" name="author.register" v-model="author.register" v-validate="validations.register" data-vv-as="Registro do Solicitador" v-bind:class="{'is-danger': errors.has('author.register')}")
         div.field.control.is-horizontal
           div.control-label
+            label.label Nome
+          div.control
+            input.input(type="text" placeholder="Ex: Robert Smith" name="author.name" v-model="author.name" v-validate="validations.name" data-vv-as="Nome do Solicitador" v-bind:class="{'is-danger': errors.has('author.name')}")
+        div.field.control.is-horizontal
+          div.control-label
             label.label Email
           div.control
             input.input(type="text" placeholder="Ex: joao@gmail.com" name="author.email" v-model="author.email" v-validate="validations.email" data-vv-as="Email do Solicitador" v-bind:class="{'is-danger': errors.has('author.email')}")
@@ -104,7 +109,7 @@
       const emailValidations = {rules: {required: true, email: true}}
       const registerValidations = {rules: {required: true, regex: /[0-9]*-([0-9])/}}
       const phoneValidations = {rules: {required: true}}
-      const nameValidations = {rules: {max: 50, required: true}}
+      const nameValidations = {rules: {max: 80, required: true}}
       const rewardValidations = {rules: {required: true}}
 
       const groupNumberValidations = {rules: {max: 3, numeric: true, required: true}}

@@ -21,52 +21,31 @@
       div.columns.is-multiline
         div.column.is-4
           div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Lucas Oliveira Godinho
-              div.content
-                p Coordenador 2014-2015
-                p Email: #[a(href="mailto:godinho@souescoteiro.org.br") godinho@souescoteiro.org.br]
-        div.column.is-4
-          div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
                   h4.title.is-4 Bruna Caroline Dias de Andrade
               div.content
-                p Coordenadora 2015-2016
+                p Coordenadora 2015-2017
                 p Email: #[a(href="mailto:b.runadeandrade@hotmail.com") b.runadeandrade@hotmail.com]
         div.column.is-4
           div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Paulo Henrique do Anjos
+                  h4.title.is-4 Wesley de Assis Costa
               div.content
-                p Comunicador 2014-2015
-                p Email: #[a(href="mailto:phanjosgv@hotmail.com") phanjosgv@hotmail.com]
+                p Comunicador 2015-2017
+                p Email: #[a(href="mailto:wesleyassis9@souescoteiro.org.br") wesleyassis9@souescoteiro.org.br]
         div.column.is-4
           div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Wesley Assis
+                  h4.title.is-4 Kamila Regina Santana
               div.content
-                p Comunicador 2015-2016
-                p Email: #[a(href="mailto:wesleyassis9@souescoteiro.org.br") wesleyassis9@souescoteiro.org.br]
+                p Comunicadora 2016-2018
+                //- p Email: #[a(href="mailto:wesleyassis9@souescoteiro.org.br") wesleyassis9@souescoteiro.org.br]
       br
       h3.title.is-3 Site da Rede Regional de Jovens Líderes
       div.content
