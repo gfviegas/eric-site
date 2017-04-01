@@ -1,8 +1,8 @@
 <template lang="pug">
   div.scout-method
     div.content-block
-      h3.title.is-3 DISTINTIVOS ESPECIAIS
-      p Solicite os distintivos especiais de cada seção
+      h3.title.is-3 CONDECORAÇÕES
+      p Solicite Condecorações e Recompensas
 
       form(name="rewardForm" v-on:submit.prevent="submitForm()" novalidate)
         p.subtitle.is-5.has-text-centered Dados do Solicitador
@@ -89,6 +89,11 @@
                 option(value="Trofeu Jatobá: 50 anos de fundação GE") Trofeu Jatobá: 50 anos de fundação GE
                 option(value="Trofeu Jacarandá: 75 anos de fundação GE") Trofeu Jacarandá: 75 anos de fundação GE
                 option(value="Trofeu Jequitibá: 100 anos de fundação GE") Trofeu Jequitibá: 100 anos de fundação GE
+                option(value="Distintivo Semeador +1") Distintivo Semeador +1
+                option(value="Distintivo Semeador +3") Distintivo Semeador +3
+                option(value="Distintivo Semeador +5") Distintivo Semeador +5
+                option(value="Distintivo Semeador +10") Distintivo Semeador +10
+                option(value="Distintivo Semeador +15") Distintivo Semeador +15
         div.field.control.is-horizontal
           div.control-label
             label.label Justificativa

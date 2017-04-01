@@ -29,7 +29,7 @@
                   h4.title.is-4
                     router-link(:to="{name: 'regionalCoordinators'}") Coordenadores Regionais
               div.content
-                | A Região Escoteira de Minas Gerais possui diversos coordenadores para os mais variados tópicos. Confira!
+                | Os coordenadores regionais são nomeados pela Diretoria Regional, atuando em diversas áreas da administração.
         div.column.is-4
           div.card
             div.card-image

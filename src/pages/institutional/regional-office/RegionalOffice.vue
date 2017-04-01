@@ -11,22 +11,6 @@
           li 08:00h às 11:30h
           li 13:00h às 18:00h
       br
-      h3.title.is-3 Diretor Regional Operacional
-      div.columns.is-multiline
-        div.column.is-4
-          div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 José Roberto Tagliati
-              div.content
-                p Diretor Operacional Regional - Escritório e Loja Escoteira Regional
-                p Telefone: #[a(href="tel:32999198329") (32) 99919 8329]
-                p Email: #[a(href="mailto:jrtagliati@gmail.com") jrtagliati@gmail.com]
-      br
       h3.title.is-3 Funcionários e Prestadores de Serviço
       div.columns.is-multiline
         div.column.is-4

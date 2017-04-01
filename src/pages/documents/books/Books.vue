@@ -2,11 +2,9 @@
   div.scout-method
     div.content-block
       h3.title.is-3 APOSTILAS
-      p Veja as apostilas de diversos conteúdos
-
       ul
         li(v-for="file in filesSorted")
-          a(v-bind:href="getFileSrc(file.path)") {{file.name}}
+          a(target="BLANK" v-bind:href="getFileSrc(file.path)") {{file.name}}
 </template>
 
 <script>

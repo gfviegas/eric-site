@@ -2,7 +2,7 @@
   div.scout-method
     div.content-block
       h3.title.is-3 DISTINTIVOS ESPECIAIS
-      p Solicite os distintivos especiais de cada seção
+      p Solicite os distintivos especiais de cada Ramo
 
       form(name="badgeForm" v-on:submit.prevent="submitForm()" novalidate)
         p.subtitle.is-5.has-text-centered Dados do Solicitador
@@ -67,13 +67,7 @@
                 option(value="Cruzeiro do Sul") Cruzeiro do Sul
                 option(value="Lis de Ouro") Lis de Ouro
                 option(value="Escoteiro da Pátria") Escoteiro da Pátria
-                option(value="Ínsignia de BP") Ínsignia de BP
-        div.field.control.is-horizontal
-          div.control-label
-            label.label Justificativa
-          div.control
-            textarea.textarea(placeholder="Justificativa" name="form.resume" v-model="form.resume" v-validate="validations.resume" data-vv-as="Justificativa da Solicitação" v-bind:class="{'is-danger': errors.has('form.resume')}")
-
+                option(value="Insígnia de BP") Insígnia de BP
         div.field
           p.control.submit-button
             button.button.is-success.is-large(type="submit" v-if="!submitting") Enviar
@@ -110,7 +104,6 @@
       const emailValidations = {rules: {required: true, email: true}}
       const registerValidations = {rules: {required: true, regex: /[0-9]*-([0-9])/}}
       const phoneValidations = {rules: {required: true}}
-      const resumeValidations = {rules: {max: 350, min: 50, required: true}}
       const nameValidations = {rules: {max: 50, required: true}}
       const rewardValidations = {rules: {required: true}}
 
@@ -125,7 +118,6 @@
           register: registerValidations,
           phone: phoneValidations,
           cellphone: phoneValidations,
-          resume: resumeValidations,
           name: nameValidations,
           reward: rewardValidations,
           group: {
@@ -148,7 +140,6 @@
           let data = {
             type: 'badge',
             reward: this.form.reward,
-            resume: this.form.resume,
             author: this.author,
             gifted: this.gifted
           }

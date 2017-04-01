@@ -11,6 +11,8 @@
         p (32) 3215-7674
       div.column.email.justify-content-center.common-content
         p escritorio@escoteirosmg.org.br
+        p
+          small Melhor visualizado no Google Chrome
       div.column.social.justify-content-center.common-content
         p
           a.icon.social.padded-left(href="https://twitter.com/EscoteirosMG" target="BLANK")

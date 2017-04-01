@@ -1,10 +1,9 @@
 <template lang="pug">
   div.regional-board
     div.container.container-responsive.main-container
-      h2.title.is-2 Coordenadores Regional
-      h5.subtitle.is-5 A Diretoria Regional é o órgão executivo da Região, com mandato de três anos. É composta por diversos coordenadores.
+      h2.title.is-2 Coordenadores Regionais
+      h5.subtitle.is-5 Os coordenadores regionais são nomeados pela Diretoria Regional, atuando em diversas áreas da administração.
       br
-      h3.title.is-3 Coordenadores Eleitos - Gestão 2016/2019
       div.columns.is-multiline
         div.column.is-4
           div.card
@@ -119,15 +118,6 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Márcia Regina dos Santos Iorio
-              div.content
-                p Ramo Lobinho
-                p Email: #[a(href="mailto:marciaiorio@gmail.com") marciaiorio@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
                   h4.title.is-4 Ricardo Machado
               div.content
                 p Imagem e Comunicação
@@ -139,7 +129,7 @@
                 div.media-content
                   h4.title.is-4 Nadine Marta Marques Frateschi
               div.content
-                p Acessoria Financeira
+                p Assessoria Financeira
                 p Email: #[a(href="mailto:nadine.marta@hotmail.com") nadine.marta@hotmail.com]
         div.column.is-4
           div.card
@@ -148,7 +138,7 @@
                 div.media-content
                   h4.title.is-4 Kirk Pereira
               div.content
-                p Acessor Jurídico
+                p Assessor Jurídico
                 p Email: #[a(href="mailto:kirkpereira@hotmail.com") kirkpereira@hotmail.com]
 </template>
 

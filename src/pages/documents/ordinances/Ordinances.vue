@@ -2,11 +2,9 @@
   div.scout-method
     div.content-block
       h3.title.is-3 PORTARIAS
-      p Acesse aqui as portarias emitidas pela Região Escoteira de MG
-
       ul
         li(v-for="file in filesSorted")
-          a(v-bind:href="getFileSrc(file.path)") {{file.name}}
+          a(target="BLANK" v-bind:href="getFileSrc(file.path)") {{file.name}}
 </template>
 
 <script>

@@ -7,9 +7,9 @@ div.shortcuts
         div.column.columns.justify-center.shortcuts-column.is-multiline
           shortcut(c-class="is-light-blue" icon="bookshelf" v-bind:route="{name: 'documentsHome'}")
             p Documentos
-            p Ofícios, resoluções e outros
+            p Editais, apostilas e outros
           shortcut(c-class="is-verde-limao" icon="knot" v-bind:url="coursesCalendarUrl")
-            p Calendário de Cursos de Formação pra Adultos - 2017
+            p Calendário de Formação de Adultos - 2017
           shortcut(c-class="is-pink" icon="calendar" v-bind:url="calendarUrl")
             p Calendário de Eventos 2017
           shortcut(c-class="is-red" icon="letter" v-bind:route="{name: 'newsletterForm'}")

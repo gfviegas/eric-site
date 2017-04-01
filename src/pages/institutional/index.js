@@ -35,7 +35,7 @@ const routes = {
       path: 'coordenadores-regional',
       name: 'regionalCoordinators',
       meta: {
-        breadcrumb: 'Institucional / Coordenadores Regional'
+        breadcrumb: 'Institucional / Coordenadores Regionais'
       },
       component: RegionalCoordinators
     },
