@@ -17,11 +17,12 @@
               ul.menu-list
                 li
                   router-link(exact)(:to="{name: 'formsBadges'}") Distintivos Especiais
+                  router-link(exact)(:to="{name: 'formsSower'}") Distintivo de Semeador
                   router-link(exact)(:to="{name: 'formsRewards'}") Condecorações e Recompensas
               p.menu-label Consultar
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'formsTracker'}") Acompanhar Pedido
+                  router-link(exact)(:to="{name: 'formsTracker'}") Acompanhar Solicitação
           div.column.is-9.content-column
             transition(name="fade")
               router-view

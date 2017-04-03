@@ -2,6 +2,7 @@ import Forms from './Forms.vue'
 import FormsHome from './home/FormsHome.vue'
 
 import Badges from './badges/Badges.vue'
+import Sower from './sower/Sower.vue'
 import Rewards from './rewards/Rewards.vue'
 import Success from './success/Success.vue'
 import Tracker from './tracker/Tracker.vue'
@@ -14,7 +15,7 @@ const routes = {
       path: '',
       name: 'formsHome',
       meta: {
-        breadcrumb: 'Formulários / Home'
+        breadcrumb: 'Solicitações / Home'
       },
       component: FormsHome
     },
@@ -22,15 +23,23 @@ const routes = {
       path: 'distintivos-especiais',
       name: 'formsBadges',
       meta: {
-        breadcrumb: 'Formulários / Distintivos Especiais'
+        breadcrumb: 'Solicitações / Distintivos Especiais'
       },
       component: Badges
+    },
+    {
+      path: 'distintivo-semeador',
+      name: 'formsSower',
+      meta: {
+        breadcrumb: 'Solicitações / Distintivo de Semeador'
+      },
+      component: Sower
     },
     {
       path: 'condecoracoes-e-recompensas',
       name: 'formsRewards',
       meta: {
-        breadcrumb: 'Formulários / Condecorações e Recompensas'
+        breadcrumb: 'Solicitações / Condecorações e Recompensas'
       },
       component: Rewards
     },
@@ -38,7 +47,7 @@ const routes = {
       path: 'sucesso/:id',
       name: 'formsSuccess',
       meta: {
-        breadcrumb: 'Formulários / Resultado'
+        breadcrumb: 'Solicitações / Resultado'
       },
       component: Success
     },
@@ -46,7 +55,7 @@ const routes = {
       path: 'acompanhamento',
       name: 'formsTracker',
       meta: {
-        breadcrumb: 'Formulários / Acompanhamento'
+        breadcrumb: 'Solicitações / Acompanhamento'
       },
       component: Tracker
     }
