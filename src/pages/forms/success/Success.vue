@@ -28,6 +28,7 @@
       title: getSeoTitle('Solicitação Concluída'),
       meta: () => {
         return getSeoMeta({
+          title: 'Solicitação Concluída - Escoteiros de Minas',
           description: 'Solicitações de Distintivos Especiais - Escoteiros de Minas Gerais'
         })
       }

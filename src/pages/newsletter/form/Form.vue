@@ -24,6 +24,7 @@
       title: getSeoTitle('Newsletter'),
       meta: () => {
         return getSeoMeta({
+          title: 'Newsletter - Escoteiros de Minas',
           description: 'Formulário para inscrição no Newsletter dos Escoteiros de Minas Gerais'
         })
       }

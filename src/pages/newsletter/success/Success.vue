@@ -27,6 +27,7 @@
       title: getSeoTitle('Solicitação Concluída'),
       meta: () => {
         return getSeoMeta({
+          title: 'Newsletter - Escoteiros de Minas',
           description: 'Newsletter - Escoteiros de Minas Gerais'
         })
       }

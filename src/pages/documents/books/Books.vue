@@ -12,10 +12,11 @@
 
   export default {
     head: {
-      title: getSeoTitle('Modulos'),
+      title: getSeoTitle('Apostilas'),
       meta: () => {
         return getSeoMeta({
-          description: 'Acesse os módulos dos Escoteiros de Minas Gerais'
+          title: 'Apostilas - Escoteiros de Minas',
+          description: 'Acesse as apostilas dos Escoteiros de Minas Gerais'
         })
       }
     },

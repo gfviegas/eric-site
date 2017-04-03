@@ -28,6 +28,7 @@
       },
       meta () {
         return getSeoMeta({
+          title: 'Notícias - Escoteiros de Minas',
           description: 'Confira as notícias da Região Escoteira de Minas Gerais.'
         })
       }

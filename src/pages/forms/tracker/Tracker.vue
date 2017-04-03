@@ -98,9 +98,10 @@
       window.scrollTo(0, 0)
     },
     head: {
-      title: getSeoTitle('Acompanhar Solicitação de Recompensa'),
+      title: getSeoTitle('Acompanhar Solicitação'),
       meta: () => {
         return getSeoMeta({
+          title: 'Acompanhar Solicitação - Escoteiros de Minas',
           description: 'Acompanhamento de Solicitações de Recompensas - Escoteiros de Minas Gerais'
         })
       }

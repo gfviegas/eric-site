@@ -22,6 +22,7 @@ div.scout-caio
       title: getSeoTitle('Caio Vianna Martins'),
       meta: () => {
         return getSeoMeta({
+          title: 'Caio Vianna Martins - Escoteiros de Minas',
           description: 'Conheça sobre Caio Vianna Martins, símbolo do escotismo mineiro - Escoteiros de Minas Gerais'
         })
       }

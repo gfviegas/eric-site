@@ -45,7 +45,7 @@
                   h4.title.is-4 Kamila Regina Santana
               div.content
                 p Comunicadora 2016-2018
-                //- p Email: #[a(href="mailto:wesleyassis9@souescoteiro.org.br") wesleyassis9@souescoteiro.org.br]
+                p Email: #[a(href="mailto:kamilinhasantana@hotmail.com") kamilinhasantana@hotmail.com]
       br
       h3.title.is-3 Site da Rede Regional de Jovens Líderes
       div.content

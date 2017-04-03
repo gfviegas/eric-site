@@ -21,9 +21,10 @@ div.scout-modality
 
   export default {
     head: {
-      title: getSeoTitle('Escotismo'),
+      title: getSeoTitle('Modalidades'),
       meta: () => {
         return getSeoMeta({
+          title: 'Modalidades - Escoteiros de Minas',
           description: 'Conheça o que é o Escotismo e o que fazemos - Escoteiros de Minas Gerais'
         })
       }

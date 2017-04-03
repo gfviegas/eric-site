@@ -5,38 +5,38 @@
       p Solicite os distintivos especiais de cada Ramo
 
       form(name="badgeForm" v-on:submit.prevent="submitForm()" novalidate)
-        p.subtitle.is-5.has-text-centered Dados do Solicitador
+        p.subtitle.is-5.has-text-centered Dados do Solicitante
         div.field.control.is-horizontal
           div.control-label
             label.label Registro Escoteiro
           div.control
-            input.input(type="text" placeholder="Ex: 012345-6" name="author.register" v-model="author.register" v-validate="validations.register" data-vv-as="Registro do Solicitador" v-bind:class="{'is-danger': errors.has('author.register')}")
+            input.input(type="text" placeholder="Ex: 012345-6" name="author.register" v-model="author.register" v-validate="validations.register" data-vv-as="Registro do Solicitante" v-bind:class="{'is-danger': errors.has('author.register')}")
         div.field.control.is-horizontal
           div.control-label
             label.label Nome
           div.control
-            input.input(type="text" placeholder="Ex: Robert Smith" name="author.name" v-model="author.name" v-validate="validations.name" data-vv-as="Nome do Solicitador" v-bind:class="{'is-danger': errors.has('author.name')}")
+            input.input(type="text" placeholder="Ex: Robert Smith" name="author.name" v-model="author.name" v-validate="validations.name" data-vv-as="Nome do Solicitante" v-bind:class="{'is-danger': errors.has('author.name')}")
         div.field.control.is-horizontal
           div.control-label
             label.label Email
           div.control
-            input.input(type="text" placeholder="Ex: joao@gmail.com" name="author.email" v-model="author.email" v-validate="validations.email" data-vv-as="Email do Solicitador" v-bind:class="{'is-danger': errors.has('author.email')}")
+            input.input(type="text" placeholder="Ex: joao@gmail.com" name="author.email" v-model="author.email" v-validate="validations.email" data-vv-as="Email do Solicitante" v-bind:class="{'is-danger': errors.has('author.email')}")
         div.field.control.is-horizontal
           div.control-label
             label.label Telefone (com DDD)
           div.control
-            input.input(type="text" placeholder="Ex: 31 3399-9933" name="author.phone" v-model="author.phone" v-validate="validations.phone" data-vv-as="Telefone do Solicitador" v-bind:class="{'is-danger': errors.has('author.phone')}")
+            input.input(type="text" placeholder="Ex: 31 3399-9933" name="author.phone" v-model="author.phone" v-validate="validations.phone" data-vv-as="Telefone do Solicitante" v-bind:class="{'is-danger': errors.has('author.phone')}")
         div.field.control.is-horizontal
           div.control-label
             label.label Celular (com DDD)
           div.control
-            input.input(type="text" placeholder="Ex: 31 3399-9933" name="author.cellphone" v-model="author.cellphone" v-validate="validations.cellphone" data-vv-as="Celular do Solicitador" v-bind:class="{'is-danger': errors.has('author.cellphone')}")
+            input.input(type="text" placeholder="Ex: 31 3399-9933" name="author.cellphone" v-model="author.cellphone" v-validate="validations.cellphone" data-vv-as="Celular do Solicitante" v-bind:class="{'is-danger': errors.has('author.cellphone')}")
         div.control.is-horizontal
           div.control-label
             label.label Grupo Escoteiro
           div.control
-            input.input(type="text" placeholder="Número do GE" name="author.group.number" v-model="author.group.number" v-validate="validations.group.number" data-vv-as="Número do Grupo do Solicitador" v-bind:class="{'is-danger': errors.has('author.group.number')}")
-            input.input(type="text" placeholder="Nome do Grupo Escoteiro" name="author.group.name" v-model="author.group.name" v-validate="validations.group.name" data-vv-as="Nome do Grupo do Solicitador" v-bind:class="{'is-danger': errors.has('author.group.name')}")
+            input.input(type="text" placeholder="Número do GE" name="author.group.number" v-model="author.group.number" v-validate="validations.group.number" data-vv-as="Número do Grupo do Solicitante" v-bind:class="{'is-danger': errors.has('author.group.number')}")
+            input.input(type="text" placeholder="Nome do Grupo Escoteiro" name="author.group.name" v-model="author.group.name" v-validate="validations.group.name" data-vv-as="Nome do Grupo do Solicitante" v-bind:class="{'is-danger': errors.has('author.group.name')}")
         div.field.control.is-horizontal
           div.control-label
             label.label Função no Escotismo
@@ -171,6 +171,7 @@
       title: getSeoTitle('Distintivos Especiais'),
       meta: () => {
         return getSeoMeta({
+          title: 'Formulário de Distintivos Especiais - Escoteiros de Minas',
           description: 'Preencha o formulário de distintivos especiais - Escoteiros de Minas Gerais'
         })
       }

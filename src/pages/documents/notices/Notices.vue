@@ -13,6 +13,7 @@
       title: getSeoTitle('Editais'),
       meta: () => {
         return getSeoMeta({
+          title: 'Editais - Escoteiros de Minas',
           description: 'Acesse os Editais de Eventos dos Escoteiros de Minas Gerais'
         })
       }

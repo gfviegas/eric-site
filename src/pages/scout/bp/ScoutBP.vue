@@ -34,6 +34,7 @@ div.scout-bp
       title: getSeoTitle('Baden-Powell'),
       meta: () => {
         return getSeoMeta({
+          title: 'Baden-Powell - Escoteiros de Minas',
           description: 'Conheça sobre Baden-Powell, o criador do escotismo - Escoteiros de Minas Gerais'
         })
       }

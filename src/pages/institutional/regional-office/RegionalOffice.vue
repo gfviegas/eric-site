@@ -15,9 +15,6 @@
       div.columns.is-multiline
         div.column.is-4
           div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
@@ -26,7 +23,6 @@
                 p Assistente Administrativo - Escritório Regional e Loja Escoteira Regional
                 p Telefones: #[a(href="tel:3232157674") (32) 3215 7674] / #[a(href="tel:3232150615") (32) 3215 0615]
                 p Emails: #[a(href="mailto:escritorio@escoteirosmg.org.br") escritorio@escoteirosmg.org.br] / #[a(href="mailto:loja@escoteirosmg.org.br") loja@escoteirosmg.org.br]
-                p Expediente: Segunda a Sexta
 </template>
 
 <script>

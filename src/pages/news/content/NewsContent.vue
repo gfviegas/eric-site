@@ -52,6 +52,7 @@
       },
       meta () {
         return getSeoMeta({
+          title: this.news.title,
           description: this.news.content.replace(/(<([^>]+)>)/ig, '').substring(0, 147) + '...',
           image: `${process.env.IMG_URL}${this.news.image}`
         })

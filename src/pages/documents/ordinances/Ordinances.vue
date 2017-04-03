@@ -15,6 +15,7 @@
       title: getSeoTitle('Portarias'),
       meta: () => {
         return getSeoMeta({
+          title: 'Portarias - Escoteiros de Minas',
           description: 'Acesse as portarias dos Escoteiros de Minas Gerais'
         })
       }

@@ -12,6 +12,7 @@
       title: getSeoTitle('Documentos'),
       meta: () => {
         return getSeoMeta({
+          title: 'Documentos - Escoteiros de Minas',
           description: 'Documentos - Escoteiros de Minas Gerais'
         })
       }

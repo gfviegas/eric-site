@@ -9,9 +9,10 @@
 
   export default {
     head: {
-      title: getSeoTitle('Formulários'),
+      title: getSeoTitle('Solicitações'),
       meta: () => {
         return getSeoMeta({
+          title: 'Solicitações - Escoteiros de Minas',
           description: 'Solicitações de recompensas e distintivos especiais - Escoteiros de Minas Gerais'
         })
       }

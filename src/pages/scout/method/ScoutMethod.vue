@@ -53,9 +53,10 @@
 
   export default {
     head: {
-      title: getSeoTitle('Escotismo'),
+      title: getSeoTitle('Método Escoteiro'),
       meta: () => {
         return getSeoMeta({
+          title: 'Método Escoteiro - Escoteiros de Minas',
           description: 'Conheça o que é o Escotismo e o que fazemos - Escoteiros de Minas Gerais'
         })
       }
