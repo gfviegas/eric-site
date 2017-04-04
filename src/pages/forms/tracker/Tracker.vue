@@ -56,6 +56,7 @@
     },
     methods: {
       submitForm () {
+        this.$ga.trackEvent('Requests Form', 'Search')
         this.rewardData = false
         this.message = ''
         this.description = ''

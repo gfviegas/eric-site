@@ -147,6 +147,7 @@
     },
     methods: {
       submitForm () {
+        this.$ga.trackEvent('Requests Form', 'Submit', 'Sower')
         this.submitted = true
         this.submitting = true
 

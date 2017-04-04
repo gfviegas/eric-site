@@ -171,6 +171,7 @@
     },
     methods: {
       submitForm () {
+        this.$ga.trackEvent('Requests Form', 'Submit', 'Rewards')
         this.submitted = true
         this.submitting = true
 

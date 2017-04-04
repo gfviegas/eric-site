@@ -25,6 +25,7 @@ import VeeValidate, { Validator } from 'vee-validate'
 import Messages from 'vee-validate/dist/locale/pt_BR'
 import VueNotifications from 'vue-notifications'
 import miniToastr from 'mini-toastr'
+import VueAnalytics from 'vue-analytics'
 
 const moment = require('moment')
 require('moment/locale/pt-br')
@@ -78,11 +79,14 @@ const routes = [
 const router = new VueRouter({
   routes,
   linkActiveClass: 'is-active',
-  mode: 'history'
-  // scrollBehavior (to, from, savedPosition) {
-  //   return { x: 0, y: 0 }
-  // }
+  mode: 'history',
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })
+
+const id = 'UA-96528348-1'
+Vue.use(VueAnalytics, { id, router })
 
 const toast = function ({title, message, type, timeout, cb, show}) {
   if (show) {

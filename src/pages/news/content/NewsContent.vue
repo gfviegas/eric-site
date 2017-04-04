@@ -34,16 +34,28 @@
                     img(src="~assets/images/social-icons/mail.png")
 
           //- COMMENTS
-          div.info-row(v-if="news.fb_post_id")
+          div.info-row(v-show="news.fb_post_id")
             span.description Comentários
             //- span.title.is-2
-          div.fb-comments(v-if="news.fb_post_id" data-href="https://www.facebook.com/EscoteirosDeMinasGerais/photos/rpp.338324906247237/1331981963548188/?type=3&theater" data-width="100%" data-numposts="10")
+          div.fb-comments(v-show="news.fb_post_id" v-bind:data-href="facebookUrl" data-width="100%" data-numposts="10")
     br
 </template>
 
 <script>
   import newsService from '../../../services/news'
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+
+  const loadFacebookScript = () => {
+    (function (d, s, id) {
+      let js
+      let fjs = d.getElementsByTagName(s)[0]
+      if (d.getElementById(id)) return
+      js = d.createElement(s)
+      js.id = id
+      js.src = '//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=733130976862743'
+      fjs.parentNode.insertBefore(js, fjs)
+    }(document, 'script', 'facebook-jssdk'))
+  }
 
   export default {
     head: {
@@ -69,6 +81,7 @@
           slug: '',
           title: '',
           updated_at: '',
+          fb_post_id: null,
           views: 0
         }
       }
@@ -91,6 +104,9 @@
     computed: {
       urlToShare () {
         return window.location.href
+      },
+      facebookUrl () {
+        return `https://www.facebook.com/EscoteirosDeMinasGerais/posts/${this.news.fb_post_id}`
       }
     },
     created () {
@@ -103,6 +119,20 @@
           }, 1500)
         }
       })
+
+      window.fbAsyncInit = () => {
+        window.FB.init({
+          appId: '733130976862743',
+          xfbml: true,
+          version: 'v2.8'
+        })
+
+        window.FB.getLoginStatus((response) => {
+          console.log('FB STATUS => ', response)
+        })
+      }
+
+      loadFacebookScript()
     },
     beforeRouteEnter (to, from, next) {
       newsService.find(to.params.slug).then((response) => {

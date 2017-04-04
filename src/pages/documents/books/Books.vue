@@ -4,7 +4,7 @@
       h3.title.is-3 APOSTILAS
       ul
         li(v-for="file in filesSorted")
-          a(target="BLANK" v-bind:href="getFileSrc(file.path)") {{file.name}}
+          a(target="BLANK" @click="trackFileClick(file.name)" v-bind:href="getFileSrc(file.path)") {{file.name}}
 </template>
 
 <script>
@@ -32,6 +32,9 @@
     methods: {
       getFileSrc (name) {
         return `${process.env.IMG_URL}files/apostilas/${name}`
+      },
+      trackFileClick (fileName) {
+        return this.$ga.trackEvent('File', 'Click', fileName)
       }
     },
     computed: {

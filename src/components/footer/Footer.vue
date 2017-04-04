@@ -15,15 +15,15 @@
           small Melhor visualizado no Google Chrome
       div.column.social.justify-content-center.common-content
         p
-          a.icon.social.padded-left(href="https://twitter.com/EscoteirosMG" target="BLANK")
+          a.icon.social.padded-left(@click="trackClick('Twitter Link')" href="https://twitter.com/EscoteirosMG" target="BLANK")
             i.fa.fa-twitter
-          a.icon.social(href="https://www.facebook.com/EscoteirosDeMinasGerais" target="BLANK")
+          a.icon.social(@click="trackClick('Facebook Link')" href="https://www.facebook.com/EscoteirosDeMinasGerais" target="BLANK")
             i.fa.fa-facebook
     div.columns.footer-foot
       div.content.has-text-centered.container.column
         p.
           Copyright 2017 © ESCOTEIROS DE MINAS - Todos os direitos reservados #[br]
-          #[small Desenvolvido por #[a(href="http://gfviegas.com" target="BLANK") Gustavo Viegas]]
+          #[small Desenvolvido por #[a(@click="trackClick('Developer Link')" href="http://gfviegas.com" target="BLANK") Gustavo Viegas]]
 </template>
 
 <script>
@@ -35,6 +35,9 @@ export default {
     }
   },
   methods: {
+    trackClick (name) {
+      this.$ga.trackEvent(name, 'Click')
+    },
     toggleMenuVisibility () {
       this.menuShown = !this.menuShown
     }

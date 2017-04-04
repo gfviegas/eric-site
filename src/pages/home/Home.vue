@@ -39,7 +39,7 @@
         div.column.is-7.columns
           div.column
             h1.title.is-2 Um minuto sobre...
-            p.content Saiba mais sobre os Escoteiros de Minas Gerais nas redes sociais!
+            p.content ... os Escoteiros de Minas Gerais nas redes sociais!
         div.column.is-6.right-column
           video(controls)
             source(src="~assets/videos/redes_sociais.mp4" type="video/mp4")

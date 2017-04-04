@@ -20,6 +20,7 @@
     "v-mask": "^1.0.4",
     "vee-validate": "^2.0.0-beta.25",
     "vue": "^2.1.0",
+    "vue-analytics": "^3.2.0",
     "vue-head": "^2.0.10",
     "vue-inputmask": "^0.1.2",
     "vue-moment": "^2.0.2",
