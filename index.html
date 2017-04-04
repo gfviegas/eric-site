@@ -11,14 +11,14 @@
     <link rel="shortcut icon" type="image/png" href="/static/favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    .fade-enter-active, .fade-leave-active {
-      transition-property: opacity;
-      transition-duration: .25s;
-    }
+      .fade-enter-active, .fade-leave-active {
+        transition-property: opacity;
+        transition-duration: .25s;
+      }
 
-    .fade-enter, .fade-leave-active {
-      opacity: 0
-    }
+      .fade-enter, .fade-leave-active {
+        opacity: 0
+      }
     </style>
   </head>
   <body>
@@ -32,11 +32,25 @@
     <div id="fb-root"></div>
     <script>
       window.prerenderReady = false
-      (function(d, s, id) {
+
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: '733130976862743',
+          xfbml: true,
+          version: 'v2.8'
+        });
+
+        FB.getLoginStatus((response) => {
+          console.log('FB STATUS => ', response);
+        });
+      };
+
+      (function (d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=733130976862743";
+        js = d.createElement(s);
+        js.id = id;
+        js.src = '//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.8&appId=733130976862743';
         fjs.parentNode.insertBefore(js, fjs);
       }(document, 'script', 'facebook-jssdk'));
     </script>

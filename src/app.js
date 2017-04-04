@@ -85,6 +85,12 @@ const router = new VueRouter({
   }
 })
 
+router.afterEach((to, from) => {
+  window.setTimeout(() => {
+    window.FB.XFBML.parse()
+  }, 1500)
+})
+
 const id = 'UA-96528348-1'
 Vue.use(VueAnalytics, { id, router })
 
