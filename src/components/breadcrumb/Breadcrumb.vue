@@ -1,13 +1,13 @@
 <template lang="pug">
-div.level.lime
-  nav.level-left
-    div.level-item
-      h4.subtitle.is-4 {{text}}
-  nav.level-right
-    //- div.level-item
-    //-   span.icon: i.fa.fa-circle.is-active
-    //-   - for (var x = 0; x < 3; x++)
-    //-     span.icon: i.fa.fa-circle
+  div.level.lime
+    nav.level-left
+      div.level-item
+        h4.subtitle.is-4 {{text}}
+    nav.level-right
+      //- div.level-item
+      //-   span.icon: i.fa.fa-circle.is-active
+      //-   - for (var x = 0; x < 3; x++)
+      //-     span.icon: i.fa.fa-circle
 </template>
 
 <script>

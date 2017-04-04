@@ -1,6 +1,7 @@
-# sremg
-
-> Site da Região Escoteira MG
+[![Build Status](https://travis-ci.org/gfviegas/eric-site.svg?branch=master)](https://travis-ci.org/gfviegas/eric-site)
+[![Dependency Status](https://gemnasium.com/badges/github.com/gfviegas/eric-site.svg)](https://gemnasium.com/github.com/gfviegas/eric-site)
+[![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+# Site da Região Escoteira MG
 
 ## Build Setup
 
