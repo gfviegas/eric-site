@@ -47,7 +47,7 @@ Vue.use(VueHead, {
 })
 
 Vue.filter('stripped', value => {
-  return value.replace(/(<([^>]+)>)/ig, '')
+  return value.trim().replace(/(<([^>]+)>)/ig, '').replace(/&(.*);/gi, '')
 })
 Vue.filter('imgSrc', value => {
   return `${process.env.IMG_URL}${value}`
