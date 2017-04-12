@@ -39,10 +39,11 @@
         div.column.is-7.columns
           div.column
             h1.title.is-2 Um minuto sobre...
-            p.content ... os Escoteiros de Minas Gerais nas redes sociais!
+            p.content ... o preparo da tradicional receita escoteira "Ovo no Espeto"! Confira!
         div.column.is-6.right-column
-          video(controls)
-            source(src="~assets/videos/redes_sociais.mp4" type="video/mp4")
+          iframe( width="100%" height="300" src="https://www.youtube.com/embed/vEhdmvp2DLI" frameborder="0" allowfullscreen)
+          //- video(controls)
+          //-   source(v-bind:src="youtubeUrl('https://www.youtube.com/watch?v=vEhdmvp2DLI')" type="video/mp4")
     //- div.events
     //-   div.columns.container.container-responsive
     //-     div.column.columns
@@ -107,8 +108,6 @@
         news: [],
         msg: 'Stuff'
       }
-    },
-    methods: {
     },
     created () {
       const vm = this

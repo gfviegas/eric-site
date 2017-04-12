@@ -2,13 +2,19 @@
   div.scout-method
     div.content-block
       h3.title.is-3 APOSTILAS
-      ul
-        li(v-for="file in filesSorted")
-          a(target="BLANK" @click="trackFileClick(file.name)" v-bind:href="getFileSrc(file.path)") {{file.name}}
+      div.list-documents
+        p.control
+          input.input(placeholder="Pesquisar" v-model="filterQuery")
+          transition-group(name="fade" tag="ul")
+            li(v-for="doc in filteredDocs" v-bind:key="doc._id")
+              a(target="BLANK" @click="trackFileClick(doc.title)" v-bind:href="doc.file") {{doc.title}}
+              p.help #[strong Descrição:] {{doc.description}}
+              p.help #[strong Atualizado:] {{doc.updated_at | moment("LLLL")}}
 </template>
 
 <script>
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import documentsService from '../../../services/documents'
 
   export default {
     head: {
@@ -20,9 +26,28 @@
         })
       }
     },
+    beforeRouteEnter (to, from, next) {
+      documentsService.get({type: 'book'}).then((response) => {
+        next((vm) => {
+          vm.files = response.body
+          vm.$emit('updateHead')
+        })
+      })
+    },
+    computed: {
+      filteredDocs () {
+        if (!this.filterQuery || !this.filterQuery.length) return this.files
+        return this.files.filter((item) => {
+          let regex = new RegExp(this.filterQuery, 'ig')
+          return (item.title.search(regex) > -1 || item.description.search(regex) > -1)
+        })
+      }
+    },
     created () {
+      let ran = 0
       this.$on('okHead', () => {
-        if (!window.prerenderReady) {
+        ran++
+        if (ran >= 1 && !window.prerenderReady) {
           setTimeout(() => {
             window.prerenderReady = true
           }, 1500)
@@ -30,38 +55,14 @@
       })
     },
     methods: {
-      getFileSrc (name) {
-        return `${process.env.IMG_URL}files/apostilas/${name}`
-      },
       trackFileClick (fileName) {
         return this.$ga.trackEvent('File', 'Click', fileName)
       }
     },
-    computed: {
-      filesSorted () {
-        return this.files.sort((a, b) => {
-          let nameA = a.name.toUpperCase()
-          let nameB = b.name.toUpperCase()
-          if (nameA < nameB) {
-            return -1
-          }
-          if (nameA > nameB) {
-            return 1
-          }
-          return 0
-        })
-      }
-    },
     data () {
       return {
-        files: [
-          {name: 'Módulo de Programação de Reuniões', path: 'modulo_programacao_reunioes.pdf'},
-          {name: 'Módulo de Aperfeiçoamento de Contação de Histórias', path: 'modulo_historias.pdf'},
-          {name: 'Módulo do Ramo Escoteiro', path: 'modulo_ramo_escoteiro.pdf'},
-          {name: 'Módulo do Ramo Sênior', path: 'modulo_ramo_senior.pdf'},
-          {name: 'Módulo de Aperfeiçoamento de Topografia e Orientação', path: 'modulo_topografia.pdf'},
-          {name: 'Módulo Técnico de Canções Escoteiras', path: 'modulo_cancoes.pdf'}
-        ]
+        filterQuery: '',
+        files: []
       }
     }
   }
@@ -76,11 +77,13 @@
     border-bottom: 1px solid rgba(78, 78, 78, 0.3)
     .title
       font-weight: 400
-    ul
-      list-style: disc
+    .list-documents
       padding: 0 2rem
+    ul
+      list-style: none
       li
-        padding: 0.5rem 0
+        padding: 0.8rem 0
+        border-bottom: 1px solid rgba(78, 78, 78, 0.3)
         a
           color: darken($primary, 10%)
     ol
