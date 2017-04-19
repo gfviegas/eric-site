@@ -117,7 +117,7 @@
       const emailValidations = {rules: {required: true, email: true}}
       const registerValidations = {rules: {required: true, regex: /[0-9]*-([0-9])/}}
       const phoneValidations = {rules: {required: true}}
-      const resumeValidations = {rules: {max: 350, min: 50, required: true}}
+      const resumeValidations = {rules: {max: 2000, min: 50, required: true}}
       const nameValidations = {rules: {max: 80, required: true}}
       const rewardValidations = {rules: {required: true}}
 

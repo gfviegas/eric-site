@@ -81,7 +81,6 @@
                 option(value="Gratidão Bronze") Gratidão Bronze
                 option(value="Gratidão Prata") Gratidão Prata
                 option(value="Gratidão Ouro") Gratidão Ouro
-                option(value="Gratidão Ouro") Gratidão Ouro
                 option(value="Cruz de São Jorge") Cruz de São Jorge
                 option(value="Cruz de Valor Caio Viana Martins Bronze") Cruz de Valor Caio Viana Martins Bronze
                 option(value="Cruz de Valor Caio Viana Martins Prata") Cruz de Valor Caio Viana Martins Prata
@@ -141,7 +140,7 @@
       const emailValidations = {rules: {required: true, email: true}}
       const registerValidations = {rules: {required: true, regex: /[0-9]*-([0-9])/}}
       const phoneValidations = {rules: {required: true}}
-      const resumeValidations = {rules: {max: 350, min: 50, required: true}}
+      const resumeValidations = {rules: {max: 2000, min: 50, required: true}}
       const nameValidations = {rules: {max: 50, required: true}}
       const rewardValidations = {rules: {required: true}}
 
