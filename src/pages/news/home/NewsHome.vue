@@ -3,6 +3,14 @@
     div.container.container-responsive.main-container(v-if="news && news.length")
       h2.title.is-2 Notícias
       h4.subtitle.is-4 Fique por dentro das novidades
+      form.search-container(v-on:submit.prevent="applySearch()")
+        p.control.has-addons
+          input.input(type="search" placeholder="Pesquisar" v-model="filter")
+          button.button.is-primary(type="submit")
+            span.icon
+              i.fa.fa-search
+      //- div.pagination-container
+      //-   pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
       article.media(v-for="newsContent in news")
         div.media-left
           router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}").image.is-square
@@ -14,14 +22,22 @@
             div.news-date
               small {{newsContent.created_at | moment("L")}}
             p.news-preview {{ newsContent.content | stripped }}
+      div.pagination-container
+        pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
     br
 </template>
 
 <script>
   import newsService from '../../../services/news'
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import Pagination from '../../../components/pagination/Pagination'
+
+  const NEWS_PER_PAGE = 4
 
   export default {
+    components: {
+      Pagination
+    },
     head: {
       title () {
         return getSeoTitle('Notícias')
@@ -35,7 +51,12 @@
     },
     data () {
       return {
-        news: []
+        filter: '',
+        news: [],
+        currentPage: 1,
+        limit: 4,
+        totalPages: 1,
+        routeName: this.$route.name
       }
     },
     created () {
@@ -47,9 +68,39 @@
           }, 1500)
         }
       })
-      newsService.get({page: 1, limit: 4}).then((response) => {
+
+      const page = this.$route.query.page || 1
+      const filter = this.$route.query.filter || ''
+
+      newsService.get({page: page, limit: NEWS_PER_PAGE, filter: filter}).then((response) => {
         vm.news = response.body.news
+        vm.currentPage = response.body.meta.currentPage
+        vm.limit = response.body.meta.limit
+        vm.totalPages = response.body.meta.totalPages
+        vm.filter = filter
       })
+    },
+    methods: {
+      applySearch () {
+        this.page = 1
+        newsService.get({page: this.page, limit: NEWS_PER_PAGE, filter: this.filter}).then((response) => {
+          this.news = response.body.news
+          this.currentPage = response.body.meta.currentPage
+          this.limit = response.body.meta.limit
+          this.totalPages = response.body.meta.totalPages
+        })
+      }
+    },
+    watch: {
+      '$route' (to, from) {
+        const page = to.query.page
+        newsService.get({page: page, limit: NEWS_PER_PAGE, filter: this.filter}).then((response) => {
+          this.news = response.body.news
+          this.currentPage = response.body.meta.currentPage
+          this.limit = response.body.meta.limit
+          this.totalPages = response.body.meta.totalPages
+        })
+      }
     }
   }
 </script>
@@ -58,6 +109,12 @@
   @import '~assets/sass/config.sass'
   .news-home
     .main-container
+      .search-container
+        padding: 2rem 0
+        input
+          width: 100%
+      .pagination-container
+        padding: 2rem
       > .title
         text-transform: uppercase
       > .subtitle
