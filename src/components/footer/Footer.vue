@@ -7,7 +7,7 @@
       div.column.adress.justify-content-center.common-content.is-narrow
         p Rua Mariano Procópio, 90 - mariano procópio
         p Juiz de Fora - Minas Gerais
-        p Cep: 32.035-780
+        p Cep: 36.035-780
         p (32) 3215-7674
       div.column.email.justify-content-center.common-content
         p escritorio@escoteirosmg.org.br

@@ -15,13 +15,17 @@
         div.notification.is-info.code-notification
           p
             strong Acompanhamento
+          hr
           p Solicitação de #[strong {{rewardData.reward}}] para #[strong {{rewardData.gifted.name}}]
           p Solicitado por #[strong {{rewardData.author.email}}] em {{rewardData.created_at | moment("LLLL")}}
           p Status Atualizado em {{rewardData.updated_at | moment("LLLL")}}
           br
-          p O status de sua solicitação é: #[strong.code {{message}}]
-          b
-            small {{description}}
+          p
+            | O status de sua solicitação é: #[strong.code {{message}}] #[br]
+            b
+              small {{description}}
+          br
+          p(v-if="rewardData.reply && rewardData.reply.length") Parecer: #[strong {{rewardData.reply}}]
 </template>
 
 <script>
@@ -65,7 +69,6 @@
         .then((response) => {
           this.rewardData = response.body
           let status = this.getStatusMessage()
-          console.log(status)
           this.message = status.message
           this.description = status.description
         })
