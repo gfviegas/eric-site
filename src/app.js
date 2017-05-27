@@ -6,7 +6,7 @@ import Vue from 'vue'
 import Header from './components/header/Header.vue'
 import Footer from './components/footer/Footer.vue'
 
-// HOME PAGE
+// GENERAL PAGES
 import Home from './pages/home/Home.vue'
 
 // INSTITUTIONAL
@@ -14,6 +14,7 @@ import { routes as InstitutionalRoutes } from './pages/institutional'
 import { routes as ScoutRoutes } from './pages/scout'
 import { routes as NewsRoutes } from './pages/news'
 import { routes as FormsRoutes } from './pages/forms'
+import { routes as ContatRoutes } from './pages/contact'
 import { routes as NewsletterRoutes } from './pages/newsletter'
 import { routes as DocumentsRoutes } from './pages/documents'
 
@@ -66,6 +67,7 @@ const routes = [
   {...NewsRoutes},
   {...ScoutRoutes},
   {...FormsRoutes},
+  {...ContatRoutes},
   {...NewsletterRoutes},
   {...DocumentsRoutes},
 

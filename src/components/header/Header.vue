@@ -16,6 +16,7 @@
             a.nav-item(href="http://sigue.escoteiros.org.br/siguejovem/" target="BLANK") Meu Sigue
             a.nav-item(href="http://sigue.escoteiros.org.br/sigue/" target="BLANK") Sigue Administrativo
             a.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
+            a.nav-item(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
           div.menu-custom
             router-link.is-tab.nav-item(exact)(:to="{name: 'home'}") Home
             router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional
@@ -23,7 +24,7 @@
             router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
             router-link.is-tab.nav-item(:to="{name: 'documentsHome'}") Documentos
             router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Solicitações
-            a.nav-item.is-tab(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
+            router-link.is-tab.nav-item(:to="{name: 'contactHome'}") Contato
           a.is-hidden-desktop.close-menu
             span.icon(@click="toggleMenuVisibility()")
               i.fa.fa-times
@@ -142,8 +143,8 @@ export default {
             &.is-tab
               +desktop
                 padding: 0
-                margin-right: 0.5rem
-                margin-left: 0.5rem
+                margin-right: 0.25rem
+                margin-left: 0.35rem
               text-transform: uppercase
               &:hover
                 border-bottom: none

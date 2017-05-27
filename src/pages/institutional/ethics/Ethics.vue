@@ -27,7 +27,7 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Ricardo Calderário Iorio
+                  h4.title.is-4 Ricardo Calderaro Iorio
               div.content
                 p Email: #[a(href="mailto:ricardo672@gmail.com") ricardo672@gmail.com]
 </template>
