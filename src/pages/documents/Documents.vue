@@ -18,7 +18,10 @@
                 li
                   router-link(exact)(:to="{name: 'documentsBooks'}") Apostilas
                   //- router-link(exact)(:to="{name: 'documentsNotices'}") Editais
+                  router-link(exact)(:to="{name: 'documentsResolutions'}") Resoluções
                   router-link(exact)(:to="{name: 'documentsOrdinances'}") Portarias
+                  router-link(exact)(:to="{name: 'documentsBalances'}") Balanços Financeiro
+                  router-link(exact)(:to="{name: 'documentsMinutes'}") Atas
           div.column.is-9.content-column
             transition(name="fade")
               router-view
