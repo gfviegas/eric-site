@@ -41,7 +41,7 @@
             h2.title.is-2 Um minuto sobre...
             p.content ... o que é e como foi o AEROCampo 2017, realizado no parque de material aeronáutico de Lagoa Santa/MG! Confira!
         div.column.is-6.right-column
-          iframe( width="100%" height="300" src="https://youtu.be/RTxJ1IJapvA" frameborder="0" allowfullscreen)
+          iframe( width="100%" height="300" src="https://www.youtube.com/embed/RTxJ1IJapvA" frameborder="0" allowfullscreen)
           //- video(controls)
           //-   source(v-bind:src="youtubeUrl('https://www.youtube.com/watch?v=vEhdmvp2DLI')" type="video/mp4")
     //- div.events
