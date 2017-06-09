@@ -18,16 +18,16 @@
 
   export default {
     head: {
-      title: getSeoTitle('Portarias'),
+      title: getSeoTitle('Resoluções'),
       meta: () => {
         return getSeoMeta({
-          title: 'Portarias - Escoteiros de Minas',
-          description: 'Acesse as portarias dos Escoteiros de Minas Gerais'
+          title: 'Resoluções - Escoteiros de Minas',
+          description: 'Acesse as resoluções dos Escoteiros de Minas Gerais'
         })
       }
     },
     beforeRouteEnter (to, from, next) {
-      documentsService.get({type: 'ordinance'}).then((response) => {
+      documentsService.get({type: 'resolution'}).then((response) => {
         next((vm) => {
           vm.files = response.body
           vm.$emit('updateHead')
