@@ -29,7 +29,7 @@
     beforeRouteEnter (to, from, next) {
       documentsService.get({type: 'ordinance'}).then((response) => {
         next((vm) => {
-          vm.files = response.body
+          vm.files = response.body.documents
           vm.$emit('updateHead')
         })
       })

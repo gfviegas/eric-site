@@ -1,7 +1,7 @@
 <template lang="pug">
   div.scout-method
     div.content-block
-      h3.title.is-3 PORTARIAS
+      h3.title.is-3 RESOLUÇÕES
       div.list-documents
         p.control
           input.input(placeholder="Pesquisar" v-model="filterQuery")
@@ -29,7 +29,7 @@
     beforeRouteEnter (to, from, next) {
       documentsService.get({type: 'resolution'}).then((response) => {
         next((vm) => {
-          vm.files = response.body
+          vm.files = response.body.documents
           vm.$emit('updateHead')
         })
       })

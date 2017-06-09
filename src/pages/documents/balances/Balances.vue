@@ -1,7 +1,7 @@
 <template lang="pug">
   div.scout-method
     div.content-block
-      h3.title.is-3 BALANÇOS FINANCEIRO
+      h3.title.is-3 BALANÇOS FINANCEIROS
       div.list-documents
         p.control
           input.input(placeholder="Pesquisar" v-model="filterQuery")
@@ -18,18 +18,18 @@
 
   export default {
     head: {
-      title: getSeoTitle('Balanços Financeiro'),
+      title: getSeoTitle('Balanços Financeiros'),
       meta: () => {
         return getSeoMeta({
-          title: 'Balanços Financeiro - Escoteiros de Minas',
-          description: 'Acesse os balanços financeiro dos Escoteiros de Minas Gerais'
+          title: 'Balanços Financeiros - Escoteiros de Minas',
+          description: 'Acesse os balanços financeiros dos Escoteiros de Minas Gerais'
         })
       }
     },
     beforeRouteEnter (to, from, next) {
       documentsService.get({type: 'balance'}).then((response) => {
         next((vm) => {
-          vm.files = response.body
+          vm.files = response.body.documents
           vm.$emit('updateHead')
         })
       })
