@@ -2,7 +2,7 @@
   div.news-content
     div.container.container-responsive.main-container.columns
       div.column.is-7.content-container
-        h2.title.is-2 {{news.title}}
+        h1.title.is-2 {{news.title}}
         div.news-image-container
           img(:src="news.image | imgSrc")
         div.news-content-container

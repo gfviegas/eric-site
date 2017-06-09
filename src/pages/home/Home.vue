@@ -33,15 +33,15 @@
     div.parallax.hero
       article.hero-body
         div.container.has-text-centered
-          h2.subtitle.is-3 Melhor Possível! Sempre Alerta! Servir!
+          h1.subtitle.is-3 Melhor Possível! Sempre Alerta! Servir!
     div.about
       div.columns.container.container-responsive
         div.column.is-7.columns
           div.column
-            h1.title.is-2 Um minuto sobre...
-            p.content ... o preparo da tradicional receita escoteira "Ovo no Espeto"! Confira!
+            h2.title.is-2 Um minuto sobre...
+            p.content ... o que é e como foi o AEROCampo 2017, realizado no parque de material aeronáutico de Lagoa Santa/MG! Confira!
         div.column.is-6.right-column
-          iframe( width="100%" height="300" src="https://www.youtube.com/embed/vEhdmvp2DLI" frameborder="0" allowfullscreen)
+          iframe( width="100%" height="300" src="https://youtu.be/RTxJ1IJapvA" frameborder="0" allowfullscreen)
           //- video(controls)
           //-   source(v-bind:src="youtubeUrl('https://www.youtube.com/watch?v=vEhdmvp2DLI')" type="video/mp4")
     //- div.events
