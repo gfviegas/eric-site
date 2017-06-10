@@ -4,6 +4,8 @@ import FormsHome from './home/FormsHome.vue'
 import Badges from './badges/Badges.vue'
 import Sower from './sower/Sower.vue'
 import Rewards from './rewards/Rewards.vue'
+import Book from './book/Book.vue'
+import Level from './level/Level.vue'
 import Success from './success/Success.vue'
 import Tracker from './tracker/Tracker.vue'
 
@@ -42,6 +44,22 @@ const routes = {
         breadcrumb: 'Solicitações / Condecorações e Recompensas'
       },
       component: Rewards
+    },
+    {
+      path: 'nivel',
+      name: 'formsLevel',
+      meta: {
+        breadcrumb: 'Solicitações / Nível'
+      },
+      component: Level
+    },
+    {
+      path: 'caderno-projeto',
+      name: 'formsBook',
+      meta: {
+        breadcrumb: 'Solicitações / Caderno - Projeto'
+      },
+      component: Book
     },
     {
       path: 'sucesso/:id',

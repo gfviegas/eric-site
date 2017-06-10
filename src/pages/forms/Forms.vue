@@ -19,6 +19,8 @@
                   router-link(exact)(:to="{name: 'formsBadges'}") Distintivos Especiais
                   router-link(exact)(:to="{name: 'formsSower'}") Distintivo de Semeador
                   router-link(exact)(:to="{name: 'formsRewards'}") Condecorações e Recompensas
+                  router-link(exact)(:to="{name: 'formsLevel'}") Solicitação de Nível
+                  router-link(exact)(:to="{name: 'formsBook'}") Caderno IM / Projeto
               p.menu-label Consultar
               ul.menu-list
                 li
