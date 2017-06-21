@@ -49,7 +49,7 @@ export default {
   @import '~assets/sass/config.sass'
   footer
     padding: 0!important
-    background: #1b6c96 !important
+    background: $darken-blue !important
 
     *
       +mobile

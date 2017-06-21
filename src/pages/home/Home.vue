@@ -1,6 +1,6 @@
 <template lang="pug">
   main
-    div.home-banner.hero
+    article.home-banner.hero
       article.hero-body.columns
         section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
           h3.is-3.subtitle "A criança não aprende o que os mais velhos dizem,
@@ -8,7 +8,7 @@
           h3.is-3.subtitle Baden Powell
       div.hero-foot
         breadcrumb
-    div.news(v-if="news && news.length")
+    article.news(v-if="news && news.length")
       div.columns.container.container-responsive
         div.column.is-7.columns
           div.column
@@ -30,20 +30,27 @@
               new-highlight(:data="news[i]")
             router-link(:to="{ name: 'newsList' }")
               more-button(c-class="is-primary") Saiba +
-    div.parallax.hero
+    article.parallax.hero
       article.hero-body
         div.container.has-text-centered
           h1.subtitle.is-3 Melhor Possível! Sempre Alerta! Servir!
-    div.about
+    article.about
       div.columns.container.container-responsive
         div.column.is-7.columns
           div.column
             h2.title.is-2 Um minuto sobre...
-            p.content ... o que é e como foi o AEROCampo 2017, realizado no parque de material aeronáutico de Lagoa Santa/MG! Confira!
+            p.content ...  o Curso Avançado Escotista em Ribeirão das Neves/MG, Região Metropolitana de Belo Horizonte. Confira!
         div.column.is-6.right-column
-          iframe( width="100%" height="300" src="https://www.youtube.com/embed/RTxJ1IJapvA" frameborder="0" allowfullscreen)
-          //- video(controls)
-          //-   source(v-bind:src="youtubeUrl('https://www.youtube.com/watch?v=vEhdmvp2DLI')" type="video/mp4")
+          iframe( width="100%" height="300" src="https://www.youtube.com/embed/3UNjdDuvK20" frameborder="0" allowfullscreen)
+    article.fixed-post(v-if="fixedNews && fixedNews.title")
+      div.columns.container.container-responsive
+        div.column.is-3.right-column
+          figure.image.is-square
+            img(:src="fixedNews.image | imgSrc")
+        div.column.is-9.columns
+          div.column
+            h2.title.is-2 {{fixedNews.title}}
+            p.content(v-html="fixedNews.content")
     //- div.events
     //-   div.columns.container.container-responsive
     //-     div.column.columns
@@ -86,6 +93,8 @@
   import newsService from '../../services/news'
   import { getSeoTitle, getSeoMeta } from '../../services/seo'
 
+  const FIXED_NEWS = '591f14b1f51239070e13eea2'
+
   export default {
     components: {
       'more-button': MoreButton,
@@ -105,6 +114,7 @@
     },
     data () {
       return {
+        fixedNews: {},
         news: [],
         msg: 'Stuff'
       }
@@ -121,12 +131,16 @@
       newsService.get({page: 1, limit: 4}).then((response) => {
         vm.news = response.body.news
       })
+      newsService.find(FIXED_NEWS).then((response) => {
+        vm.fixedNews = response.body
+      })
     }
   }
 </script>
 
 <style scoped lang="sass">
   @import '~assets/sass/config.sass'
+
   // HOME BANNER
   .home-banner
     background-blend-mode: multiply
@@ -154,7 +168,7 @@
       text-align: justify
       padding-bottom: 1rem
     padding-top: 1rem
-    background: #f6fce6
+    background: lighten($primary, 47%)
     .new-content
       .content
         overflow: hidden
@@ -194,8 +208,26 @@
       padding-bottom: 2rem
     padding-top: 2rem
     background: $warning
-    .title
-      color: #faedbd
+    .title, .content
+      color: darken($warning, 25%)
+    .right-column
+      +desktop
+        padding-left: 2rem
+      button
+        margin-top: 2rem
+        margin-bottom: 1rem
+  // FIXED POST SECTION
+  .fixed-post
+    border-top: 3px solid lighten($darken-blue, 20%)
+    padding-bottom: 7rem
+    text-align: left
+    +desktop
+      text-align: justify
+      padding-bottom: 2rem
+    padding-top: 2rem
+    background: darken($darken-blue, 10%)
+    .title, .content
+      color: lighten($darken-blue, 55%)
     .right-column
       +desktop
         padding-left: 2rem
