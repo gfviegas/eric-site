@@ -4,7 +4,7 @@ const init = () => {
   OneSignal.push(['init', {
     appId: `${process.env.ONE_SIGNAL_APP_ID}`,
     allowLocalhostAsSecureOrigin: true,
-    autoRegister: true,
+    autoRegister: false,
     notifyButton: {
       enable: false
     },
@@ -13,9 +13,9 @@ const init = () => {
       message: 'Você agora receberá notificações de nossas notícias!'
     },
     promptOptions: {
-      actionMessage: 'Receba notificações sobre nossas novidades!',
+      actionMessage: 'Fique por dentro de nossas novidades e receba nossas notificações!!',
       acceptButtonText: 'Permitir',
-      cancelButtonText: 'Não, obrigado(a)'
+      cancelButtonText: 'Cancelar'
     }
   }])
 }
@@ -29,7 +29,7 @@ const prompt = () => {
         console.log('Push notifications are enabled!')
       } else {
         console.log('Push notifications are not enabled yet.')
-        OneSignal.showHttpPermissionRequest()
+        OneSignal.showHttpPrompt()
       }
     })
   })
