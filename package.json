@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "bulma": "^0.3.0",
+    "copy-webpack-plugin": "^4.0.1",
     "mini-toastr": "^0.6.5",
     "moment": "^2.17.1",
     "pug": "^2.0.0-beta6",

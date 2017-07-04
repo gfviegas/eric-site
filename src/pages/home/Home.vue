@@ -92,6 +92,7 @@
   import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import newsService from '../../services/news'
   import { getSeoTitle, getSeoMeta } from '../../services/seo'
+  import OneSignal from '../../services/onesignal'
 
   const FIXED_NEWS = '591f14b1f51239070e13eea2'
 
@@ -128,6 +129,9 @@
           }, 1500)
         }
       })
+
+      OneSignal.prompt()
+
       newsService.get({page: 1, limit: 4}).then((response) => {
         vm.news = response.body.news
       })

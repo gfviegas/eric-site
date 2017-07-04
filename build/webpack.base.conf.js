@@ -78,7 +78,7 @@ module.exports = {
       },
       {
         test: /\.mp4$/,
-        loader: 'file',
+        loader: 'file'
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,

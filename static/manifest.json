@@ -1,0 +1,7 @@
+{
+  "name": "Escoteiros de Minas Gerais",
+  "short_name": "Escoteiros MG",
+  "start_url": "/",
+  "display": "standalone",
+  "gcm_sender_id": "482941778795"
+}

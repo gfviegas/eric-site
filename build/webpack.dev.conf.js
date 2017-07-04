@@ -1,3 +1,4 @@
+var path = require('path')
 var config = require('../config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
@@ -5,6 +6,7 @@ var utils = require('./utils')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrors = require('friendly-errors-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
@@ -31,6 +33,12 @@ module.exports = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
-    new FriendlyErrors()
+    new FriendlyErrors(),
+    new CopyWebpackPlugin([
+      {from: path.join(__dirname, '../OneSignalSDKWorker.js'), to: path.join(__dirname, '../dist/OneSignalSDKWorker.js')},
+      {from: path.join(__dirname, '../OneSignalSDKUpdaterWorker.js'), to: path.join(__dirname, '../dist/OneSignalSDKUpdaterWorker.js')}
+    ], {
+      copyUnmodified: true
+    })
   ]
 })

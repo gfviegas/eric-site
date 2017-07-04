@@ -18,6 +18,8 @@ import { routes as ContatRoutes } from './pages/contact'
 import { routes as NewsletterRoutes } from './pages/newsletter'
 import { routes as DocumentsRoutes } from './pages/documents'
 
+import OneSignal from './services/onesignal'
+
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import SocialSharing from 'vue-social-sharing'
@@ -129,6 +131,7 @@ const app = new Vue({
     miniToastr.setIcon('error', 'i', {'class': 'fa fa-warning'})
     miniToastr.setIcon('info', 'i', {'class': 'fa fa-info-circle'})
     miniToastr.setIcon('success', 'i', {'class': 'fa fa-check-circle-o'})
+    OneSignal.init()
   }
 })
 
