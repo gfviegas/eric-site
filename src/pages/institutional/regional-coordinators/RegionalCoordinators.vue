@@ -10,7 +10,7 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Luis Gustavo Fogaroli
+                  h4.title.is-4 Anderson Vieira de Oliveira
               div.content
                 p Gestão de Adultos
                 p Email: #[a(href="mailto:gestao.adultos@escoteirosmg.org.br") gestao.adultos@escoteirosmg.org.br]
