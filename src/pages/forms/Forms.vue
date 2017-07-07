@@ -8,8 +8,8 @@
         breadcrumb
     div.scout-container
       div.container.container-responsive.main-container
-        h2.title.is-2 Solicitações
-        h4.subtitle.is-4 Solicite ceritificados, recompensas e distintivos
+        h1.title.is-2 Solicitações
+        h2.subtitle.is-4 Solicite ceritificados, recompensas e distintivos
         div.columns.is-multiline
           div.column.is-2.menu-column
             aside.menu

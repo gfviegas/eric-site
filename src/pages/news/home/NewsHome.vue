@@ -1,6 +1,6 @@
 <template lang="pug">
   div.news-home
-    div.container.container-responsive.main-container(v-if="news && news.length")
+    div.container.container-responsive.main-container
       h2.title.is-2 Notícias
       h4.subtitle.is-4 Fique por dentro das novidades
       form.search-container(v-on:submit.prevent="applySearch()")
@@ -22,6 +22,12 @@
             div.news-date
               small {{newsContent.created_at | moment("L")}}
             p.news-preview {{ newsContent.content | stripped }}
+      article.media(v-if="!news.length")
+        div.media-left
+          img(:src="'news/not_found.png' | imgSrc")
+        div.media-content
+          div.content
+            h4.title.is-4 Nenhuma notícia encontrada.
       div.pagination-container
         pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
     br

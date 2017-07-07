@@ -18,5 +18,29 @@ export default {
   },
   update (id, data) {
     return app.$http.patch(API_URL + `events/${id}`, data)
+  },
+  getSections () {
+    return [
+      'Ramo Lobinho',
+      'Ramo Escoteiro',
+      'Ramo Sênior',
+      'Ramo Pioneiro',
+      'Adultos'
+    ]
+  },
+  getHosts () {
+    return [
+      'Regional',
+      'Distrital',
+      'Nacional',
+      'Internacional',
+      'Outro'
+    ]
+  },
+  getQueryBySlug (slug) {
+    if (this.getSections().includes(slug)) return {key: 'section', value: slug}
+    if (this.getHosts().includes(slug)) return {key: 'hosts', value: slug}
+
+    return false
   }
 }

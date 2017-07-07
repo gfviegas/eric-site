@@ -17,7 +17,7 @@ const routes = {
     },
     {
       path: ':slug',
-      name: 'eventsContent',
+      name: 'eventContent',
       meta: {
         breadcrumb: 'Eventos / Evento'
       },
