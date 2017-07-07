@@ -13,6 +13,7 @@ import Home from './pages/home/Home.vue'
 import { routes as InstitutionalRoutes } from './pages/institutional'
 import { routes as ScoutRoutes } from './pages/scout'
 import { routes as NewsRoutes } from './pages/news'
+import { routes as EventsRoutes } from './pages/events'
 import { routes as FormsRoutes } from './pages/forms'
 import { routes as ContatRoutes } from './pages/contact'
 import { routes as NewsletterRoutes } from './pages/newsletter'
@@ -67,6 +68,7 @@ const routes = [
   },
   {...InstitutionalRoutes},
   {...NewsRoutes},
+  {...EventsRoutes},
   {...ScoutRoutes},
   {...FormsRoutes},
   {...ContatRoutes},
