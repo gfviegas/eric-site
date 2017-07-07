@@ -1,19 +1,32 @@
 <template lang="pug">
-  div.news-content
+  div.event-content
     div.container.container-responsive.main-container.columns
       div.column.is-7.content-container
-        h1.title.is-2 {{news.title}}
-        div.news-image-container
-          img(:src="news.image | imgSrc")
-        div.news-content-container
-          div.news-content(v-html="news.content")
-      div.column.is-5.more-container
-        div.info-news-container
-          div.info-row
-            span.description Visualizações
-            span.title.is-2 {{news.views}}
+        h1.title.is-2 {{event.title}}
+        div.event-image-container
+          img(:src="event.image | imgSrc")
+        div.event-content-container
+          h2.title.is-3 Dados do Evento
+          p #[strong Local:] {{event.place}}
+          p #[strong Data de Início:] {{event.start_date | moment('DD/MM/YYYY')}}
+          p(v-if="event.end_date") #[strong Data de Encerramento:] {{event.end_date | moment('DD/MM/YYYY')}}
+          p(v-if="event.section") #[strong Seções Participantes:] {{event.section.join(', ')}}
+          p(v-if="event.hosts") #[strong Organização:] {{event.hosts.join(', ')}}
+          hr
 
+          h2.title.is-3 Descrição:
+          div.event-content(v-html="event.description")
+          hr
+          h2.title.is-3#arquivos Arquivos Disponíveis:
+          ul
+            li(v-for="file in event.files" v-bind:key="file._id")
+              a(target="BLANK" @click="trackFileClick(file.title)" v-bind:href="file.path") {{file.title}}
+              p.help #[strong Atualizado:] {{file.updated_at | moment("LLLL")}}
+      div.column.is-5.more-container
+        div.info-event-container
           //- SHARE
+          div.info-row
+            span.description {{event.start_date | moment('from', 'now')}}
           div.info-row
             span.description Compartilhar
           social-sharing(:url="urlToShare" inline-template v-on:social_shares_click="test")
@@ -34,7 +47,7 @@
                     img(src="~assets/images/social-icons/mail.png")
 
           //- COMMENTS
-          section(v-show="news.fb_post_id")
+          section(v-show="event.fb_post_id")
             div.info-row
               span.description Comentários
               //- span.title.is-2
@@ -43,35 +56,35 @@
 </template>
 
 <script>
-  import newsService from '../../../services/news'
+  import eventsService from '../../../services/events'
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
 
   export default {
     head: {
       title () {
-        return getSeoTitle(this.news.title)
+        return getSeoTitle(this.event.title)
       },
       meta () {
         return getSeoMeta({
-          title: this.news.title,
-          description: this.news.content.replace(/(<([^>]+)>)/ig, '').substring(0, 147) + '...',
-          image: `${process.env.IMG_URL}${this.news.image}`
+          title: this.event.title,
+          description: this.event.description.replace(/(<([^>]+)>)/ig, '').substring(0, 147) + '...',
+          image: `${process.env.IMG_URL}${this.event.image}`
         })
       }
     },
     data () {
       return {
-        news: {
-          id: '',
-          content: '',
-          created_at: '',
-          image: '',
-          last_updated_by: '',
-          slug: '',
+        event: {
           title: '',
-          updated_at: '',
-          fb_post_id: null,
-          views: 0
+          slug: '',
+          description: '',
+          place: '',
+          hosts: [],
+          image: '',
+          start_date: '',
+          end_date: '',
+          sections: [],
+          files: [{path: '', title: ''}]
         }
       }
     },
@@ -86,7 +99,7 @@
       },
       shareEmail () {
         const urlToShare = window.location.href
-        const emailUrl = `mailto:?subject=Notícia da REMG&body=Confira essa notícia da Região Escoteira de Minas Gerais: ${urlToShare}`
+        const emailUrl = `mailto:?subject=Evento no site da REMG&body=Confira esse evento no site da Região Escoteira de Minas Gerais: ${urlToShare}`
         window.open(emailUrl)
       }
     },
@@ -107,13 +120,10 @@
       })
     },
     beforeRouteEnter (to, from, next) {
-      newsService.find(to.params.slug).then((response) => {
+      eventsService.find(to.params.slug).then((response) => {
         next((vm) => {
-          vm.news = response.body
+          vm.event = response.body
           vm.$emit('updateHead')
-          newsService.updateViews(vm.news._id, {views: (vm.news.views + 1)}).then((response) => {
-            vm.news.views += 1
-          })
         })
       })
     }
@@ -122,20 +132,22 @@
 
 <style scoped lang="sass">
   @import '~assets/sass/config.sass'
-  .news-content
+  .event-content
     .content-container
       > .title
         text-transform: uppercase
         color: $verde-limao
       padding-top: 2rem
       padding-bottom: 1rem
-      .news-content-container
+      .title.is-3
+        text-transform: uppercase
+      .event-content-container
         padding-top: 2rem
-    .news-image-container
+    .event-image-container
       width: 100%
       display: flex
       justify-content: center
-    .info-news-container
+    .info-event-container
       padding: 0 2rem
       .info-row
         margin-top: 2rem

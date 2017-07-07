@@ -5969,6 +5969,10 @@ vue-bulma-pagination@^1.1.4:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/vue-bulma-pagination/-/vue-bulma-pagination-1.2.0.tgz#2771ffe8f7869e93020fee9057931faa346d141b"
 
+vue-bulma-switch@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/vue-bulma-switch/-/vue-bulma-switch-1.0.4.tgz#52e99de5b57baa39b1bc80240b3ae5d43f53c522"
+
 vue-head@^2.0.10:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/vue-head/-/vue-head-2.0.11.tgz#d063b87d99e8898002c4967f558f82437b23f72a"

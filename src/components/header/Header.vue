@@ -13,6 +13,7 @@
       div.nav-right.nav-menu(v-bind:class="{ 'is-active': menuShown }")
         div.row
           div.menu-custom
+            router-link.nav-item(:to="{name: 'contactHome'}") Contato
             a.nav-item(href="http://sigue.escoteiros.org.br/siguejovem/" target="BLANK") Meu Sigue
             a.nav-item(href="http://sigue.escoteiros.org.br/sigue/" target="BLANK") Sigue Administrativo
             a.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
@@ -21,10 +22,10 @@
             router-link.is-tab.nav-item(exact v-bind:to="{name: 'home'}") Home
             router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional
             router-link.is-tab.nav-item(:to="{name: 'newsList'}") Notícias
+            router-link.is-tab.nav-item(:to="{name: 'eventsList'}") Eventos
             router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
             router-link.is-tab.nav-item(:to="{name: 'documentsHome'}") Documentos
             router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Solicitações
-            router-link.is-tab.nav-item(:to="{name: 'contactHome'}") Contato
           a.is-hidden-desktop.close-menu
             span.icon(@click="toggleMenuVisibility()")
               i.fa.fa-times

@@ -27,6 +27,9 @@
             ul.menu-list
               li(v-for="host in hosts")
                 a(@click="selectFilter(host, 'hosts')") {{host}}
+          aside.menu.switch-menu
+            p.menu-label Mostrar eventos passados
+            vb-switch.switch-input(type="success" size="medium" v-model="showPastEvents")
         div.column.is-9.content-column
 
           form.search-container(v-on:submit.prevent="applySearch()")
@@ -50,8 +53,8 @@
                   p
                     span.icon
                       i.fa.fa-calendar
-                    span &nbsp; {{eventContent.start_date}}&nbsp;
-                    span(v-if="eventContent.end_date") - {{eventContent.end_date}}
+                    span &nbsp; {{eventContent.start_date | moment('DD/MM/YYYY')}}&nbsp;
+                    span(v-if="eventContent.end_date") - {{eventContent.end_date | moment('DD/MM/YYYY')}}
                   p
                     span.icon
                       i.fa.fa-map-marker
@@ -76,15 +79,18 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   import eventsService from '../../../services/events'
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
   import Pagination from '../../../components/pagination/Pagination'
+  import VbSwitch from 'vue-bulma-switch'
 
   const EVENTS_PER_PAGE = 10
 
   export default {
     components: {
-      Pagination
+      Pagination,
+      VbSwitch
     },
     head: {
       title () {
@@ -99,6 +105,7 @@
     },
     data () {
       return {
+        showPastEvents: false,
         selected: {section: [], hosts: []},
         sections: eventsService.getSections(),
         hosts: eventsService.getHosts(),
@@ -123,7 +130,7 @@
       const page = this.$route.query.page || 1
       const filter = this.$route.query.filter || ''
 
-      eventsService.get({page: page, limit: EVENTS_PER_PAGE, filter: filter}).then((response) => {
+      eventsService.get({page: page, limit: EVENTS_PER_PAGE, start_date: Vue.moment().format('DD/MM/YYYY'), filter: filter}).then((response) => {
         vm.events = response.body.events
         vm.currentPage = response.body.meta.currentPage
         vm.limit = response.body.meta.limit
@@ -132,16 +139,14 @@
       })
     },
     methods: {
-      applySearch (reapplyFilters) {
+      applySearch () {
         this.page = 1
         let query = {page: this.page, limit: EVENTS_PER_PAGE}
 
+        if (!this.showPastEvents) query['start_date'] = Vue.moment().format('DD/MM/YYYY')
         if (this.filter.length) query['filter'] = this.filter
-
-        if (reapplyFilters) {
-          if (this.selected.section.length) query['section'] = this.selected.section
-          if (this.selected.hosts.length) query['hosts'] = this.selected.hosts
-        }
+        if (this.selected.section.length) query['section'] = this.selected.section
+        if (this.selected.hosts.length) query['hosts'] = this.selected.hosts
 
         eventsService.get(query).then((response) => {
           this.events = response.body.events
@@ -154,18 +159,28 @@
         let selected = this.selected[type]
         if (!selected.includes(element)) {
           selected.push(element)
-          this.applySearch(true)
+          this.applySearch()
         }
       },
       unselectFilter (type, index) {
         this.selected[type].splice(index, 1)
-        this.applySearch(true)
+        this.applySearch()
       }
     },
     watch: {
+      showPastEvents () {
+        this.applySearch()
+      },
       '$route' (to, from) {
         const page = to.query.page
-        eventsService.get({page: page, limit: EVENTS_PER_PAGE, filter: this.filter}).then((response) => {
+        let query = {page: page, limit: EVENTS_PER_PAGE}
+
+        if (!this.showPastEvents) query['start_date'] = Vue.moment().format('DD/MM/YYYY')
+        if (this.filter.length) query['filter'] = this.filter
+        if (this.selected.section.length) query['section'] = this.selected.section
+        if (this.selected.hosts.length) query['hosts'] = this.selected.hosts
+
+        eventsService.get(query).then((response) => {
           this.events = response.body.events
           this.currentPage = response.body.meta.currentPage
           this.limit = response.body.meta.limit
@@ -182,6 +197,8 @@
     .main-container
       .menu-selected
         padding-bottom: 5rem
+      .switch-menu
+        padding-top: 1rem
       .search-container
         padding: 2rem 0
         input

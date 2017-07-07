@@ -23,6 +23,7 @@
     "vue": "^2.1.0",
     "vue-analytics": "^3.2.0",
     "vue-bulma-pagination": "^1.1.4",
+    "vue-bulma-switch": "^1.0.4",
     "vue-head": "^2.0.10",
     "vue-inputmask": "^0.1.2",
     "vue-moment": "^2.0.2",
