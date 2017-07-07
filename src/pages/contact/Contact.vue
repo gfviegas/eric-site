@@ -16,7 +16,7 @@
               p.menu-label Formulários
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'contactHome'}") Formulário de Contato
+                  router-link(exact v-bind:to="{name: 'contactHome'}") Formulário de Contato
           div.column.is-9.content-column
             transition(name="fade")
               router-view

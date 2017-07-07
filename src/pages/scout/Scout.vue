@@ -16,15 +16,15 @@
               p.menu-label Sobre
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'scoutHome'}") O Escotismo
-                  router-link(exact)(:to="{name: 'scoutValues'}") Valores
-                  router-link(exact)(:to="{name: 'scoutMethod'}") Método Escoteiro
-                  router-link(exact)(:to="{name: 'scoutModality'}") Modalidades
+                  router-link(exact v-bind:to="{name: 'scoutHome'}") O Escotismo
+                  router-link(exact v-bind:to="{name: 'scoutValues'}") Valores
+                  router-link(exact v-bind:to="{name: 'scoutMethod'}") Método Escoteiro
+                  router-link(exact v-bind:to="{name: 'scoutModality'}") Modalidades
               p.menu-label Personagens
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'scoutBP'}") Baden-Powell
-                  router-link(exact)(:to="{name: 'scoutCaio'}") Caio Vianna Martins
+                  router-link(exact v-bind:to="{name: 'scoutBP'}") Baden-Powell
+                  router-link(exact v-bind:to="{name: 'scoutCaio'}") Caio Vianna Martins
           div.column.is-9.content-column
             transition(name="fade")
               router-view

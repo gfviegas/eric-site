@@ -16,12 +16,12 @@
               p.menu-label Documentos
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'documentsBooks'}") Apostilas
-                  //- router-link(exact)(:to="{name: 'documentsNotices'}") Editais
-                  router-link(exact)(:to="{name: 'documentsResolutions'}") Resoluções
-                  router-link(exact)(:to="{name: 'documentsOrdinances'}") Portarias
-                  router-link(exact)(:to="{name: 'documentsBalances'}") Balanços Financeiros
-                  router-link(exact)(:to="{name: 'documentsMinutes'}") Atas
+                  router-link(exact v-bind:to="{name: 'documentsBooks'}") Apostilas
+                  //- router-link(exact v-bind:to="{name: 'documentsNotices'}") Editais
+                  router-link(exact v-bind:to="{name: 'documentsResolutions'}") Resoluções
+                  router-link(exact v-bind:to="{name: 'documentsOrdinances'}") Portarias
+                  router-link(exact v-bind:to="{name: 'documentsBalances'}") Balanços Financeiros
+                  router-link(exact v-bind:to="{name: 'documentsMinutes'}") Atas
           div.column.is-9.content-column
             transition(name="fade")
               router-view

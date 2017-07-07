@@ -16,15 +16,15 @@
               p.menu-label Solicitar
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'formsBadges'}") Distintivos Especiais
-                  router-link(exact)(:to="{name: 'formsSower'}") Distintivo de Semeador
-                  router-link(exact)(:to="{name: 'formsRewards'}") Condecorações e Recompensas
-                  router-link(exact)(:to="{name: 'formsLevel'}") Solicitação de Nível
-                  router-link(exact)(:to="{name: 'formsBook'}") Caderno IM / Projeto
+                  router-link(exact v-bind:to="{name: 'formsBadges'}") Distintivos Especiais
+                  router-link(exact v-bind:to="{name: 'formsSower'}") Distintivo de Semeador
+                  router-link(exact v-bind:to="{name: 'formsRewards'}") Condecorações e Recompensas
+                  router-link(exact v-bind:to="{name: 'formsLevel'}") Solicitação de Nível
+                  router-link(exact v-bind:to="{name: 'formsBook'}") Caderno IM / Projeto
               p.menu-label Consultar
               ul.menu-list
                 li
-                  router-link(exact)(:to="{name: 'formsTracker'}") Acompanhar Solicitação
+                  router-link(exact v-bind:to="{name: 'formsTracker'}") Acompanhar Solicitação
           div.column.is-9.content-column
             transition(name="fade")
               router-view

@@ -122,7 +122,7 @@
               div.content
                 | O Serviço Profissional Escoteiro visa a dar apoio a tarefa junto a Diretoria Regional bem como aos Grupos Escoteiros da Região de Minas Gerais.
 
-    //- #[router-link(exact)(:to="{name: 'regionalBoard'}")  Diretoria Regional]
+    //- #[router-link(exact v-bind:to="{name: 'regionalBoard'}")  Diretoria Regional]
     br
 </template>
 

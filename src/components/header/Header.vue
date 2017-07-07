@@ -18,7 +18,7 @@
             a.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
             a.nav-item(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
           div.menu-custom
-            router-link.is-tab.nav-item(exact)(:to="{name: 'home'}") Home
+            router-link.is-tab.nav-item(exact v-bind:to="{name: 'home'}") Home
             router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional
             router-link.is-tab.nav-item(:to="{name: 'newsList'}") Notícias
             router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
