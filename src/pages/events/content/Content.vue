@@ -89,8 +89,11 @@
       }
     },
     methods: {
+      trackFileClick (fileName) {
+        return this.$ga.trackEvent('EventFile', 'Click', 'Title', fileName)
+      },
       test () {
-        console.log('teste')
+        return this.$ga.trackEvent('Event', 'Click', 'Share', this.event._id)
       },
       shareTumblr () {
         const urlToShare = window.location.href
