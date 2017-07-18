@@ -136,7 +136,8 @@
       display: flex
       justify-content: center
     .info-news-container
-      padding: 0 2rem
+      +desktop
+        padding: 0 2rem
       .info-row
         margin-top: 2rem
         margin-bottom: 1rem
