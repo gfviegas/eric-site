@@ -1,7 +1,7 @@
 // @flow weak
 /* eslint-disable no-console */
 
-const DEBUG = true;
+const DEBUG = false;
 
 // When the user navigates to your site,
 // the browser tries to redownload the script file that defined the service

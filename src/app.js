@@ -19,6 +19,7 @@ import { routes as ContatRoutes } from './pages/contact'
 import { routes as NewsletterRoutes } from './pages/newsletter'
 import { routes as DocumentsRoutes } from './pages/documents'
 
+import sw from './services/worker'
 import OneSignal from './services/onesignal'
 
 import VueRouter from 'vue-router'
@@ -33,6 +34,8 @@ import VueAnalytics from 'vue-analytics'
 
 const moment = require('moment')
 require('moment/locale/pt-br')
+
+sw.register()
 
 Vue.use(require('vue-moment'), {
   moment
