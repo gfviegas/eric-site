@@ -2,9 +2,13 @@
   div.scout-method
     div.content-block
       h3.title.is-3 SOLICITAÇÃO DE NÍVEL
-      p Faça uma solicitação de nível
 
-      form(name="badgeForm" v-on:submit.prevent="submitForm()" novalidate)
+      div.box
+        p As solicitações de nível estão temporariamente suspensas no Site Oficial da Região Escoteira de Minas Gerais.
+        p Por enquanto, envie suas solicitações no email: #[a(href="mailto:gestao.adultos@escoteirosmg.org.br") gestao.adultos@escoteirosmg.org.br]
+
+      form(name="badgeForm" v-on:submit.prevent="submitForm()" novalidate v-if="false")
+        p Faça uma solicitação de nível
         p.subtitle.is-5.has-text-centered Dados do Assesor Pessoal
         div.field.control.is-horizontal
           div.control-label
