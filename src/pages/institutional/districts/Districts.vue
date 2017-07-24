@@ -10,10 +10,10 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Manoel Benedito da Silva
+                  h4.title.is-4 Rosana Correa Ramos
               div.content
                 p Sul de Minas
-                p Email: #[a(href="mailto:manoelpedro.148@hotmail.com") manoelpedro.148@hotmail.com]
+                p Email: #[a(href="mailto:macson@pocos-net.com.br") macson@pocos-net.com.br]
         div.column.is-4
           div.card
             div.card-content
