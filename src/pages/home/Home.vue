@@ -79,7 +79,7 @@
   import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import newsService from '../../services/news'
   import eventsService from '../../services/events'
-  import { getSeoTitle, getSeoMeta } from '../../services/seo'
+  import { getSeoScript, getSeoTitle, getSeoMeta } from '../../services/seo'
   import OneSignal from '../../services/onesignal'
 
   const FIXED_NEWS = '591f14b1f51239070e13eea2'
@@ -99,6 +99,9 @@
           title: 'Home - Escoteiros de Minas',
           description: 'Site Oficial dos Escoteiros de Minas Gerais'
         })
+      },
+      script: () => {
+        return getSeoScript({})
       }
     },
     data () {

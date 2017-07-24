@@ -57,7 +57,7 @@
 
 <script>
   import eventsService from '../../../services/events'
-  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import { getSeoScript, getSeoTitle, getSeoMeta } from '../../../services/seo'
 
   export default {
     head: {
@@ -70,6 +70,9 @@
           description: this.event.description.replace(/(<([^>]+)>)/ig, '').substring(0, 147) + '...',
           image: `${process.env.IMG_URL}${this.event.image}`
         })
+      },
+      script () {
+        return getSeoScript('event', this.event)
       }
     },
     data () {

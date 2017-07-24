@@ -81,7 +81,7 @@
 <script>
   import Vue from 'vue'
   import eventsService from '../../../services/events'
-  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import { getSeoScript, getSeoTitle, getSeoMeta } from '../../../services/seo'
   import Pagination from '../../../components/pagination/Pagination'
   import VbSwitch from 'vue-bulma-switch'
 
@@ -101,6 +101,9 @@
           title: 'Eventos - Escoteiros de Minas',
           description: 'Confira os eventos da Região Escoteira de Minas Gerais.'
         })
+      },
+      script () {
+        return getSeoScript('list-events', this.events)
       }
     },
     data () {
@@ -119,8 +122,10 @@
     },
     created () {
       const vm = this
+      let count = 0
       this.$on('okHead', () => {
-        if (!window.prerenderReady) {
+        count++
+        if (!window.prerenderReady && count === 2) {
           setTimeout(() => {
             window.prerenderReady = true
           }, 1500)
@@ -136,6 +141,7 @@
         vm.limit = response.body.meta.limit
         vm.totalPages = response.body.meta.totalPages
         vm.filter = filter
+        vm.$emit('updateHead')
       })
     },
     methods: {

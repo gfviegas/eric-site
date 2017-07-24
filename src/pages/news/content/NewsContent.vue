@@ -44,7 +44,7 @@
 
 <script>
   import newsService from '../../../services/news'
-  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import { getSeoScript, getSeoTitle, getSeoMeta } from '../../../services/seo'
 
   export default {
     head: {
@@ -57,6 +57,9 @@
           description: this.news.content.replace(/(<([^>]+)>)/ig, '').substring(0, 147) + '...',
           image: `${process.env.IMG_URL}${this.news.image}`
         })
+      },
+      script () {
+        return getSeoScript('news', this.news)
       }
     },
     data () {

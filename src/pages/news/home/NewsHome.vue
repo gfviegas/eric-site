@@ -35,7 +35,7 @@
 
 <script>
   import newsService from '../../../services/news'
-  import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import { getSeoScript, getSeoTitle, getSeoMeta } from '../../../services/seo'
   import Pagination from '../../../components/pagination/Pagination'
 
   const NEWS_PER_PAGE = 4
@@ -53,6 +53,9 @@
           title: 'Notícias - Escoteiros de Minas',
           description: 'Confira as notícias da Região Escoteira de Minas Gerais.'
         })
+      },
+      script () {
+        return getSeoScript('list-news', this.news)
       }
     },
     data () {
@@ -67,8 +70,11 @@
     },
     created () {
       const vm = this
+      let count = 0
+
       this.$on('okHead', () => {
-        if (!window.prerenderReady) {
+        count++
+        if (!window.prerenderReady && count === 2) {
           setTimeout(() => {
             window.prerenderReady = true
           }, 1500)
@@ -84,6 +90,8 @@
         vm.limit = response.body.meta.limit
         vm.totalPages = response.body.meta.totalPages
         vm.filter = filter
+
+        vm.$emit('updateHead')
       })
     },
     methods: {
