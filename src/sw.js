@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 
 const DEBUG = false;
+const API_URL = 'https://api.uebmg.org.br';
 
 const debugLog = (message) => {
   if (DEBUG) {
@@ -99,6 +100,12 @@ self.addEventListener('fetch', (event) => {
   }
 
   const requestUrl = new URL(request.url);
+
+  // Ignore different origins like Google and FB
+  console.log(API_URL, requestUrl.origin)
+  if (requestUrl.origin !== location.origin || requestUrl.origin !== API_URL) {
+    return;
+  }
 
   let requestResource = (requestUrl.origin !== location.origin) ? new Request(request.url, {mode: 'cors-with-forced-preflight'}) : request
 
