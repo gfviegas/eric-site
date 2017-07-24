@@ -62,25 +62,10 @@
                   router-link(:to="{ name: 'eventContent', params: { slug: event.slug }}") {{event.title}}
                 div.hero-foot
                   p {{event.place}}
-                  p {{event.start_date | moment('DD/MM/YYYY')}}
-                  p(v-if="event.end_date") {{event.end_date | moment('DD/MM/YYYY')}}
+                  p
+                    span {{event.start_date | moment('DD/MM/YYYY')}}
+                    span(v-if="event.end_date") - {{event.end_date | moment('DD/MM/YYYY')}}
                   router-link(:to="{ name: 'eventContent', params: { slug: event.slug }}").more-icon: | +
-              //- div.column.is-narrow.hero
-              //-   div.hero-head
-              //-     p Módulo Interpretação Livro Jungle
-              //-   div.hero-foot
-              //-     p Itajubá
-              //-     p Sul de Minas
-              //-     p 21 a 22 fevereiro 2017
-              //-     span.more-icon: | +
-              //- div.column.is-narrow.hero
-              //-   div.hero-head
-              //-     p Módulo Aperfeiçoamento em Didática
-              //-   div.hero-foot
-              //-     p Belo Horizonte
-              //-     p Metropolitano
-              //-     p 21 a 22 fevereiro 2017
-              //-     span.more-icon: | +
     shortcuts
 </template>
 
@@ -276,6 +261,7 @@
         margin-bottom: 2rem
       +desktop
         width: 22rem
+        margin: 0 0.5rem
         margin-bottom: 0
       .hero-head
         text-align: left
