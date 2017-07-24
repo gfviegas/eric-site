@@ -155,6 +155,7 @@
         .then(() => {
           let data = {
             type: 'sower',
+            resume: this.form.resume,
             reward: this.form.reward,
             author: this.author,
             gifted: this.gifted
