@@ -3,6 +3,12 @@
 
 const DEBUG = false;
 
+const debugLog = (message) => {
+  if (DEBUG) {
+    console.log(`%c ${message}`, `background:#222222;color:#CC0000`)
+  }
+}
+
 // When the user navigates to your site,
 // the browser tries to redownload the script file that defined the service
 // worker in the background.
@@ -26,9 +32,8 @@ assetsToCache = assetsToCache.map((path) => {
 // When the service worker is first added to a computer.
 self.addEventListener('install', (event) => {
   // Perform install steps.
-  if (DEBUG) {
-    console.log('[SW] Install event');
-  }
+
+  debugLog('[SW] Install event');
 
   // Add core website files to cache during serviceworker installation.
   event.waitUntil(
@@ -38,9 +43,7 @@ self.addEventListener('install', (event) => {
         return cache.addAll(assetsToCache);
       })
       .then(() => {
-        if (DEBUG) {
-          console.log('Cached assets: main', assetsToCache);
-        }
+        debugLog('[SW] Cached assets: main', assetsToCache);
       })
       .catch((error) => {
         console.error(error);
@@ -51,9 +54,8 @@ self.addEventListener('install', (event) => {
 
 // After the install event.
 self.addEventListener('activate', (event) => {
-  if (DEBUG) {
-    console.log('[SW] Activate event');
-  }
+
+  debugLog('[SW] Activate event');
 
   // Clean the caches
   event.waitUntil(
@@ -92,49 +94,38 @@ self.addEventListener('fetch', (event) => {
 
   // Ignore not GET request.
   if (request.method !== 'GET') {
-    if (DEBUG) {
-      console.log(`[SW] Ignore non GET request ${request.method}`);
-    }
+    debugLog(`[SW] Ignore non GET request ${request.method}`);
     return;
   }
 
   const requestUrl = new URL(request.url);
 
-  // Ignore difference origin.
-  if (requestUrl.origin !== location.origin) {
-    if (DEBUG) {
-      console.log(`[SW] Ignore difference origin ${requestUrl.origin}`);
-    }
-    return;
-  }
+  let requestResource = (requestUrl.origin !== location.origin) ? new Request(request.url, {mode: 'cors-with-forced-preflight'}) : request
 
-  const resource = global.caches.match(request)
+  const resource = global.caches.match(requestResource)
     .then((response) => {
       if (response) {
-        if (DEBUG) {
-          console.log(`[SW] fetch URL ${requestUrl.href} from cache`);
+        // Different Origin only when offline
+        if (requestUrl.origin !== location.origin) {
+          if (!navigator.onLine) {
+            debugLog(`[SW] External resource ${requestUrl.href} from cache because we're offline`);
+            return response;
+          }
+        } else {
+          debugLog(`[SW] fetch URL ${requestUrl.href} from cache`);
+          return response;
         }
-
-        return response;
       }
 
       // Load and cache known assets.
-      return fetch(request)
+      return fetch(requestResource)
         .then((responseNetwork) => {
           if (!responseNetwork || !responseNetwork.ok) {
-            if (DEBUG) {
-              console.log(`[SW] URL [${
-                requestUrl.toString()}] wrong responseNetwork: ${
-                responseNetwork.status} ${responseNetwork.type}`);
-            }
-
+            debugLog(`[SW] URL [${requestUrl.toString()}] wrong responseNetwork: ${responseNetwork.status} ${responseNetwork.type}`);
             return responseNetwork;
           }
 
-          if (DEBUG) {
-            console.log(`[SW] URL ${requestUrl.href} fetched`);
-          }
-
+          debugLog(`[SW] URL ${requestUrl.href} fetched`);
           const responseCache = responseNetwork.clone();
 
           global.caches
@@ -143,9 +134,7 @@ self.addEventListener('fetch', (event) => {
               return cache.put(request, responseCache);
             })
             .then(() => {
-              if (DEBUG) {
-                console.log(`[SW] Cache asset: ${requestUrl.href}`);
-              }
+              debugLog(`[SW] Cache asset: ${requestUrl.href}`);
             });
 
           return responseNetwork;

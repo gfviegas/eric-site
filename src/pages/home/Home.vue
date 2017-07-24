@@ -39,9 +39,9 @@
         div.column.is-7.columns
           div.column
             h2.title.is-2 Um minuto sobre...
-            p.content ...  o Curso Avançado Escotista em Ribeirão das Neves/MG, Região Metropolitana de Belo Horizonte. Confira!
+            p.content ...  o Escotismo Mineiro na PUCTV. Confira!
         div.column.is-6.right-column
-          iframe( width="100%" height="300" src="https://www.youtube.com/embed/3UNjdDuvK20" frameborder="0" allowfullscreen)
+          iframe( width="100%" height="300" src="https://www.youtube.com/embed/VhT87EQgYcc" frameborder="0" allowfullscreen)
     article.fixed-post(v-if="fixedNews && fixedNews.title")
       div.columns.container.container-responsive
         div.column.is-3.right-column
@@ -51,46 +51,49 @@
           div.column
             h2.title.is-2 {{fixedNews.title}}
             p.content(v-html="fixedNews.content")
-    //- div.events
-    //-   div.columns.container.container-responsive
-    //-     div.column.columns
-    //-       div.column
-    //-         h1.title.is-2 Cursos e Eventos de Formação
-    //-         div.column.columns.justify-center
-    //-           div.column.is-narrow.hero
-    //-             div.hero-head
-    //-               p Curso Preliminar
-    //-             div.hero-foot
-    //-               p teófilo otoni
-    //-               p vale do aço
-    //-               p 21 a 22 fevereiro 2017
-    //-               span.more-icon: | +
-    //-           div.column.is-narrow.hero
-    //-             div.hero-head
-    //-               p Módulo Interpretação Livro Jungle
-    //-             div.hero-foot
-    //-               p Itajubá
-    //-               p Sul de Minas
-    //-               p 21 a 22 fevereiro 2017
-    //-               span.more-icon: | +
-    //-           div.column.is-narrow.hero
-    //-             div.hero-head
-    //-               p Módulo Aperfeiçoamento em Didática
-    //-             div.hero-foot
-    //-               p Belo Horizonte
-    //-               p Metropolitano
-    //-               p 21 a 22 fevereiro 2017
-    //-               span.more-icon: | +
+    div.events
+      div.columns.container.container-responsive
+        div.column.columns
+          div.column
+            h1.title.is-2 Próximos Eventos
+            div.column.columns.justify-center
+              div.column.is-narrow.hero(v-for="event in events" v-bind:style="getEventBackground(event.image)")
+                div.hero-head
+                  router-link(:to="{ name: 'eventContent', params: { slug: event.slug }}") {{event.title}}
+                div.hero-foot
+                  p {{event.place}}
+                  p {{event.start_date | moment('DD/MM/YYYY')}}
+                  p(v-if="event.end_date") {{event.end_date | moment('DD/MM/YYYY')}}
+                  router-link(:to="{ name: 'eventContent', params: { slug: event.slug }}").more-icon: | +
+              //- div.column.is-narrow.hero
+              //-   div.hero-head
+              //-     p Módulo Interpretação Livro Jungle
+              //-   div.hero-foot
+              //-     p Itajubá
+              //-     p Sul de Minas
+              //-     p 21 a 22 fevereiro 2017
+              //-     span.more-icon: | +
+              //- div.column.is-narrow.hero
+              //-   div.hero-head
+              //-     p Módulo Aperfeiçoamento em Didática
+              //-   div.hero-foot
+              //-     p Belo Horizonte
+              //-     p Metropolitano
+              //-     p 21 a 22 fevereiro 2017
+              //-     span.more-icon: | +
     shortcuts
 </template>
 
 <script>
+  import Vue from 'vue'
+
   import MoreButton from '../../components/buttons/MoreButton.vue'
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
   import Shortcuts from '../../components/shortcuts/Shortcuts.vue'
   import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import newsService from '../../services/news'
+  import eventsService from '../../services/events'
   import { getSeoTitle, getSeoMeta } from '../../services/seo'
   import OneSignal from '../../services/onesignal'
 
@@ -117,7 +120,15 @@
       return {
         fixedNews: {},
         news: [],
+        events: [],
         msg: 'Stuff'
+      }
+    },
+    methods: {
+      getEventBackground (image) {
+        return {
+          backgroundImage: `url('${process.env.IMG_URL}${image}')`
+        }
       }
     },
     created () {
@@ -134,6 +145,9 @@
 
       newsService.get({page: 1, limit: 4}).then((response) => {
         vm.news = response.body.news
+      })
+      eventsService.get({page: 1, limit: 4, start_date: Vue.moment().format('DD/MM/YYYY')}).then((response) => {
+        vm.events = response.body.events
       })
       newsService.find(FIXED_NEWS).then((response) => {
         vm.fixedNews = response.body
@@ -252,7 +266,6 @@
     .hero
       background-blend-mode: multiply
       background-color: rgba(0, 0, 0, 0.6)
-      background-image: url('~assets/images/event-bg.jpg')
       background-position: center
       background-size: cover
       text-transform: uppercase
@@ -280,6 +293,7 @@
         background-color: rgba(27, 143, 150, 0.7)
         color: white
         line-height: 1.25rem
+        text-transform: none
         .more-icon
           position: relative
           bottom: 1rem

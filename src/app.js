@@ -3,6 +3,7 @@ import './assets/sass/config.sass'
 import Vue from 'vue'
 
 // COMPONENTS
+import OfflineHelper from './components/offline-helper/OfflineHelper.vue'
 import Header from './components/header/Header.vue'
 import Footer from './components/footer/Footer.vue'
 
@@ -15,7 +16,7 @@ import { routes as ScoutRoutes } from './pages/scout'
 import { routes as NewsRoutes } from './pages/news'
 import { routes as EventsRoutes } from './pages/events'
 import { routes as FormsRoutes } from './pages/forms'
-import { routes as ContatRoutes } from './pages/contact'
+import { routes as ContactRoutes } from './pages/contact'
 import { routes as NewsletterRoutes } from './pages/newsletter'
 import { routes as DocumentsRoutes } from './pages/documents'
 
@@ -74,7 +75,7 @@ const routes = [
   {...EventsRoutes},
   {...ScoutRoutes},
   {...FormsRoutes},
-  {...ContatRoutes},
+  {...ContactRoutes},
   {...NewsletterRoutes},
   {...DocumentsRoutes},
 
@@ -122,6 +123,7 @@ Vue.use(VueNotifications, options)
 const app = new Vue({
   router,
   components: {
+    'offline-helper': OfflineHelper,
     'main-header': Header,
     'main-footer': Footer
   },

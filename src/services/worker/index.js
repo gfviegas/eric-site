@@ -6,7 +6,7 @@ const register = () => {
   if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
     navigator.serviceWorker.register(SCRIPT_URL)
     .then((registration) => {
-      console.log('[SW R] Service Worker registred!')
+      console.log('%c [SW] Service Worker Registred!', 'color:#ff0000')
     })
     .catch(error => {
       console.log(error)

@@ -21,15 +21,17 @@ const init = () => {
 }
 
 const prompt = () => {
-  console.log('Prompt called!')
   OneSignal.push(() => {
     OneSignal.isPushNotificationsEnabled()
     .then((isEnabled) => {
       if (isEnabled) {
-        console.log('Push notifications are enabled!')
+        console.log('[OS] Enabled.')
       } else {
-        console.log('Push notifications are not enabled yet.')
+        console.log('[OS] Not enabled.')
         OneSignal.showHttpPrompt()
+        .catch(() => {
+          console.log('[OS] Already prompted.')
+        })
       }
     })
   })
