@@ -29,7 +29,7 @@
                 div.media-content
                   h4.title.is-4 Ricardo Calderaro Iorio
               div.content
-                p Email: #[a(href="mailto:ricardo672@gmail.com") ricardo672@gmail.com]
+                p Email: #[a(href="mailto:ricardocalderaroiorio@gmail.com") ricardocalderaroiorio@gmail.com]
 </template>
 
 <script>

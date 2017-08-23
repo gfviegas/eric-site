@@ -24,19 +24,19 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Bruna Caroline Dias de Andrade
+                  h4.title.is-4 Poliane Maria Cirilo Coelho
               div.content
-                p Coordenadora 2015-2017
-                p Email: #[a(href="mailto:b.runadeandrade@hotmail.com") b.runadeandrade@hotmail.com]
+                p Coordenadora 2017-2019
+                p Email: #[a(href="mailto:polianecoelho@gmail.com") polianecoelho@gmail.com]
         div.column.is-4
           div.card
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Wesley de Assis Costa
+                  h4.title.is-4 Patrícia Adriely Gomes
               div.content
-                p Comunicador 2015-2017
-                p Email: #[a(href="mailto:wesleyassis9@souescoteiro.org.br") wesleyassis9@souescoteiro.org.br]
+                p Comunicadora 2017-2018
+                p Email: #[a(href="mailto:patriciaadriely@yahoo.com.br") patriciaadriely@yahoo.com.br]
         div.column.is-4
           div.card
             div.card-content

@@ -39,9 +39,9 @@
         div.column.is-7.columns
           div.column
             h2.title.is-2 Um minuto sobre...
-            p.content ...  o Escotismo Mineiro na PUCTV. Confira!
+            p.content ...  o contingente mineiro na Conferência Escoteira Mundial 2017. Confira!
         div.column.is-6.right-column
-          iframe( width="100%" height="300" src="https://www.youtube.com/embed/VhT87EQgYcc" frameborder="0" allowfullscreen)
+          iframe( width="100%" height="300" src="https://www.youtube.com/embed/qXwYIDvj0ik" frameborder="0" allowfullscreen)
     article.fixed-post(v-if="fixedNews && fixedNews.title")
       div.columns.container.container-responsive
         div.column.is-3.right-column
