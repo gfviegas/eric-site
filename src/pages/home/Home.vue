@@ -39,9 +39,9 @@
         div.column.is-7.columns
           div.column
             h2.title.is-2 Um minuto sobre...
-            p.content ...  o Grande Jogo Pioneiro - Distrito Metropolitano MG. Confira!
+            p.content ...  o Acampamento Metropolitano de Lobinhos, em Contagem - Distrito Metropolitano MG. Confira!
         div.column.is-6.right-column
-          iframe( width="100%" height="300" src="https://www.youtube.com/embed/fkkzPsJ01QE" frameborder="0" allowfullscreen)
+          iframe( width="100%" height="300" src="https://www.youtube.com/embed/RfELr0tb4hQ" frameborder="0" allowfullscreen)
     article.fixed-post(v-if="fixedNews && fixedNews.title")
       div.columns.container.container-responsive
         div.column.is-3.right-column
