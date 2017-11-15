@@ -20,8 +20,10 @@ import { routes as ContactRoutes } from './pages/contact'
 import { routes as NewsletterRoutes } from './pages/newsletter'
 import { routes as DocumentsRoutes } from './pages/documents'
 
+// SERVICES
 import sw from './services/worker'
 import OneSignal from './services/onesignal'
+import SetupService from './services/setup'
 
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
@@ -139,6 +141,7 @@ const app = new Vue({
     miniToastr.setIcon('info', 'i', {'class': 'fa fa-info-circle'})
     miniToastr.setIcon('success', 'i', {'class': 'fa fa-check-circle-o'})
     OneSignal.init()
+    SetupService.query()
   }
 })
 
