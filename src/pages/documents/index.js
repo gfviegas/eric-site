@@ -7,6 +7,7 @@ import Resolutions from './resolutions/Resolutions.vue'
 import Ordinances from './ordinances/Ordinances.vue'
 import Notices from './notices/Notices.vue'
 import Books from './books/Books.vue'
+import Others from './others/Others.vue'
 
 const routes = {
   path: '/documentos',
@@ -67,6 +68,14 @@ const routes = {
         breadcrumb: 'Documentos / Apostilas'
       },
       component: Books
+    },
+    {
+      path: 'outros',
+      name: 'documentsOthers',
+      meta: {
+        breadcrumb: 'Documentos / Outros'
+      },
+      component: Others
     }
   ]
 }

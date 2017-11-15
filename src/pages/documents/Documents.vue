@@ -22,6 +22,7 @@
                   router-link(exact v-bind:to="{name: 'documentsOrdinances'}") Portarias
                   router-link(exact v-bind:to="{name: 'documentsBalances'}") Balanços Financeiros
                   router-link(exact v-bind:to="{name: 'documentsMinutes'}") Atas
+                  router-link(exact v-bind:to="{name: 'documentsOthers'}") Outros
           div.column.is-9.content-column
             transition(name="fade")
               router-view
