@@ -34,14 +34,14 @@
       article.hero-body
         div.container.has-text-centered
           h1.subtitle.is-3 Melhor Possível! Sempre Alerta! Servir!
-    article.about
+    article.about(v-show="setup.video_url && setup.video_url.length")
       div.columns.container.container-responsive
         div.column.is-7.columns
           div.column
             h2.title.is-2 Um minuto sobre...
-            p.content ...  o Acampamento Metropolitano de Lobinhos, em Contagem - Distrito Metropolitano MG. Confira!
+            p.content {{setup.video_description}}
         div.column.is-6.right-column
-          iframe( width="100%" height="300" src="https://www.youtube.com/embed/RfELr0tb4hQ" frameborder="0" allowfullscreen)
+          iframe( width="100%" height="300" v-bind:src="setup.video_url" frameborder="0" allowfullscreen)
     article.fixed-post(v-if="fixedNews && fixedNews.title")
       div.columns.container.container-responsive
         div.column.is-3.right-column
@@ -79,6 +79,7 @@
   import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import newsService from '../../services/news'
   import eventsService from '../../services/events'
+  import setupService from '../../services/setup'
   import { getSeoScript, getSeoTitle, getSeoMeta } from '../../services/seo'
   import OneSignal from '../../services/onesignal'
 
@@ -106,6 +107,9 @@
     },
     data () {
       return {
+        setup: {
+          video_url: null, video_description: null
+        },
         fixedNews: {},
         news: [],
         events: [],
@@ -139,6 +143,12 @@
       })
       newsService.find(FIXED_NEWS).then((response) => {
         vm.fixedNews = response.body
+      })
+
+      setupService.query()
+      .then(response => {
+        this.setup.video_url = response.video_url
+        this.setup.video_description = response.video_description
       })
     }
   }
