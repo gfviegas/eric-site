@@ -6,6 +6,7 @@ import Vue from 'vue'
 import OfflineHelper from './components/offline-helper/OfflineHelper.vue'
 import Header from './components/header/Header.vue'
 import Footer from './components/footer/Footer.vue'
+import Banner from './components/banner/Banner.vue'
 
 // GENERAL PAGES
 import Home from './pages/home/Home.vue'
@@ -127,7 +128,8 @@ const app = new Vue({
   components: {
     'offline-helper': OfflineHelper,
     'main-header': Header,
-    'main-footer': Footer
+    'main-footer': Footer,
+    'banner': Banner
   },
   mounted () {
     const types = {

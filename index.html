@@ -29,6 +29,7 @@
       <transition name="fade">
         <router-view></router-view>
       </transition>
+      <banner></banner>
       <offline-helper></offline-helper>
       <main-footer></main-footer>
     </div>
@@ -42,10 +43,6 @@
           appId: '733130976862743',
           xfbml: true,
           version: 'v2.8'
-        });
-
-        FB.getLoginStatus((response) => {
-          console.log('FB STATUS => ', response);
         });
       };
 

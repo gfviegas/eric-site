@@ -24,7 +24,7 @@ var devMiddleware = require('webpack-dev-middleware')(compiler, {
   quiet: true,
   watchOptions: {
     ignore: /node_modules/,
-    poll: false
+    poll: 4000
   }
 })
 
