@@ -83,8 +83,6 @@
   import { getSeoScript, getSeoTitle, getSeoMeta } from '../../services/seo'
   import OneSignal from '../../services/onesignal'
 
-  const FIXED_NEWS = '591f14b1f51239070e13eea2'
-
   export default {
     components: {
       'more-button': MoreButton,
@@ -141,14 +139,14 @@
       eventsService.get({page: 1, limit: 4, start_date: Vue.moment().format('DD/MM/YYYY')}).then((response) => {
         vm.events = response.body.events
       })
-      newsService.find(FIXED_NEWS).then((response) => {
-        vm.fixedNews = response.body
-      })
 
       setupService.query()
       .then(response => {
         this.setup.video_url = response.video_url
         this.setup.video_description = response.video_description
+        newsService.find(response.fixed_news).then((response) => {
+          vm.fixedNews = response.body
+        })
       })
     }
   }
