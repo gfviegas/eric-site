@@ -10,28 +10,28 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Rosana Correa Ramos
+                  h4.title.is-4 Luís Gustavo Fogaroli
               div.content
                 p Sul de Minas
-                p Email: #[a(href="mailto:macson@pocos-net.com.br") macson@pocos-net.com.br]
+                p Email: #[a(href="mailto:fogaroli@pocos-net.com.br") fogaroli@pocos-net.com.br]
         div.column.is-4
           div.card
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Carlos Vinícius de Souza Coelho
+                  h4.title.is-4 Marilza Camargos Sousa
               div.content
                 p Alto Paranaíba e Noroeste de Minas
-                p Email: #[a(href="mailto:carlos_coelho2005@hotmail.com") carlos_coelho2005@hotmail.com]
+                p Email: #[a(href="mailto:marilza_camargos@yahoo.com.br") marilza_camargos@yahoo.com.br]
         div.column.is-4
           div.card
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Geraldo Celestino Filho
+                  h4.title.is-4 Rodrigo Fernando Bianchi
               div.content
                 p Estrada Real
-                p Email: #[a(href="mailto:g.celestino@veloxmail.com.br") g.celestino@veloxmail.com.br]
+                p Email: #[a(href="mailto:rfbufop@gmail.com") rfbufop@gmail.com]
         div.column.is-4
           div.card
             div.card-content
@@ -46,10 +46,10 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Ricardo Machado
+                  h4.title.is-4 Cleyton Luciano Campos
               div.content
                 p Metropolitano
-                p Email: #[a(href="mailto:ricardo.machado@escoteirosmg.org.br") ricardo.machado@escoteirosmg.org.br]
+                p Email: #[a(href="mailto:jabutimil@hotmail.com") jabutimil@hotmail.com]
         div.column.is-4
           div.card
             div.card-content
@@ -73,10 +73,10 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Paulo Henrique Matos dos Anjos
+                  h4.title.is-4 Gustavo Ribas de Aguiar
               div.content
                 p Vale do Aço
-                p Email: #[a(href="mailto:phanjosgv@gmail.com") phanjosgv@gmail.com]
+                p Email: #[a(href="mailto:gustavoribas.br@gmail.com") gustavoribas.br@gmail.com]
         div.column.is-4
           div.card
             div.card-content
@@ -91,19 +91,19 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Aluísio Márcio Marsolla
+                  h4.title.is-4 Frederico César Napoleão
               div.content
                 p Zona da Mata Leste
-                p Email: #[a(href="mailto:marcio.marsolla70@gmail.com") marcio.marsolla70@gmail.com]
+                p Email: #[a(href="mailto:frednapoleao@gmail.com") frednapoleao@gmail.com]
         div.column.is-4
           div.card
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Ana Paulina De Abreu
+                  h4.title.is-4 Thiago Neves Silva
               div.content
                 p Norte de Minas
-                p Email: #[a(href="mailto:anaabreu@gmail.com") anaabreu@gmail.com]
+                p Email: #[a(href="mailto:thiagoturismo@gmail.com") thiagoturismo@gmail.com]
         div.column.is-4
           div.card
             div.card-content
@@ -118,10 +118,10 @@
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Haroldo Alves da Silva
+                  h4.title.is-4 Jeovane Cascais Santos
               div.content
                 p Serra da Canastra
-                p Email: #[a(href="mailto:haroldoalvess@yahoo.com.br") haroldoalvess@yahoo.com.br]
+                p Email: #[a(href="mailto:mkasov@hotmail.com") mkasov@hotmail.com]
 </template>
 
 <script>
