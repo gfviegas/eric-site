@@ -23,7 +23,7 @@
       div.content.has-text-centered.container.column
         p.
           Copyright 2017 © ESCOTEIROS DE MINAS - Todos os direitos reservados #[br]
-          #[small Desenvolvido por #[a(@click="trackClick('Developer Link')" href="http://gfviegas.com" target="BLANK") Gustavo Viegas]]
+          #[small Desenvolvido por #[a(@click="trackClick('Developer Link')" href="https://gfviegas.com" target="BLANK") Gustavo Viegas]]
 </template>
 
 <script>
