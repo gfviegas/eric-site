@@ -20,7 +20,6 @@
     methods: {
       changeRoute () {
         if (this.route) {
-          console.log(this.route)
           router.push(this.route)
         } else if (this.url) {
           window.open(this.url, '_BLANK')

@@ -10,6 +10,7 @@ import Banner from './components/banner/Banner.vue'
 
 // GENERAL PAGES
 import Home from './pages/home/Home.vue'
+import CommunicationSeminar from './pages/hotsites/CommunicationSeminar.vue'
 
 // INSTITUTIONAL
 import { routes as InstitutionalRoutes } from './pages/institutional'
@@ -72,6 +73,14 @@ const routes = [
       breadcrumb: 'Home'
     },
     component: Home
+  },
+  {
+    path: '/seminario-comunicacao',
+    name: 'communicationSeminar',
+    meta: {
+      breadcrumb: 'Home'
+    },
+    component: CommunicationSeminar
   },
   {...InstitutionalRoutes},
   {...NewsRoutes},
