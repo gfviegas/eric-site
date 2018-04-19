@@ -17,7 +17,7 @@
               div.column.is-4.has-text-centered
                 figure.image.is-square
                   img(:src="news[0].image | imgSrc")
-              div.column.new-content
+              div.column.is-8.new-content
                 h5.subtitle.is-5 {{ news[0].title }}
                 p.content {{ news[0].content | stripped }}
                 router-link(:to="{ name: 'newsContent', params: { slug: news[0].slug }}")
