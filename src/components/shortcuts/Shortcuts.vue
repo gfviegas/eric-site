@@ -9,7 +9,7 @@ div.shortcuts
             p Documentos
             p Editais, apostilas e outros
           shortcut(c-class="is-verde-limao" icon="knot" v-bind:url="coursesCalendarUrl")
-            p Calendário de Formação de Adultos - 2017
+            p Calendário de Formação de Adultos - 2018
           shortcut(c-class="is-pink" icon="calendar" v-bind:url="calendarUrl")
             p Calendário de Eventos 2018
           shortcut(c-class="is-red" icon="letter" v-bind:route="{name: 'newsletterForm'}")
@@ -31,7 +31,7 @@ div.shortcuts
     data () {
       return {
         calendarUrl: `https://goo.gl/HAQtQS`,
-        coursesCalendarUrl: `${process.env.IMG_URL}files/calendario_cursos_2017.pdf`
+        coursesCalendarUrl: `https://drive.google.com/open?id=1oMnWcXhyHfnKlaEfIMfCHevNpvYUS-ru`
       }
     }
   }
