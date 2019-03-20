@@ -9,9 +9,9 @@ div.shortcuts
             p Documentos
             p Editais, apostilas e outros
           shortcut(c-class="is-verde-limao" icon="knot" v-bind:url="coursesCalendarUrl")
-            p Calendário de Formação de Adultos - 2018
+            p Calendário de Formação de Adultos - 2019
           shortcut(c-class="is-pink" icon="calendar" v-bind:url="calendarUrl")
-            p Calendário de Eventos 2018
+            p Calendário de Eventos 2019
           shortcut(c-class="is-red" icon="letter" v-bind:route="{name: 'newsletterForm'}")
             p Newsletter Regional
             p Informativo da Região Escoteira de Minas Gerais
@@ -30,8 +30,8 @@ div.shortcuts
     },
     data () {
       return {
-        calendarUrl: `https://goo.gl/HAQtQS`,
-        coursesCalendarUrl: `https://drive.google.com/open?id=1oMnWcXhyHfnKlaEfIMfCHevNpvYUS-ru`
+        calendarUrl: `https://drive.google.com/file/d/1WzYYVbJHUGzYg9JL0wz-wo0OeqEk4g8n/view`,
+        coursesCalendarUrl: `https://drive.google.com/file/d/15JSRp-1luEiHvEVi-eyR9jaf_FuK4eyA/view`
       }
     }
   }
