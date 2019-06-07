@@ -19,33 +19,16 @@
       br
       h3.title.is-3 Membros do Núcleo Regional de Jovens Líderes
       div.columns.is-multiline
-        div.column.is-4
+        div.column.is-4(v-for="(d,i) in data" v-bind:key="i")
           div.card
+            div.card-image
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Poliane Maria Cirilo Coelho
+                  h4.title.is-4 {{d.name.toUpperCase()}}
               div.content
-                p Coordenadora 2017-2019
-                p Email: #[a(href="mailto:polianecoelho@gmail.com") polianecoelho@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Patrícia Adriely Gomes
-              div.content
-                p Comunicadora 2017-2018
-                p Email: #[a(href="mailto:patriciaadriely@yahoo.com.br") patriciaadriely@yahoo.com.br]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Kamila Regina Santana
-              div.content
-                p Comunicadora 2016-2018
-                p Email: #[a(href="mailto:kamilinhasantana@hotmail.com") kamilinhasantana@hotmail.com]
+                p(v-if="d.role") {{d.role}}
+                p(v-if="d.email") Email: #[a(v-bind:href="`mailto:${d.email}`") {{d.email}}]
       br
       h3.title.is-3 Site da Rede Regional de Jovens Líderes
       div.content
@@ -54,8 +37,14 @@
 
 <script>
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import data from './data.json'
 
   export default {
+    data () {
+      return {
+        data: data.data
+      }
+    },
     head: {
       title: getSeoTitle('Jovens Líderes'),
       meta: () => {

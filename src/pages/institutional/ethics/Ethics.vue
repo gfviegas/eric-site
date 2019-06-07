@@ -6,36 +6,28 @@
       br
       h3.title.is-3 Membros da Comissão
       div.columns.is-multiline
-        div.column.is-4
+        div.column.is-4(v-for="(d,i) in data" v-bind:key="i")
           div.card
+            div.card-image
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Isabela Thais Silva de Andrade
+                  h4.title.is-4 {{d.name.toUpperCase()}}
               div.content
-                p Email: #[a(href="mailto:belinha.andrade@gmail.com") belinha.andrade@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Carlos Magno Torres
-              div.content
-                p Email: #[a(href="mailto:catrumano@yahoo.com.br") catrumano@yahoo.com.br]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Ricardo Calderaro Iorio
-              div.content
-                p Email: #[a(href="mailto:ricardocalderaroiorio@gmail.com") ricardocalderaroiorio@gmail.com]
+                p(v-if="d.role") {{d.role}}
+                p(v-if="d.email") Email: #[a(v-bind:href="`mailto:${d.email}`") {{d.email}}]
 </template>
 
 <script>
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import data from './data.json'
 
   export default {
+    data () {
+      return {
+        data: data.data
+      }
+    },
     head: {
       title: getSeoTitle('Comissão de Ética e Disciplina'),
       meta: () => {

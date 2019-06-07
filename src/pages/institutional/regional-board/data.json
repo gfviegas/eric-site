@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "name": "MARCOS MAGNO GOMIDE VIEIRA",
+      "role": "Diretor Presidente",
+      "email": "marcos.vieira@escoteirosmg.org.br"
+    },
+    {
+      "name": "ANDRÉ LUIZ CORREA GOMES",
+      "role": "Diretor Vice-Presidente",
+      "email": "andre.gomes@escoteirosmg.org.br"
+    },
+    {
+      "name": "NADINE MARTA MARQUES FRATESCHI",
+      "role": "Diretora Financeiro",
+      "email": "nadine.marta@hotmail.com "
+    },
+    {
+      "name": "LUCAS OLIVEIRA GODINHO",
+      "role": "Diretor de Gestão Institucional",
+      "email": "godinho@souescoteiro.org.br "
+    },
+    {
+      "name": "RODRIGO LUIS DA SILVA DUARTE MARTINS",
+      "role": "Diretor de Métodos Educativos",
+      "email": "rodrigo.martins@escoteirosmg.org.br"
+    }
+  ]
+}

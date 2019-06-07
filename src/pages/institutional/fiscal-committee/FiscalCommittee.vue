@@ -6,48 +6,28 @@
       br
       h3.title.is-3 Comissão Fiscal Corrente
       div.columns.is-multiline
-        div.column.is-4
+        div.column.is-4(v-for="(d,i) in data" v-bind:key="i")
           div.card
             div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Regis Moreira Pinto
+                  h4.title.is-4 {{d.name.toUpperCase()}}
               div.content
-                p Comissão Fiscal Regional - Titular
-                p Email: #[a(href="mailto:ch.regis7@yahoo.com.br") ch.regis7@yahoo.com.br]
-        div.column.is-4
-          div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Alexandre Gabriel de Assumpção
-              div.content
-                p Comissão Fiscal Regional - Titular
-                p Email: #[a(href="mailto:chefecaiuas@gmail.com") chefecaiuas@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-image
-              //- figure.image.is-3by2
-              //-   img(src="http://bulma.io/images/placeholders/480x320.png")
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Saulo Antônio dos Passos
-              div.content
-                p Comissão Fiscal Regional - Titular
-                p Email: #[a(href="mailto:contabilidade@passoscontabilidade.cnt.br") contabilidade@passoscontabilidade.cnt.br]
+                p(v-if="d.role") {{d.role}}
+                p(v-if="d.email") Email: #[a(v-bind:href="`mailto:${d.email}`") {{d.email}}]
 </template>
 
 <script>
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import data from './data.json'
 
   export default {
+    data () {
+      return {
+        data: data.data
+      }
+    },
     head: {
       title: getSeoTitle('Comitê Fiscal'),
       meta: () => {

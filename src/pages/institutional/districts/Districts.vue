@@ -5,129 +5,28 @@
       br
       h5.title.is-5 Conheça os diretores de cada Distrito Escoteiro de Minas Gerais
       div.columns.is-multiline
-        div.column.is-4
+        div.column.is-4(v-for="(d,i) in data" v-bind:key="i")
           div.card
+            div.card-image
             div.card-content
               div.media
                 div.media-content
-                  h4.title.is-4 Luís Gustavo Fogaroli
+                  h4.title.is-4 {{d.name.toUpperCase()}}
               div.content
-                p Sul de Minas
-                p Email: #[a(href="mailto:fogaroli@pocos-net.com.br") fogaroli@pocos-net.com.br]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Marilza Camargos Sousa
-              div.content
-                p Alto Paranaíba e Noroeste de Minas
-                p Email: #[a(href="mailto:marilza_camargos@yahoo.com.br") marilza_camargos@yahoo.com.br]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Rodrigo Fernando Bianchi
-              div.content
-                p Estrada Real
-                p Email: #[a(href="mailto:rfbufop@gmail.com") rfbufop@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Geraldo Mendes de Souza
-              div.content
-                p Lobo Guará
-                p Email: #[a(href="mailto:geraldomendesdesouza@yahoo.com.br") geraldomendesdesouza@yahoo.com.br]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Cleyton Luciano Campos
-              div.content
-                p Metropolitano
-                p Email: #[a(href="mailto:jabutimil@hotmail.com") jabutimil@hotmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Fábio Costa Lasmar
-              div.content
-                p Rio Grande
-                p Email: #[a(href="mailto:fabiocostalasmar@hotmail.com") fabiocostalasmar@hotmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Wagner Alves Leal
-              div.content
-                p Triângulo Mineiro
-                p Email: #[a(href="mailto:wagner00leal@gmail.com") wagner00leal@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Gustavo Ribas de Aguiar
-              div.content
-                p Vale do Aço
-                p Email: #[a(href="mailto:gustavoribas.br@gmail.com") gustavoribas.br@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Cláucio da Silva Mendes
-              div.content
-                p Zona da Mata
-                p Email: #[a(href="mailto:clauciomendes@gmail.com") clauciomendes@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Frederico César Napoleão
-              div.content
-                p Zona da Mata Leste
-                p Email: #[a(href="mailto:frednapoleao@gmail.com") frednapoleao@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Thiago Neves Silva
-              div.content
-                p Norte de Minas
-                p Email: #[a(href="mailto:thiagoturismo@gmail.com") thiagoturismo@gmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Maria Aparecida Santos Silva
-              div.content
-                p Centro-oeste
-                p Email: #[a(href="mailto:cidasantos-30@hotmail.com") cidasantos-30@hotmail.com]
-        div.column.is-4
-          div.card
-            div.card-content
-              div.media
-                div.media-content
-                  h4.title.is-4 Jeovane Cascais Santos
-              div.content
-                p Serra da Canastra
-                p Email: #[a(href="mailto:mkasov@hotmail.com") mkasov@hotmail.com]
+                p(v-if="d.role") {{d.role}}
+                p(v-if="d.email") Email: #[a(v-bind:href="`mailto:${d.email}`") {{d.email}}]
 </template>
 
 <script>
   import { getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import data from './data.json'
 
   export default {
+    data () {
+      return {
+        data: data.data
+      }
+    },
     head: {
       title: getSeoTitle('Diretores Distritais'),
       meta: () => {
