@@ -1,88 +1,96 @@
 <template lang="pug">
-  div.events-home
-    div.container.container-responsive.main-container
-      h1.title.is-2 Eventos
-      h2.subtitle.is-4 Fique por dentro dos próximos eventos
+  article.events
+    div.events-banner.hero
+      article.hero-body.columns
+        section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
+          h1.is-1.subtitle Eventos
+      div.hero-foot
+        breadcrumb
+    div.events-home
+      div.container.container-responsive.main-container
+        h1.title.is-2 Eventos
+        h2.subtitle.is-4 Fique por dentro dos próximos eventos
 
-      div.columns.is-multiline
-        div.column.is-2.menu-column
-          aside.menu.menu-selected
-            div(v-if="selected.section.length || selected.hosts.length")
-              p.menu-label Filtros selecionados
+        div.columns.is-multiline
+          div.column.is-2.menu-column
+            aside.menu.menu-selected
+              div(v-if="selected.section.length || selected.hosts.length")
+                p.menu-label Filtros selecionados
+                ul.menu-list
+                  li(v-for="(item, index) in selected.section")
+                    a(@click="unselectFilter('section', index)")
+                      span {{item}}
+                      span.delete.pull-right
+                  li(v-for="(item, index) in selected.hosts")
+                    a(@click="unselectFilter('hosts', index)")
+                      span {{item}}
+                      span.delete.pull-right
+            aside.menu
+              p.menu-label Por Seção
               ul.menu-list
-                li(v-for="(item, index) in selected.section")
-                  a(@click="unselectFilter('section', index)")
-                    span {{item}}
-                    span.delete.pull-right
-                li(v-for="(item, index) in selected.hosts")
-                  a(@click="unselectFilter('hosts', index)")
-                    span {{item}}
-                    span.delete.pull-right
-          aside.menu
-            p.menu-label Por Seção
-            ul.menu-list
-              li(v-for="section in sections")
-                a(@click="selectFilter(section, 'section')") {{section}}
-            p.menu-label Por Tipo
-            ul.menu-list
-              li(v-for="host in hosts")
-                a(@click="selectFilter(host, 'hosts')") {{host}}
-          aside.menu.switch-menu
-            p.menu-label Mostrar eventos passados
-            vb-switch.switch-input(type="success" size="medium" v-model="showPastEvents")
-        div.column.is-9.content-column
+                li(v-for="section in sections")
+                  a(@click="selectFilter(section, 'section')") {{section}}
+              p.menu-label Por Tipo
+              ul.menu-list
+                li(v-for="host in hosts")
+                  a(@click="selectFilter(host, 'hosts')") {{host}}
+            aside.menu.switch-menu
+              p.menu-label Mostrar eventos passados
+              vb-switch.switch-input(type="success" size="medium" v-model="showPastEvents")
+          div.column.is-9.content-column
 
-          form.search-container(v-on:submit.prevent="applySearch()")
-            p.control.has-addons
-              input.input(type="search" placeholder="Pesquisar" v-model="filter")
-              button.button.is-primary(type="submit")
-                span.icon
-                  i.fa.fa-search
-          //- div.pagination-container
-          //-   pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
-          article.media(v-for="eventContent in events")
-            div.media-left
-              router-link(:to="{ name: 'eventContent', params: { slug: eventContent.slug }}").image.is-square
-                img(:src="eventContent.image | imgSrc")
-            div.media-content
-              div.content
-                router-link(:to="{ name: 'eventContent', params: { slug: eventContent.slug }}")
-                  h4.title.is-4 {{eventContent.title}}
-                div.events-date
-                div.events-place
-                  p
-                    span.icon
-                      i.fa.fa-calendar
-                    span &nbsp; {{eventContent.start_date | moment('DD/MM/YYYY')}}&nbsp;
-                    span(v-if="eventContent.end_date") - {{eventContent.end_date | moment('DD/MM/YYYY')}}
-                  p
-                    span.icon
-                      i.fa.fa-map-marker
-                    span &nbsp; {{eventContent.place}}
-                  p
-                    span.icon
-                      i.fa.fa-users
-                    span &nbsp; {{eventContent.hosts.join(', ')}}
-                  p(v-if="eventContent.files.length")
-                    span.icon
-                      i.fa.fa-files-o
-                    span &nbsp; Arquivos disponíveis: {{eventContent.files.length}}.
-          article.media(v-if="!events.length")
-            div.media-left
-              img(:src="'news/not_found.png' | imgSrc")
-            div.media-content
-              div.content
-                h4.title.is-4 Nenhum evento encontrado.
-          div.pagination-container
-            pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
-    br
+            form.search-container(v-on:submit.prevent="applySearch()")
+              p.control.has-addons
+                input.input(type="search" placeholder="Pesquisar" v-model="filter")
+                button.button.is-primary(type="submit")
+                  span.icon
+                    i.fa.fa-search
+            //- div.pagination-container
+            //-   pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
+            article.media(v-for="eventContent in events")
+              div.media-left
+                router-link(:to="{ name: 'eventContent', params: { slug: eventContent.slug }}").image.is-square
+                  img(:src="eventContent.image | imgSrc")
+              div.media-content
+                div.content
+                  router-link(:to="{ name: 'eventContent', params: { slug: eventContent.slug }}")
+                    h4.title.is-4 {{eventContent.title}}
+                  div.events-date
+                  div.events-place
+                    p
+                      span.icon
+                        i.fa.fa-calendar
+                      span &nbsp; {{eventContent.start_date | moment('DD/MM/YYYY')}}&nbsp;
+                      span(v-if="eventContent.end_date") - {{eventContent.end_date | moment('DD/MM/YYYY')}}
+                    p
+                      span.icon
+                        i.fa.fa-map-marker
+                      span &nbsp; {{eventContent.place}}
+                    p
+                      span.icon
+                        i.fa.fa-users
+                      span &nbsp; {{eventContent.hosts.join(', ')}}
+                    p(v-if="eventContent.files.length")
+                      span.icon
+                        i.fa.fa-files-o
+                      span &nbsp; Arquivos disponíveis: {{eventContent.files.length}}.
+            article.media(v-if="!events.length")
+              div.media-left
+                img(:src="'news/not_found.png' | imgSrc")
+              div.media-content
+                div.content
+                  h4.title.is-4 Nenhum evento encontrado.
+            div.pagination-container
+              pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
+      br
 </template>
 
 <script>
   import Vue from 'vue'
+  import Breadcrumb from '../../../components/breadcrumb/Breadcrumb.vue'
+  import Pagination from '../../../components/pagination/Pagination'
   import eventsService from '../../../services/events'
   import { getSeoScript, getSeoTitle, getSeoMeta } from '../../../services/seo'
-  import Pagination from '../../../components/pagination/Pagination'
   import VbSwitch from 'vue-bulma-switch'
 
   const EVENTS_PER_PAGE = 10
@@ -90,6 +98,7 @@
   export default {
     components: {
       Pagination,
+      Breadcrumb,
       VbSwitch
     },
     head: {
@@ -199,6 +208,26 @@
 
 <style scoped lang="sass">
   @import '~assets/sass/common.sass'
+  // EVENTS BANNER
+  .events-banner
+    background-blend-mode: multiply
+    background-color: rgba(41, 0, 0, 0.68)
+    background-image: url('~assets/images/events-banner.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: 0 20%
+    .hero-body
+      padding-top: 12rem
+      min-height: 25rem
+      section.container
+        text-align: left
+      .subtitle
+        margin-bottom: 0px
+        color: white
+        text-transform: uppercase
+        font-family: 'Roboto'
+        font-weight: 300
+
   .events-home
     .main-container
       .menu-selected

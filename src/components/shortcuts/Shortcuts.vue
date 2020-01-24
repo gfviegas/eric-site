@@ -5,14 +5,14 @@ div.shortcuts
       div.column
         h1.title.is-3 Acesso Rápido
         div.column.columns.justify-center.shortcuts-column.is-multiline
-          shortcut(c-class="is-light-blue" icon="bookshelf" v-bind:route="{name: 'documentsHome'}")
+          shortcut(c-class="is-orange" icon="bookshelf" v-bind:route="{name: 'documentsHome'}")
             p Documentos
-            p Editais, apostilas e outros
-          shortcut(c-class="is-verde-limao" icon="knot" v-bind:url="coursesCalendarUrl")
-            p Calendário de Formação de Adultos - 2019
-          shortcut(c-class="is-pink" icon="calendar" v-bind:url="calendarUrl")
+            p Ofícios, Resoluções e outros
+          shortcut(c-class="is-green" icon="knot" v-bind:url="coursesCalendarUrl")
+            p Calendário de Cursos de Formação para Adultos - 2020
+          shortcut(c-class="is-dark-orange" icon="calendar" v-bind:url="calendarUrl")
             p Calendário de Eventos 2019
-          shortcut(c-class="is-red" icon="letter" v-bind:route="{name: 'newsletterForm'}")
+          shortcut(c-class="is-brown" icon="letter" v-bind:route="{name: 'newsletterForm'}")
             p Newsletter Regional
             p Informativo da Região Escoteira de Minas Gerais
           shortcut(c-class="is-dark-green" icon="people" url="http://www.escoteirocomorgulho.com.br/#six")
@@ -31,7 +31,7 @@ div.shortcuts
     data () {
       return {
         calendarUrl: `https://drive.google.com/file/d/1WzYYVbJHUGzYg9JL0wz-wo0OeqEk4g8n/view`,
-        coursesCalendarUrl: `https://drive.google.com/file/d/15JSRp-1luEiHvEVi-eyR9jaf_FuK4eyA/view`
+        coursesCalendarUrl: `https://drive.google.com/file/d/1dKAqZzLhlLBnXx1vdCWY-3onUcBLXMYJ/view`
       }
     }
   }

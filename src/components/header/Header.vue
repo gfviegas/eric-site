@@ -2,7 +2,7 @@
   header.my-nav.is-fullwidth
     nav.nav
       div.nav-left
-        a.nav-item.logo-item
+        router-link.nav-item.logo-item(:to="{name: 'home'}")
           img(src="~assets/images/logo.png" alt="Logo Escoteiros MG")
 
       span.nav-toggle(v-on:click="toggleMenuVisibility()")
@@ -12,20 +12,14 @@
 
       div.nav-right.nav-menu(v-bind:class="{ 'is-active': menuShown }")
         div.row
-          //- div.menu-custom
-          //-   router-link.nav-item(:to="{name: 'contactHome'}") Contato
-          //-   a.nav-item(href="http://paxtu.escoteiros.org.br/meupaxtu/" target="BLANK") Meu Paxtu
-          //-   a.nav-item(href="http://paxtu.escoteiros.org.br/paxtu/" target="BLANK") Paxtu Administrativo
-          //-   a.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
-          //-   a.nav-item(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
           div.menu-custom
-            router-link.is-tab.nav-item(exact v-bind:to="{name: 'home'}") Quem Somos
-            router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Informativos
-            router-link.is-tab.nav-item(:to="{name: 'newsList'}") Paxtu
-            router-link.is-tab.nav-item(:to="{name: 'eventsList'}") Solicitações
+            router-link.is-tab.nav-item(exact v-bind:to="{name: 'institutionalHome'}") Quem Somos
+            router-link.is-tab.nav-item(:to="{name: 'newsList'}") Informativos
+            a.is-tab.nav-item(href="http://paxtu.escoteiros.org.br/meupaxtu/" target="BLANK") Paxtu
+            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Solicitações
             router-link.is-tab.nav-item(:to="{name: 'documentsHome'}") Documentos
-            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Contato
-            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Webmail
+            router-link.is-tab.nav-item(:to="{name: 'contactHome'}") Contato
+            a.is-tab.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
           a.is-hidden-desktop.close-menu
             span.icon(@click="toggleMenuVisibility()")
               i.fa.fa-times
@@ -58,7 +52,6 @@ export default {
 <style scoped lang="sass">
   @import '~assets/sass/common'
   .my-nav
-    position: absolute
     width: 100%
     background: transparent
     nav

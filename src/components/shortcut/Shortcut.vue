@@ -49,8 +49,14 @@
       display: flex
 
     // COLORS
-    &.is-light-blue
-      background: #77b3d4
+    &.is-orange
+      background: #fbb040
+    &.is-brown
+      background: #954a2d
+    &.is-dark-orange
+      background: #ef5023
+    &.is-green
+      background: #aac84c
     &.is-verde-limao
       background: $verde-limao
     &.is-pink
@@ -58,7 +64,7 @@
     &.is-red
       background: #da5f73
     &.is-dark-green
-      background: #40573d
+      background: #384d36
     &.is-purple
       background: #6e20a0
 

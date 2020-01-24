@@ -62,7 +62,8 @@ Vue.filter('stripped', value => {
   return value.trim().replace(/(<([^>]+)>)/ig, '').replace(/&(.*);/gi, '')
 })
 Vue.filter('imgSrc', value => {
-  return `${process.env.IMG_URL}${value}`
+  return `https://api.uebmg.org.br/${value}`
+  // return `${process.env.IMG_URL}${value}`
 })
 
 const routes = [

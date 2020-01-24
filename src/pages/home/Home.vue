@@ -1,48 +1,58 @@
 <template lang="pug">
-  main
-    article.home-banner.hero
-      article.hero-body.columns
-        section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
-          h3.is-3.subtitle "A criança não aprende o que os mais velhos dizem,
-          h3.is-3.subtitle mas o que eles fazem."
-          h3.is-3.subtitle Baden Powell
-      div.hero-foot
-        breadcrumb
-    article.news(v-if="news && news.length")
-      div.columns.container.container-responsive
-        div.column.is-7.columns
-          div.column
-            h1.title.is-2 Notícias
-            div.columns.align-items-center
-              div.column.is-4.has-text-centered
-                figure.image.is-square
-                  img(:src="news[0].image | imgSrc")
-              div.column.is-8.new-content
-                h5.subtitle.is-5 {{ news[0].title }}
-                p.content {{ news[0].content | stripped }}
-                router-link(:to="{ name: 'newsContent', params: { slug: news[0].slug }}")
-                  more-button(c-class="is-primary") Saiba +
+  article.home-page
+    section.news(v-if="news && news.length")
+      div.columns
+        div.column.is-7
+          .news-carrosel
 
-        div.column.is-5.columns.right-column
-          div.column.news-highlight
-            search-field
-            div(v-for="i in (news.length - 1)")
+        div.column.is-5.right-column
+          .news-highlight
+            h4.subtitle.is-4 O que rolou!
+            div(v-for="i in news.length")
               new-highlight(:data="news[i]")
-            router-link(:to="{ name: 'newsList' }")
-              more-button(c-class="is-primary") Saiba +
-    article.parallax.hero
-      article.hero-body
-        div.container.has-text-centered
-          h1.subtitle.is-3 Melhor Possível! Sempre Alerta! Servir!
-    article.about(v-show="setup.video_url && setup.video_url.length")
-      div.columns.container.container-responsive
-        div.column.is-7.columns
-          div.column
-            h2.title.is-2 Um minuto sobre...
-            p.content {{setup.video_description}}
-        div.column.is-6.right-column
-          iframe( width="100%" height="300" v-bind:src="setup.video_url" frameborder="0" allowfullscreen)
-    article.fixed-post(v-if="fixedNews && fixedNews.title")
+          .news-highlight
+            h4.subtitle.is-4 O que vai rolar...
+            div(v-for="i in events.length")
+              new-highlight(:data="events[i]") +
+
+    section.bread
+      breadcrumb
+
+    div.young-section
+      .container.container-responsive
+        .columns.is-multiline
+          .shortcut.column.is-4
+            a(href="http://www.escoteirocomorgulho.com.br/" target="_BLANK")
+              figure.image.is-3by2
+                img(src="~assets/images/escotismo.jpg")
+              p.shortcut-label Seja Escoteiro!
+          .shortcut.column.is-4
+            router-link(:to="{name: 'scoutHome'}")
+              figure.image.is-3by2
+                img(src="~assets/images/news-banner.jpg")
+              p.shortcut-label O Escotismo
+          .shortcut.column.is-4
+            router-link(:to="{name: 'scoutHome'}")
+              figure.image.is-3by2
+                img(src="~assets/images/scout-banner.jpg")
+              p.shortcut-label Guia de Especialidades
+          .shortcut.column.is-4
+            router-link(:to="{name: 'scoutHome'}")
+              figure.image.is-3by2
+                img(src="~assets/images/loja-escoteira.jpg")
+              p.shortcut-label Loja Escoteira
+          .shortcut.column.is-4
+            router-link(:to="{name: 'scoutHome'}")
+              figure.image.is-3by2
+                img(src="~assets/images/pioneirias.jpg")
+              p.shortcut-label Pioneirias?
+          .shortcut.column.is-4
+            router-link(:to="{name: 'scoutHome'}")
+              figure.image.is-3by2
+                img(src="~assets/images/mappa.png")
+              p.shortcut-label O Mapa Jovem
+
+    section.fixed-post(v-if="fixedNews && fixedNews.title")
       div.columns.container.container-responsive
         div.column.is-3.right-column
           figure.image.is-square
@@ -51,21 +61,6 @@
           div.column
             h2.title.is-2 {{fixedNews.title}}
             p.content(v-html="fixedNews.content")
-    div.events
-      div.columns.container.container-responsive
-        div.column.columns
-          div.column
-            h1.title.is-2 Próximos Eventos
-            div.column.columns.justify-center
-              div.column.is-narrow.hero(v-for="event in events" v-bind:style="getEventBackground(event.image)")
-                div.hero-head
-                  router-link(:to="{ name: 'eventContent', params: { slug: event.slug }}") {{event.title}}
-                div.hero-foot
-                  p {{event.place}}
-                  p
-                    span {{event.start_date | moment('DD/MM/YYYY')}}
-                    span(v-if="event.end_date") - {{event.end_date | moment('DD/MM/YYYY')}}
-                  router-link(:to="{ name: 'eventContent', params: { slug: event.slug }}").more-icon: | +
     shortcuts
 </template>
 
@@ -154,7 +149,7 @@
 
 <style scoped lang="sass">
   @import '~assets/sass/common.sass'
-
+  .home-page
   // HOME BANNER
   .home-banner
     background-blend-mode: multiply
@@ -174,15 +169,23 @@
         text-transform: uppercase
         font-family: 'Roboto'
         font-weight: 300
+
+
   // NEWS SECTION
   .news
-    padding-bottom: 5rem
     text-align: left
     +desktop
       text-align: justify
-      padding-bottom: 1rem
-    padding-top: 1rem
-    background: lighten($primary, 47%)
+
+    .news-carrosel
+      background: black
+      width: 100%
+      height: 100%
+    .news-highlight
+      &:not(:last-child)
+        padding-bottom: 1rem
+        border-bottom: 1px solid lightgray
+
     .new-content
       .content
         overflow: hidden
@@ -197,7 +200,7 @@
       margin-bottom: 10px
     .right-column
       +desktop
-        padding-left: 2rem
+        padding: 1.5rem
   // PARALLAX SECTION
   .parallax
     background-blend-mode: multiply
@@ -232,16 +235,16 @@
         margin-bottom: 1rem
   // FIXED POST SECTION
   .fixed-post
-    border-top: 3px solid lighten($darken-blue, 20%)
+    border-bottom: 3px solid $primary
     padding-bottom: 7rem
     text-align: left
     +desktop
       text-align: justify
       padding-bottom: 2rem
     padding-top: 2rem
-    background: darken($darken-blue, 10%)
+    background: lighten($secondary, 10%)
     .title, .content
-      color: lighten($darken-blue, 55%)
+      color: $primary
     .right-column
       +desktop
         padding-left: 2rem
@@ -297,4 +300,18 @@
           left: 90%
           color: $verde-limao
           font-size: 3rem
+  // YOUNGS SECTION
+  .young-section
+    padding: 2.5rem 0
+    .shortcut
+      padding: 1rem 2rem
+      .shortcut-label
+        text-align: center
+        text-transform: uppercase
+        font-weight: 500
+        font-size: 1.25rem
+        color: $dark
+      img
+        filter: brightness(60%)
+
 </style>

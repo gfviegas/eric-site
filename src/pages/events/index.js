@@ -19,7 +19,7 @@ const routes = {
       path: ':slug',
       name: 'eventContent',
       meta: {
-        breadcrumb: 'Eventos / Evento'
+        breadcrumb: 'Eventos /'
       },
       component: EventsContent
     }

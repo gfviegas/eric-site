@@ -15,7 +15,7 @@ const routes = {
       path: '',
       name: 'scoutHome',
       meta: {
-        breadcrumb: 'Escotismo / Home'
+        breadcrumb: 'Escotismo / Sobre'
       },
       component: ScoutHome
     },
