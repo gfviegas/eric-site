@@ -12,20 +12,20 @@
 
       div.nav-right.nav-menu(v-bind:class="{ 'is-active': menuShown }")
         div.row
+          //- div.menu-custom
+          //-   router-link.nav-item(:to="{name: 'contactHome'}") Contato
+          //-   a.nav-item(href="http://paxtu.escoteiros.org.br/meupaxtu/" target="BLANK") Meu Paxtu
+          //-   a.nav-item(href="http://paxtu.escoteiros.org.br/paxtu/" target="BLANK") Paxtu Administrativo
+          //-   a.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
+          //-   a.nav-item(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
           div.menu-custom
-            router-link.nav-item(:to="{name: 'contactHome'}") Contato
-            a.nav-item(href="http://paxtu.escoteiros.org.br/meupaxtu/" target="BLANK") Meu Paxtu
-            a.nav-item(href="http://paxtu.escoteiros.org.br/paxtu/" target="BLANK") Paxtu Administrativo
-            a.nav-item(href="http://webmail.escoteirosmg.org.br/" target="BLANK") Webmail
-            a.nav-item(href="http://www.escoteirocomorgulho.com.br/" target="BLANK") Seja Escoteiro
-          div.menu-custom
-            router-link.is-tab.nav-item(exact v-bind:to="{name: 'home'}") Home
-            router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Institucional
-            router-link.is-tab.nav-item(:to="{name: 'newsList'}") Notícias
-            router-link.is-tab.nav-item(:to="{name: 'eventsList'}") Eventos
-            router-link.is-tab.nav-item(:to="{name: 'scoutHome'}") Escotismo
+            router-link.is-tab.nav-item(exact v-bind:to="{name: 'home'}") Quem Somos
+            router-link.is-tab.nav-item(:to="{name: 'institutionalHome'}") Informativos
+            router-link.is-tab.nav-item(:to="{name: 'newsList'}") Paxtu
+            router-link.is-tab.nav-item(:to="{name: 'eventsList'}") Solicitações
             router-link.is-tab.nav-item(:to="{name: 'documentsHome'}") Documentos
-            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Solicitações
+            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Contato
+            router-link.is-tab.nav-item(:to="{name: 'formsHome'}") Webmail
           a.is-hidden-desktop.close-menu
             span.icon(@click="toggleMenuVisibility()")
               i.fa.fa-times
@@ -56,28 +56,23 @@ export default {
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common'
   .my-nav
     position: absolute
     width: 100%
     background: transparent
     nav
-      background: rgba(36, 34, 34, 0.5)
+      background: $primary
       align-items: center
       .nav-left
         .logo-item
-          background: white
-          border-radius: 0 0 1rem 1rem
-          position: absolute
-          top: 0
-          left: 10%
-          padding: 1rem
           width: 65%
           +desktop
+            margin-left: 10%
             width: 25%
           img
             width: 100%
-            max-height: 8rem
+            max-height: 4rem
       .nav-toggle
         background: transparent
         +tablet-only
@@ -127,14 +122,14 @@ export default {
           +mobile, +tablet
             padding: 0 10%
           +desktop
-            padding: 0
+            padding: 0 0.5rem
             flex-direction: row
           .nav-item
             margin-bottom: 4px
             border-top: none
             font-family: 'Roboto'
-            font-weight: 300
-            color: white
+            color: $secondary
+            font-weight: 400
 
             text-transform: uppercase
             margin: 0.5rem 0
@@ -143,15 +138,15 @@ export default {
               text-transform: capitalize
             &.is-tab
               +desktop
-                padding: 0
+                padding: 0 0.5rem
                 margin-right: 0.25rem
                 margin-left: 0.35rem
               text-transform: uppercase
               &:hover
                 border-bottom: none
-                color: $verde-limao
+                color: lighten($secondary, 15%)
               &.is-active
                 border-top-color: transparent
-                border-bottom: 2px solid $verde-limao
-                color: $verde-limao
+                border-bottom: 1px solid lighten($secondary, 15%)
+                color: lighten($secondary, 15%)
 </style>

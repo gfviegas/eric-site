@@ -1,11 +1,12 @@
-FROM node:alpine
+FROM node:7.5
 
-WORKDIR /tmp
-COPY package.json /tmp/
-RUN yarn install --pure-lockfile
+RUN mkdir /var/www
+RUN mkdir /var/www/app
 
-WORKDIR /var/www/eric-site
-RUN cp -a /tmp/node_modules /var/www/eric-site/
+COPY . /var/www/app
+
+WORKDIR /var/www/app
+RUN npm install
 
 EXPOSE 8080
-CMD ["yarn", "run", "dev"]
+CMD ["npm", "run", "dev"]

@@ -40,7 +40,7 @@ div.scout-caio
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
 
   .content-block
     counter-reset: item

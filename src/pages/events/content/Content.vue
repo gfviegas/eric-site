@@ -137,7 +137,7 @@
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
   .event-content
     .content-container
       > .title

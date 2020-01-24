@@ -21,7 +21,7 @@
 </script>
 
 <style lang="sass" scoped>
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
   .card
     width: 100%
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.18)

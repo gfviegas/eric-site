@@ -124,7 +124,7 @@
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
   .news-content
     .content-container
       > .title

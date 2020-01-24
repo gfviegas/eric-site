@@ -3,7 +3,7 @@ div.shortcuts
   div.columns.container.container-responsive
     div.column.columns
       div.column
-        h1.title.is-2 Acesso Rápido
+        h1.title.is-3 Acesso Rápido
         div.column.columns.justify-center.shortcuts-column.is-multiline
           shortcut(c-class="is-light-blue" icon="bookshelf" v-bind:route="{name: 'documentsHome'}")
             p Documentos
@@ -38,11 +38,11 @@ div.shortcuts
 </script>
 
 <style lang="sass" scoped>
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common'
   // SHORTCUTS SECTION
   .shortcuts
-    background: #ecf9ff
-    border-top: 3px solid #1b6c96
+    background: transparent
+    border-top: 3px solid $dark
     padding-top: 2rem
     padding-bottom: 5rem
     text-align: left
@@ -52,7 +52,8 @@ div.shortcuts
       text-align: justify
       padding-bottom: 2rem
     .title
-      color: #1c9ad5
+      font-weight: 400
+      color: darken($dark, 10%)
       margin-bottom: 1.5rem
     .justify-center
       +desktop

@@ -22,7 +22,7 @@
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common'
   .columns
     margin-bottom: 0!important
 

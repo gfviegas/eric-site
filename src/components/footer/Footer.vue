@@ -1,29 +1,22 @@
 <template lang="pug">
   footer.footer
-    div.columns.container.container-responsive
-      div.column.is-narrow.logo-column
-        a.nav-item.logo-item
-          img(src="~assets/images/logo.png" alt="Logo")
+    div.columns.container.container-responsive.first-row
       div.column.adress.justify-content-center.common-content.is-narrow
         p Rua Mariano Procópio, 90 - mariano procópio
         p Juiz de Fora - Minas Gerais
         p Cep: 36.035-780
         p (32) 3215-7674
-      div.column.email.justify-content-center.common-content
-        p escritorio@escoteirosmg.org.br
-        p
-          small Melhor visualizado no Google Chrome
-      div.column.social.justify-content-center.common-content
-        p
-          a.icon.social.padded-left(@click="trackClick('Twitter Link')" href="https://twitter.com/EscoteirosMG" target="BLANK")
-            i.fa.fa-twitter
-          a.icon.social(@click="trackClick('Facebook Link')" href="https://www.facebook.com/EscoteirosDeMinasGerais" target="BLANK")
-            i.fa.fa-facebook
+      div.column.is-narrow.logo-column
+        a.nav-item.logo-item
+          img(src="~assets/images/logo-ueb.png" alt="Logo")
     div.columns.footer-foot
       div.content.has-text-centered.container.column
-        p.
-          Copyright 2017 © ESCOTEIROS DE MINAS - Todos os direitos reservados #[br]
-          #[small Desenvolvido por #[a(@click="trackClick('Developer Link')" href="https://gfviegas.com" target="BLANK") Gustavo Viegas]]
+        p
+          span Copyright {{ thisYear }} © ESCOTEIROS DE MINAS - Todos os direitos reservados
+          br
+          small.
+            Desenvolvimento: #[a(@click="trackClick('Developer Link')" href="https://gfviegas.com" target="BLANK") Gustavo Viegas]
+            | ERIC - Equipe Regional de Imagem e Comunicação de Minas Gerais
 </template>
 
 <script>
@@ -41,15 +34,20 @@ export default {
     toggleMenuVisibility () {
       this.menuShown = !this.menuShown
     }
+  },
+  computed: {
+    thisYear () {
+      return this.$moment().format('YYYY')
+    }
   }
 }
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common'
   footer
     padding: 0!important
-    background: $darken-blue !important
+    background: $primary !important
 
     *
       +mobile
@@ -61,20 +59,23 @@ export default {
         .column
           padding-bottom: 0
 
-    &::before
-      position: relative
-      top: -1rem
-      display: block
-      height: 2rem
-      width: 100%
-      content: ''
-      background: url(~assets/images/footer-border.png)
-      background-repeat: repeat-x
-      background-size: cover
-      background-position: 30% 0
+    .columns.first-row
+      justify-content: flex-end
+
+    // &::before
+    //   position: relative
+    //   top: -1rem
+    //   display: block
+    //   height: 2rem
+    //   width: 100%
+    //   content: ''
+    //   background: url(~assets/images/footer-border.png)
+    //   background-repeat: repeat-x
+    //   background-size: cover
+    //   background-position: 30% 0
     .logo-column
       +desktop
-        width: 25%
+        width: auto
       .logo-item
         display: flex
         background: white
@@ -89,8 +90,10 @@ export default {
       text-transform: uppercase
       padding-top: 2rem
       align-self: flex-start
+      text-align: right
+      font-weight: bold
     .adress
-      color: #83dae0
+      color: white
     .email, .social
       color: white
     .social
@@ -98,10 +101,14 @@ export default {
       .icon.padded-left
         // padding-left: 1.3rem
     .footer-foot
-      background: #0d3a52
+      background: darken($primary, 10%)
       +desktop
         margin-top: 0
       p
-        color: #46aade
+        color: white
         padding: 0.5rem
+    a
+      color: $secondary
+      &:hover
+        color: lighten($secondary, 15%)
 </style>

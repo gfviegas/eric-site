@@ -166,7 +166,7 @@
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
   main
     background: #EFF3F4
     font-family: 'Open Sans', serif

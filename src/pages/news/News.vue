@@ -22,7 +22,7 @@
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
   // NEWS BANNER
   .news-banner
     background-blend-mode: multiply

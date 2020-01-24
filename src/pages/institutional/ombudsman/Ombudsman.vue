@@ -68,7 +68,7 @@
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
   .ombudsman
     background: rgba(233, 233, 233, 0.8)
     .main-container

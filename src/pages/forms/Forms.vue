@@ -50,7 +50,7 @@
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common.sass'
   // SCOUT BANNER
   .scout-banner
     background-blend-mode: multiply

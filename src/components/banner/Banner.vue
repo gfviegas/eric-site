@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-  @import '~assets/sass/config.sass'
+  @import '~assets/sass/common'
   .fixed-post
     border-top: 3px solid lighten($orange, 20%)
     padding-bottom: 7rem

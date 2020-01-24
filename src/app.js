@@ -1,4 +1,4 @@
-import './assets/sass/config.sass'
+import './assets/sass/global.sass'
 
 import Vue from 'vue'
 
