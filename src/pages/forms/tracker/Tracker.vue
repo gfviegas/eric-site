@@ -17,8 +17,8 @@
             strong Acompanhamento
           hr
           p Solicitação de #[strong {{rewardData.reward}}] para #[strong {{rewardData.gifted.name}}]
-          p Solicitado por #[strong {{rewardData.author.email}}] em {{rewardData.created_at | moment("LLLL")}}
-          p Status Atualizado em {{rewardData.updated_at | moment("LLLL")}}
+          p Solicitado por #[strong {{rewardData.author.email}}] em {{rewardData.createdAt | moment("LLLL")}}
+          p Status Atualizado em {{rewardData.updatedAt | moment("LLLL")}}
           br
           p
             | O status de sua solicitação é: #[strong.code {{message}}] #[br]

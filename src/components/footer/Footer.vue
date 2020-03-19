@@ -11,7 +11,7 @@
           img(src="~assets/images/logo-ueb.png" alt="Logo")
     div.columns.footer-foot
       div.content.has-text-centered.container.column
-        p
+        p.is-family-secondary
           span Copyright {{ thisYear }} © ESCOTEIROS DE MINAS - Todos os direitos reservados
           br
           small.
@@ -74,16 +74,24 @@ export default {
     //   background-size: cover
     //   background-position: 30% 0
     .logo-column
+      display: flex
+      flex-direction: row
+      justify-content: center
+      margin-bottom: -2.5rem
       +desktop
+        margin-bottom: 0
+        display: block
         width: auto
       .logo-item
         display: flex
         background: white
         border-radius: 1rem 1rem 0 0
         padding: 1rem
+        justify-content: center
+        width: 10rem
         +desktop
+          width: auto
           height: 10rem
-          justify-content: center
         img
           max-height: 8rem
     .common-content
@@ -107,6 +115,8 @@ export default {
       p
         color: white
         padding: 0.5rem
+        small
+          font-size: 0.95rem
     a
       color: $secondary
       &:hover

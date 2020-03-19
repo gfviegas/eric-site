@@ -46,7 +46,8 @@ Vue.use(require('vue-moment'), {
   moment
 })
 
-Validator.addLocale(Messages)
+Validator.localize(Messages)
+// Validator.addLocale(Messages)
 Vue.use(VeeValidate, {
   locale: 'pt_BR'
 })
@@ -62,8 +63,19 @@ Vue.filter('stripped', value => {
   return value.trim().replace(/(<([^>]+)>)/ig, '').replace(/&(.*);/gi, '')
 })
 Vue.filter('imgSrc', value => {
-  return `https://api.uebmg.org.br/${value}`
-  // return `${process.env.IMG_URL}${value}`
+  return `${process.env.IMG_URL}${value}`
+})
+Vue.filter('imgSrcV2', value => {
+  return `${process.env.IMG_URL_V2}${value}`
+})
+Vue.filter('responsiveImgSrcV2', value => {
+  if (!value) return ``
+
+  const isDesktop = (window.outerWidth >= 1024)
+  const filePath = value.split('.jpg')
+  const path = (isDesktop && filePath.length > 1) ? (filePath[0] + '@2x.jpg') : value
+
+  return `${process.env.IMG_URL_V2}${path}`
 })
 
 const routes = [

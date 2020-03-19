@@ -1,8 +1,8 @@
 <template lang="pug">
   div.event-content(v-if="event && event.title")
     .banner
-      figure.image.is3by1
-        img(src="~assets/images/event-placeholder.png")
+      figure.image.is4by1
+        img(v-bind:src="imageBanner")
         //- image(:src="event.image | imgSrc")
     .bread
       breadcrumb(:sufix="event.title")
@@ -10,29 +10,33 @@
       .content-container.container.container-responsive
         h1.title.is-3 {{event.title}}
         div.event-content-container
-          p #[strong Onde:] {{event.place}}
-          p #[strong Quando:] {{event.start_date | moment('DD/MM/YYYY')}} #[span(v-if="event.end_date") - {{event.end_date | moment('DD/MM/YYYY')}}]
-          p #[strong Ramo:] {{event.section.join(', ')}}
-          p #[strong Organização:] A definir
-          p #[strong Inscrições:] A definir
-          p #[strong Valor:] A definir
-          p #[strong Responsável:] A definir
-          div.event-description(v-html="event.description")
+          p #[strong.has-text-secondary Onde:] {{event.where}}
+          p #[strong.has-text-secondary Quando:] {{event.start_date | moment('DD/MM/YYYY')}} #[span(v-if="event.end_date") - {{event.end_date | moment('DD/MM/YYYY')}}]
+          p #[strong.has-text-secondary Ramo:] {{event.section.join(', ')}}
+          p #[strong.has-text-secondary Organização:] {{event.organizer}}
+          p #[strong.has-text-secondary Inscrições:] A definir
+          p #[strong.has-text-secondary Valor:] {{event.fee}}
+          p #[strong.has-text-secondary Responsável:] {{event.responsible}}
+          div.event-description(v-html="event.content")
           h2.title.is-3#arquivos Baixe os arquivos do evento:
-          ul
-            li(v-for="file in event.files" v-bind:key="file._id")
-              a(target="BLANK" @click="trackFileClick(file.title)" v-bind:href="file.path") {{file.title}}
-              p.help #[strong Atualizado:] {{file.updated_at | moment("LLLL")}}
+          ul(v-if="event.files && event.files.length")
+            li(v-for="file in event.files" v-bind:key="file.path")
+              a(target="BLANK" @click="trackFileClick(file.title)" v-bind:href="`//`+file.path") {{file.title}}
+              p.help #[strong Atualizado:] {{file.updatedAt | moment("LLLL")}}
+          p(v-else) Nenhum arquivo registrado.
 
       .inscription-section
         .container
           h2.title.is-3#inscricao Faça a sua Inscrição
-        .level
-          p.
-            Preparado para o desafio? Então vamos nessa! #[br]
-            Acesse o sistema de inscrição, preencha corretamente e participe dessa super aventura! #[br]
-            Desejamos que possa desfrutar ao máximo. Boa sorte e Sempre Alerta!
-          a.button.is-primary.is-rounded.is-medium Fazer minha Inscrição
+        .level.columns
+          .column.is-6
+            p.
+              Preparado para o desafio? Então vamos nessa! #[br]
+              Acesse o sistema de inscrição, preencha corretamente e participe dessa super aventura! #[br]
+              Desejamos que possa desfrutar ao máximo. Boa sorte e Sempre Alerta!
+          .column.is-4
+            a.button.is-primary.is-rounded.is-medium(v-bind:href="'//'+event.link" v-if="event.link") Fazer minha Inscrição
+            a.button.is-primary.is-rounded.is-medium(href="#" v-else disabled) Link Indisponível
 
       div.share-section.columns.container.container-responsive
         .column.is-half
@@ -54,6 +58,7 @@
   import eventsService from '../../../services/events'
   import Breadcrumb from '../../../components/breadcrumb/Breadcrumb.vue'
   import { getSeoScript, getSeoTitle, getSeoMeta } from '../../../services/seo'
+  import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'
 
   export default {
     components: {
@@ -66,7 +71,7 @@
       meta () {
         return getSeoMeta({
           title: this.event.title,
-          description: this.event.description.replace(/(<([^>]+)>)/ig, '').substring(0, 147) + '...',
+          description: this.event.content.length ? this.event.content.substring(0, 147) + '...' : '...',
           image: `${process.env.IMG_URL}${this.event.image}`
         })
       },
@@ -76,7 +81,7 @@
     },
     data () {
       return {
-        event: {title: '', description: '', image: ''}
+        event: {title: '', content: '', image: ''}
       }
     },
     methods: {
@@ -98,6 +103,11 @@
       }
     },
     computed: {
+      imageBanner () {
+        if (!this.event || !this.event.image) return ''
+        const path = this.event.image.split('.jpg')[0] + '@2x.jpg'
+        return `${process.env.IMG_URL}${path}`
+      },
       urlToShare () {
         return window.location.href
       }
@@ -113,12 +123,14 @@
         }
       })
     },
-    beforeRouteEnter (to, from, next) {
-      eventsService.find(to.params.slug).then((response) => {
-        next((vm) => {
-          vm.event = response.body
-          vm.$emit('updateHead')
-        })
+    async beforeRouteEnter (to, from, next) {
+      const response = await eventsService.find(to.params.slug)
+      const converter = new QuillDeltaToHtmlConverter(response.body.content['ops'], {inlineStyles: true})
+
+      next((vm) => {
+        vm.event = response.body
+        vm.event.content = converter.convert()
+        vm.$emit('updateHead')
       })
     }
   }
@@ -133,6 +145,9 @@
       padding-top: 2rem
       padding-bottom: 1rem
       .title
+        margin-left: 1rem
+        +desktop
+          margin-left: 0
         text-transform: uppercase
         color: $orange
         font-weight: 400
@@ -143,6 +158,12 @@
         display: flex
         justify-content: space-around
         align-items: center
+        flex-direction: column
+        +desktop
+          flex-direction: row
+        .column
+          display: flex
+          justify-content: center
         p
           color: $dark
           font-size: 1.2rem

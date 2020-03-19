@@ -145,7 +145,7 @@
       const filter = this.$route.query.filter || ''
 
       eventsService.get({page: page, limit: EVENTS_PER_PAGE, start_date: Vue.moment().format('DD/MM/YYYY'), filter: filter}).then((response) => {
-        vm.events = response.body.events
+        vm.events = response.body.resources
         vm.currentPage = response.body.meta.currentPage
         vm.limit = response.body.meta.limit
         vm.totalPages = response.body.meta.totalPages
@@ -164,7 +164,7 @@
         if (this.selected.hosts.length) query['hosts'] = this.selected.hosts
 
         eventsService.get(query).then((response) => {
-          this.events = response.body.events
+          this.events = response.body.resources
           this.currentPage = response.body.meta.currentPage
           this.limit = response.body.meta.limit
           this.totalPages = response.body.meta.totalPages
@@ -196,7 +196,7 @@
         if (this.selected.hosts.length) query['hosts'] = this.selected.hosts
 
         eventsService.get(query).then((response) => {
-          this.events = response.body.events
+          this.events = response.body.resources
           this.currentPage = response.body.meta.currentPage
           this.limit = response.body.meta.limit
           this.totalPages = response.body.meta.totalPages

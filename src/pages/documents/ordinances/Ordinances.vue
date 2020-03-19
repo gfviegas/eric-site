@@ -9,7 +9,7 @@
             li(v-for="doc in filteredDocs" v-bind:key="doc._id")
               a(target="BLANK" @click="trackFileClick(doc.title)" v-bind:href="doc.file") {{doc.title}}
               p.help #[strong Descrição:] {{doc.description}}
-              p.help #[strong Atualizado:] {{doc.updated_at | moment("LLLL")}}
+              p.help #[strong Atualizado:] {{doc.updatedAt | moment("LLLL")}}
 </template>
 
 <script>

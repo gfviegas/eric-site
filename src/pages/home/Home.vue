@@ -2,19 +2,25 @@
   article.home-page
     section.news(v-if="news && news.length")
       div.columns
-        div.column.is-7
+        div.column.is-7.is-paddingless
           .news-carrosel
+            carousel(:banners="banners")
 
         div.column.is-5.right-column
-          .news-highlight
+          .news-highlight(v-if="news && news.length")
             h4.subtitle.is-4 O que rolou!
-            div(v-for="i in news.length")
-              new-highlight(:data="news[i]")
-          .news-highlight
+            section.scroll-section
+              div(v-for="n in news")
+                new-highlight(:data="n")
+            router-link(:to="{name: 'newsList'}")
+              more-button(c-class="is-orange is-small") Ver tudo
+          .news-highlight(v-if="events && events.length")
             h4.subtitle.is-4 O que vai rolar...
-            div(v-for="i in events.length")
-              new-highlight(:data="events[i]") +
-
+            section.scroll-section
+              div(v-for="e in events")
+                new-highlight(:data="e" :is-event="true")
+            router-link(:to="{name: 'eventsList'}")
+              more-button(c-class="is-secondary is-small") Ver tudo
     section.bread
       breadcrumb
 
@@ -32,12 +38,12 @@
                 img(src="~assets/images/news-banner.jpg")
               p.shortcut-label O Escotismo
           .shortcut.column.is-4
-            router-link(:to="{name: 'scoutHome'}")
+            a(href="https://www.escoteiros.org.br/especialidades/" target="_BLANK")
               figure.image.is-3by2
                 img(src="~assets/images/scout-banner.jpg")
               p.shortcut-label Guia de Especialidades
           .shortcut.column.is-4
-            router-link(:to="{name: 'scoutHome'}")
+            a(href="https://www.lojaescoteira.com.br/" target="_BLANK")
               figure.image.is-3by2
                 img(src="~assets/images/loja-escoteira.jpg")
               p.shortcut-label Loja Escoteira
@@ -47,7 +53,7 @@
                 img(src="~assets/images/pioneirias.jpg")
               p.shortcut-label Pioneirias?
           .shortcut.column.is-4
-            router-link(:to="{name: 'scoutHome'}")
+            a(href="https://www.escoteiros.org.br/noticia-detalhe/o-app-de-acompanhamento-de-progressao-pessoal-esta-de-cara-nova-mais-completo-agradavel-e-facil-de-usar/" target="_BLANK")
               figure.image.is-3by2
                 img(src="~assets/images/mappa.png")
               p.shortcut-label O Mapa Jovem
@@ -67,6 +73,7 @@
 <script>
   import Vue from 'vue'
 
+  import Carousel from './components/Carousel.vue'
   import MoreButton from '../../components/buttons/MoreButton.vue'
   import SearchField from '../../components/input/SearchField.vue'
   import NewHighlight from '../../components/news/NewHighlight.vue'
@@ -74,17 +81,19 @@
   import Breadcrumb from '../../components/breadcrumb/Breadcrumb.vue'
   import newsService from '../../services/news'
   import eventsService from '../../services/events'
+  import bannersService from '../../services/banners'
   import setupService from '../../services/setup'
   import { getSeoScript, getSeoTitle, getSeoMeta } from '../../services/seo'
   import OneSignal from '../../services/onesignal'
 
   export default {
     components: {
-      'more-button': MoreButton,
-      'search-field': SearchField,
-      'new-highlight': NewHighlight,
-      'shortcuts': Shortcuts,
-      'breadcrumb': Breadcrumb
+      Carousel,
+      MoreButton,
+      SearchField,
+      NewHighlight,
+      Shortcuts,
+      Breadcrumb
     },
     head: {
       title: getSeoTitle('Home'),
@@ -106,6 +115,7 @@
         fixedNews: {},
         news: [],
         events: [],
+        banners: [],
         msg: 'Stuff'
       }
     },
@@ -116,7 +126,7 @@
         }
       }
     },
-    created () {
+    async created () {
       const vm = this
       this.$on('okHead', () => {
         if (!window.prerenderReady) {
@@ -128,21 +138,33 @@
 
       OneSignal.prompt()
 
-      newsService.get({page: 1, limit: 4}).then((response) => {
-        vm.news = response.body.news
+      const newsResponse = await newsService.get({
+        page: 1,
+        limit: 15,
+        sort: '-createdAt'
       })
-      eventsService.get({page: 1, limit: 4, start_date: Vue.moment().format('DD/MM/YYYY')}).then((response) => {
-        vm.events = response.body.events
-      })
+      vm.news = newsResponse.body.resources
 
-      setupService.query()
-      .then(response => {
-        this.setup.video_url = response.video_url
-        this.setup.video_description = response.video_description
-        newsService.find(response.fixed_news).then((response) => {
-          vm.fixedNews = response.body
-        })
+      const eventsResponse = await eventsService.get({
+        page: 1,
+        limit: 15,
+        end_date: {
+          '$not': {
+            '$lt': Vue.moment().startOf('day').toDate().toISOString()
+          }
+        },
+        sort: 'start_date'
       })
+      vm.events = eventsResponse.body.resources
+
+      const bannersResponse = await bannersService.query()
+      vm.banners = bannersResponse.body.resources
+
+      const setupResponse = await setupService.query()
+      if (setupResponse.fixedNews) {
+        const newsResponse = await newsService.find(setupResponse.fixed_news)
+        vm.newsResponse = newsResponse.body
+      }
     }
   }
 </script>
@@ -173,18 +195,33 @@
 
   // NEWS SECTION
   .news
+    padding-bottom: 0.3rem
     text-align: left
     +desktop
       text-align: justify
 
     .news-carrosel
-      background: black
+      display: flex
+      flex-direction: column
+      justify-content: center
+      // background: transparentize(darken($primary, 20%), 0.2)
+      background: transparent
       width: 100%
       height: 100%
     .news-highlight
       &:not(:last-child)
-        padding-bottom: 1rem
-        border-bottom: 1px solid lightgray
+        margin-bottom: 0.5rem
+        border-bottom: 2px dashed $primary
+      .scroll-section
+        height: 18rem
+        overflow-y: scroll
+        overflow-x: hidden
+        div
+          padding-right: 2rem
+      .button
+        margin: 1rem 0
+      .subtitle
+        font-weight: 800
 
     .new-content
       .content
@@ -200,7 +237,10 @@
       margin-bottom: 10px
     .right-column
       +desktop
-        padding: 1.5rem
+        display: flex
+        flex-direction: column
+        justify-content: space-evenly
+        padding: 0.25rem 1.5rem
   // PARALLAX SECTION
   .parallax
     background-blend-mode: multiply
@@ -308,9 +348,10 @@
       .shortcut-label
         text-align: center
         text-transform: uppercase
-        font-weight: 500
-        font-size: 1.25rem
+        font-weight: 800
+        font-size: 1.45rem
         color: $dark
+        font-family: 'Capsuula'
       img
         filter: brightness(60%)
 

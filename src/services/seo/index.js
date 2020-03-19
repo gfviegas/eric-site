@@ -7,6 +7,7 @@ const isoFormat = (date) => {
 }
 
 const stripTags = (text) => {
+  if (!text) return ''
   return text.trim().replace(/(<([^>]+)>)/ig, '').replace(/&(.*);/gi, '')
 }
 

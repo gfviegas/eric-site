@@ -71,7 +71,7 @@ export default {
         +tablet-only
           display: block
         span
-          background-color: $verde-limao
+          background-color: $secondary
       .nav-right
         .close-menu
           display: flex
@@ -91,13 +91,13 @@ export default {
             width: 100%
             flex-direction: column-reverse
           +mobile
-            background-color: rgba(0, 0, 0, 0.85)
+            background-color: rgba(0, 0, 0, 0.93)
             height: 100vh
             position: absolute
             top: 0
           +tablet-only
             padding-right: 0
-            background-color: rgba(0, 0, 0, 0.85)
+            background-color: rgba(0, 0, 0, 0.93)
             box-shadow: 0 4px 7px rgba($black, 0.1)
             left: 0
             display: none
@@ -112,17 +112,18 @@ export default {
           display: flex
           flex-direction: column
           justify-content: flex-end
-          +mobile, +tablet
-            padding: 0 10%
+          padding: 0 10%
           +desktop
             padding: 0 0.5rem
             flex-direction: row
           .nav-item
             margin-bottom: 4px
             border-top: none
-            font-family: 'Roboto'
+            font-family: 'Capsuula'
             color: $secondary
-            font-weight: 400
+            font-weight: 600
+            transform: none
+            font-size: 1.1rem
 
             text-transform: uppercase
             margin: 0.5rem 0

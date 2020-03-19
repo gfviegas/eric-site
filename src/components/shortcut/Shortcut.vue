@@ -1,8 +1,8 @@
 <template lang="pug">
   div.column.is-narrow.columns.box(v-bind:class="cClass")
     a.shortcut-link(@click="changeRoute()")
-      div.column.is-one-third.icon-section(v-bind:style="{backgroundImage: bgUrl}")
-      div.column.content-section: slot
+      div.column.is-5.icon-section(v-bind:style="{backgroundImage: bgUrl}")
+      div.column.is-7.content-section: slot
 </template>
 
 <script>
@@ -36,8 +36,7 @@
     padding: 0
     min-height: 10rem
     text-transform: uppercase
-    +mobile, +tablet
-      width: auto
+    width: auto
     +desktop
       width: 22rem
     p
@@ -47,6 +46,7 @@
       color: white
     .shortcut-link
       display: flex
+      width: 100%
 
     // COLORS
     &.is-orange
@@ -86,4 +86,5 @@
       display: flex
       flex-direction: column
       justify-content: space-between
+      text-align: center
 </style>

@@ -3,7 +3,7 @@
     nav.level-left
       div.level-item
         h4.subtitle.is-5 {{text}} {{sufix}}
-    nav.level-right
+    //- nav.level-right
       .field.level-item
         p.control.has-icon.has-icon-right
           input.input.is-expanded(type="text" placeholder="O que você procura?" name="search" v-model="search")
@@ -35,6 +35,7 @@
 <style lang="sass" scoped>
   @import '~assets/sass/common'
   .level
+    z-index: 5
     min-height: 4rem
     background: $light-gray
     display: flex

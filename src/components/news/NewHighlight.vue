@@ -1,22 +1,29 @@
 <template lang="pug">
-  router-link(:to="{ name: 'newsContent', params: { slug: data.slug }}")
+  router-link(:to="{ name: routeName, params: { slug: data.slug }}")
     div.columns
-      div.column.is-2
-        figure.image.is-square
-          img(:src="data.image | imgSrc")
-      div.column.is-9
-        h6.subtitle.content.is-6 {{data.title}}
+      div.column.is-4
+        figure.image.is-4by1
+          img(:src="data.image | imgSrcV2")
+      div.column.is-8.title-side
+        h6.subtitle.content.is-5.is-family-secondary {{data.title}}
 </template>
 
 <script>
   export default {
     name: 'new-highlight',
-    props: ['text', 'cClass', 'data'],
+    props: ['text', 'cClass', 'data', 'isEvent'],
     data: () => {
       return {
+        slug: '',
+        image: '',
+        title: ''
       }
     },
-    methods: {
+    computed: {
+      routeName () {
+        if (!this.isEvent) return 'newsContent'
+        return 'eventContent'
+      }
     }
   }
 </script>
@@ -28,8 +35,14 @@
 
   .subtitle
     text-transform: uppercase
-    font-weight: bold
-    font-family: 'Roboto'
+    font-weight: 600
     text-align: justify
     margin-bottom: 1.5rem
+
+  .title-side
+    display: flex
+    flex-direction: column
+    justify-content: center
+    *
+      margin: 0
 </style>

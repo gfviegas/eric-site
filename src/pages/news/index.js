@@ -19,7 +19,7 @@ const routes = {
       path: ':slug',
       name: 'newsContent',
       meta: {
-        breadcrumb: 'Notícias / Notícia'
+        breadcrumb: 'Notícias /'
       },
       component: NewsContent
     }

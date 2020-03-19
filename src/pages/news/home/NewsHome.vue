@@ -1,47 +1,57 @@
 <template lang="pug">
-  div.news-home
-    div.container.container-responsive.main-container
-      h2.title.is-2 Notícias
-      h4.subtitle.is-4 Fique por dentro das novidades
-      form.search-container(v-on:submit.prevent="applySearch()")
-        p.control.has-addons
-          input.input(type="search" placeholder="Pesquisar" v-model="filter")
-          button.button.is-primary(type="submit")
-            span.icon
-              i.fa.fa-search
-      //- div.pagination-container
-      //-   pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
-      article.media(v-for="newsContent in news")
-        div.media-left
-          router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}").image.is-square
-            img(:src="newsContent.image | imgSrc")
-        div.media-content
-          div.content
-            router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}")
-              h4.title.is-4 {{newsContent.title}}
-            div.news-date
-              small {{newsContent.created_at | moment("L")}}
-            p.news-preview {{ newsContent.content | stripped }}
-      article.media(v-if="!news.length")
-        div.media-left
-          img(:src="'news/not_found.png' | imgSrc")
-        div.media-content
-          div.content
-            h4.title.is-4 Nenhuma notícia encontrada.
-      div.pagination-container
-        pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
-    br
+  article.news
+    div.news-banner.hero
+      article.hero-body.columns
+        section.container.has-text-centered.column.is-7-desktop.is-offset-3-desktop.is-9-tablet.is-12-mobile
+          h1.is-1.subtitle Notícias
+      div.hero-foot
+        breadcrumb
+    div.news-home
+      div.container.container-responsive.main-container
+        h2.title.is-2 Notícias
+        h4.subtitle.is-4 Fique por dentro das novidades
+        form.search-container(v-on:submit.prevent="applySearch()")
+          p.control.has-addons
+            input.input(type="search" placeholder="Pesquisar" v-model="filter")
+            button.button.is-primary(type="submit")
+              span.icon
+                i.fa.fa-search
+        //- div.pagination-container
+        //-   pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
+        article.media(v-for="newsContent in news" v-bind:key="newsContent._id")
+          div.media-left
+            router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}").image.is-4by1
+              img(:src="newsContent.image | imgSrcV2")
+          div.media-content
+            div.content
+              router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}")
+                h4.title.is-4 {{newsContent.title}}
+              div.news-date
+                small {{newsContent.createdAt | moment("LLLL")}}
+              p.news-preview {{ htmlContent(newsContent.content) | stripped }}
+        article.media(v-if="!news.length")
+          div.media-left
+            img(:src="'news/default.jpg' | imgSrcV2")
+          div.media-content
+            div.content
+              h4.title.is-4 Nenhuma notícia encontrada.
+        div.pagination-container
+          pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
+      br
 </template>
 
 <script>
+  import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'
   import newsService from '../../../services/news'
   import { getSeoScript, getSeoTitle, getSeoMeta } from '../../../services/seo'
   import Pagination from '../../../components/pagination/Pagination'
+  import Breadcrumb from '../../../components/breadcrumb/Breadcrumb'
 
-  const NEWS_PER_PAGE = 4
+  const NEWS_PER_PAGE = 20
 
   export default {
     components: {
+      Breadcrumb,
       Pagination
     },
     head: {
@@ -68,7 +78,7 @@
         routeName: this.$route.name
       }
     },
-    created () {
+    async created () {
       const vm = this
       let count = 0
 
@@ -84,36 +94,36 @@
       const page = this.$route.query.page || 1
       const filter = this.$route.query.filter || ''
 
-      newsService.get({page: page, limit: NEWS_PER_PAGE, filter: filter}).then((response) => {
-        vm.news = response.body.news
-        vm.currentPage = response.body.meta.currentPage
-        vm.limit = response.body.meta.limit
-        vm.totalPages = response.body.meta.totalPages
-        vm.filter = filter
+      vm.filter = filter
+      vm.page = page
 
-        vm.$emit('updateHead')
-      })
+      await this.fetchNews()
+      vm.$emit('updateHead')
     },
     methods: {
+      async fetchNews () {
+        const response = await newsService.get({page: this.page, filter: this.filter, limit: NEWS_PER_PAGE, sort: '-createdAt'})
+        const { resources, meta } = response.body
+        const { currentPage, limit, totalPages } = meta
+
+        this.news = resources
+        this.currentPage = currentPage
+        this.limit = limit
+        this.totalPages = totalPages
+      },
+      htmlContent (data) {
+        const converter = new QuillDeltaToHtmlConverter(data['ops'], {inlineStyles: true})
+        return converter.convert()
+      },
       applySearch () {
-        this.page = 1
-        newsService.get({page: this.page, limit: NEWS_PER_PAGE, filter: this.filter}).then((response) => {
-          this.news = response.body.news
-          this.currentPage = response.body.meta.currentPage
-          this.limit = response.body.meta.limit
-          this.totalPages = response.body.meta.totalPages
-        })
+        this.$router.replace({ name: 'newsList', query: {page: 1, filter: this.filter} })
       }
     },
     watch: {
       '$route' (to, from) {
-        const page = to.query.page
-        newsService.get({page: page, limit: NEWS_PER_PAGE, filter: this.filter}).then((response) => {
-          this.news = response.body.news
-          this.currentPage = response.body.meta.currentPage
-          this.limit = response.body.meta.limit
-          this.totalPages = response.body.meta.totalPages
-        })
+        this.page = to.query.page
+        this.filter = to.query.filter
+        this.fetchNews()
       }
     }
   }
@@ -121,6 +131,26 @@
 
 <style scoped lang="sass">
   @import '~assets/sass/common.sass'
+  // NEWS BANNER
+  .news-banner
+    background-blend-mode: multiply
+    background-color: rgba(0, 0, 0, 0.42)
+    background-image: url('~assets/images/news-banner.jpg')
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: 0 100%
+    .hero-body
+      padding-top: 12rem
+      min-height: 25rem
+      section.container
+        text-align: left
+      .subtitle
+        margin-bottom: 0px
+        color: white
+        text-transform: uppercase
+        font-family: 'Roboto'
+        font-weight: 300
+
   .news-home
     .main-container
       .search-container
@@ -143,7 +173,7 @@
         justify-content: center
         width: 100%
         +desktop
-          width: 15%
+          width: 35%
       .media-content
         display: flex
         align-self: center
