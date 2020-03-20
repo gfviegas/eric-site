@@ -18,7 +18,7 @@
                 i.fa.fa-search
         //- div.pagination-container
         //-   pagination(modifiers="is-centered" v-bind:currentPage="currentPage" v-bind:lastPage="totalPages" v-bind:routeName="routeName")
-        article.media(v-for="newsContent in news" v-bind:key="newsContent._id")
+        article.media.news-item(v-for="newsContent in news" v-bind:key="newsContent._id")
           div.media-left
             router-link(:to="{ name: 'newsContent', params: { slug: newsContent.slug }}").image.is-4by1
               img(:src="newsContent.image | imgSrcV2")
@@ -169,6 +169,11 @@
         flex-direction: column
         +desktop
           flex-direction: row
+        &.news-item
+          border-bottom: 1px dashed $primary
+          margin-bottom: 0.25rem
+          padding-bottom: 0.25rem
+
       .media-left
         justify-content: center
         width: 100%

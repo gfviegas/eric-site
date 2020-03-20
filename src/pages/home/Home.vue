@@ -213,9 +213,14 @@
         margin-bottom: 0.5rem
         border-bottom: 2px dashed $primary
       .scroll-section
-        height: 18rem
+        width: 100%
         overflow-y: scroll
         overflow-x: hidden
+        height: 25rem
+
+        +desktop
+          height: 18rem
+
         div
           padding-right: 2rem
       .button
@@ -236,11 +241,10 @@
       font-weight: bold
       margin-bottom: 10px
     .right-column
-      +desktop
-        display: flex
-        flex-direction: column
-        justify-content: space-evenly
-        padding: 0.25rem 1.5rem
+      display: flex
+      flex-direction: column
+      justify-content: space-evenly
+      padding: 0.25rem 1.5rem
   // PARALLAX SECTION
   .parallax
     background-blend-mode: multiply

@@ -54,5 +54,5 @@
 <style lang="sass">
   .VueCarousel-pagination
     margin-top: -5rem
-    z-index: 2
+    z-index: 1
 </style>
