@@ -24,7 +24,7 @@
   export default {
     data () {
       return {
-        data: data.data
+        data: data.data.sort((a, b) => a.role.localeCompare(b.role))
       }
     },
     head: {

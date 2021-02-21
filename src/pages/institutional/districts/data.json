@@ -1,69 +1,69 @@
 {
   "data": [
     {
-      "name": "ANDERSON ANSELMO SILVA",
-      "role": "Vale do Aço",
-      "email": ""
+      "role": "METROPOLITANO",
+      "name": "Guilherme Ribas Rodrigues",
+      "email": "metropolitano@escoteirosmg.org.br"
     },
     {
-      "name": "JOSÉ MARIA CAMARÃO",
-      "role": "Lobo Guará",
-      "email": ""
+      "role": "ZONA DA MATA",
+      "name": "LUIZ FELIPE DIAS",
+      "email": "luizdias@souescoteiro.org.br"
     },
     {
-      "name": "CLÁUCIO DA SILVA MENDES",
-      "role": "Zona da Mata",
-      "email": ""
+      "role": "CENTRO OESTE",
+      "name": "KELLY CRISTINA RODRIGUES",
+      "email": "kcrrepresenta@hotmail.com"
     },
     {
-      "name": "CLAYTON JOSÉ DE CASTRO FARIA",
-      "role": "Zona da Mata Leste",
-      "email": ""
-    },
-    {
-      "name": "JANÍLSON JOSÉ FARIA",
-      "role": "Estrada Real",
-      "email": ""
-    },
-    {
-      "name": "JEOVANE CASCAIS SANTOS",
-      "role": "Serra da Canastra",
-      "email": "mkasov@hotmail.com"
-    },
-    {
-      "name": "LUIZ WAGNER FERREIRA TEXEIRA",
-      "role": "Sul de Minas",
-      "email": ""
-    },
-    {
-      "name": "MARCELA NAVES ULHOA",
-      "role": "Alto Paranaíba e Noroeste de Minas",
-      "email": ""
-    },
-    {
-      "name": "MARLÚCIO FINOCCHIO BRAGA",
-      "role": "Rio Grande",
-      "email": ""
-    },
-    {
+      "role": "TRIANGULO MINEIRO",
       "name": "NÍVIA PAULA RIBEIRO",
-      "role": "Triangulo Mineiro",
-      "email": ""
+      "email": "niviapaularibeiro@hotmail.com"
     },
     {
-      "name": "RUBENS ADRIANE SILVA",
-      "role": "Centro Oeste",
-      "email": ""
+      "role": "LOBO GUARÁ",
+      "name": "CRISTIANO DE SOUZA PEREIRA",
+      "email": "cristianodepereira@gmail.com"
     },
     {
-      "name": "TIAGO NEVES SILVA",
-      "role": "Norte De Minas",
-      "email": "thiagoturismo@gmail.com"
+      "role": "NORTE DE MINAS",
+      "name": "WILDSON SILVA CALDEIRA",
+      "email": "wildson.caldeira@escoteiros.org.br"
     },
     {
-      "name": "ROBSON FARIA MOREIRA",
-      "role": "Metropolitano",
-      "email": ""
+      "role": "ZONA DA MATA LESTE",
+      "name": "Clayton José de Castro Faria",
+      "email": "clapioneiro.escoteiros167@gmail.com"
+    },
+    {
+      "role": "ALTO PARANAÍBA/NOROESTE DE MINAS",
+      "name": "KEILLA CRISTINA ANDRADE",
+      "email": "keilla28cristina@gmail.com"
+    },
+    {
+      "role": "VALE DO AÇO",
+      "name": "Wesley Ribeiro da Silva",
+      "email": "wesquisito@hotmail.com"
+    },
+    {
+      "role": "SERRA DA CANASTRA",
+      "name": "SANZIO ANDRIGO DE SOUZA",
+      "email": "s-anzio@hotmail.com"
+    },
+    {
+      "role": "SUL DE MINAS",
+      "name": "JOSÉ HENRIQUE CUNHA SANTOS",
+      "email": "chefefafi@hotmail.com"
+    },
+    {
+      "role": "RIO GRANDE",
+      "name": "MARLUCIO FINOCHIO BRAGA",
+      "email": "marluciorock@hotmail.com"
+    },
+    {
+      "role": "ESTRADA REAL",
+      "name": "TATIANE OLIVEIRA COELI",
+      "email": "tocoeli@gmail.com"
     }
   ]
 }
