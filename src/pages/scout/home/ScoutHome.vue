@@ -17,7 +17,7 @@
         span.subtitle.is-4 Os dez artigos da Lei Escoteira
       ol
         li
-          span.title.is-5 O escoteiro tem uma só palavra, sua honra vale mais que a própria vida.
+          span.title.is-5 O escoteiro é honrado e digno de confiança.
           p "A Honra para um Escoteiro é ser digno de toda confiança. Como um Escoteiro, nenhuma tentação, por maior que seja, e embora seja secreta, irá persuadi-lo a praticar uma ação desonesta ou escusa, mesmo muito pequena. Você não voltará atrás a uma promessa, uma vez feita. A palavra de um Escoteiro equivale a um contrato. Para um Escoteiro, a verdade, e nada mais que a verdade." Baden-Powell
         li
           span.title.is-5 O escoteiro é leal.
