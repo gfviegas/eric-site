@@ -1,69 +1,69 @@
 {
   "data": [
     {
-      "name": "ANDERSON ANSELMO SILVA",
-      "role": "Vale do Aço",
+      "role": "METROPOLITANO",
+      "name": "Guilherme Ribas Rodrigues",
+      "email": "metropolitano@escoteirosmg.org.br"
+    },
+    {
+      "role": "ZONA DA MATA",
+      "name": "LUIZ FELIPE DIAS",
+      "email": "zonadamata@escoteirosmg.org.br"
+    },
+    {
+      "role": "CENTRO OESTE",
+      "name": "KELLY CRISTINA RODRIGUES",
+      "email": "centro-oeste@escoteirosmg.org.br"
+    },
+    {
+      "role": "TRIÂNGULO MINEIRO",
+      "name": "JEAN PRIMO DE ANDRADE",
       "email": ""
     },
     {
-      "name": "JOSÉ MARIA CAMARÃO",
-      "role": "Lobo Guará",
+      "role": "LOBO GUARÁ",
+      "name": "CRISTIANO DE SOUZA PEREIRA",
+      "email": "cristianodepereira@gmail.com"
+    },
+    {
+      "role": "NORTE DE MINAS",
+      "name": "ADAIR PEREIRA DA SILVA JÚNIOR",
+      "email": "nortedeminas@escoteirosmg.org.br"
+    },
+    {
+      "role": "ZONA DA MATA LESTE",
+      "name": "HUGO FARIA TAVARES",
       "email": ""
     },
     {
-      "name": "CLÁUCIO DA SILVA MENDES",
-      "role": "Zona da Mata",
-      "email": ""
+      "role": "ALTO PARANAÍBA/NOROESTE DE MINAS",
+      "name": "KEILLA CRISTINA ANDRADE",
+      "email": "keilla28cristina@gmail.com"
     },
     {
-      "name": "CLAYTON JOSÉ DE CASTRO FARIA",
-      "role": "Zona da Mata Leste",
-      "email": ""
+      "role": "VALE DO AÇO",
+      "name": "Wesley Ribeiro da Silva",
+      "email": "valedoaco@escoteirosmg.org.br"
     },
     {
-      "name": "JANÍLSON JOSÉ FARIA",
-      "role": "Estrada Real",
-      "email": ""
+      "role": "SERRA DA CANASTRA",
+      "name": "HAROLDO ALVES DA SILVA",
+      "email": "serradacanastra@escoteirosmg.org.br"
     },
     {
-      "name": "JEOVANE CASCAIS SANTOS",
-      "role": "Serra da Canastra",
-      "email": "mkasov@hotmail.com"
+      "role": "SUL DE MINAS",
+      "name": "JOSÉ HENRIQUE CUNHA SANTOS",
+      "email": "suldeminas@escoteirosmg.org.br"
     },
     {
-      "name": "LUIZ WAGNER FERREIRA TEXEIRA",
-      "role": "Sul de Minas",
-      "email": ""
+      "role": "RIO GRANDE",
+      "name": "ANDRÉ LUIZ BOTREL FERREIRA",
+      "email": "distritoriogrande@escoteirosmg.org.br"
     },
     {
-      "name": "MARCELA NAVES ULHOA",
-      "role": "Alto Paranaíba e Noroeste de Minas",
-      "email": ""
-    },
-    {
-      "name": "MARLÚCIO FINOCCHIO BRAGA",
-      "role": "Rio Grande",
-      "email": ""
-    },
-    {
-      "name": "NÍVIA PAULA RIBEIRO",
-      "role": "Triangulo Mineiro",
-      "email": ""
-    },
-    {
-      "name": "RUBENS ADRIANE SILVA",
-      "role": "Centro Oeste",
-      "email": ""
-    },
-    {
-      "name": "TIAGO NEVES SILVA",
-      "role": "Norte De Minas",
-      "email": "thiagoturismo@gmail.com"
-    },
-    {
-      "name": "ROBSON FARIA MOREIRA",
-      "role": "Metropolitano",
-      "email": ""
+      "role": "ESTRADA REAL",
+      "name": "TATIANE OLIVEIRA COELI",
+      "email": "estradareal@escoteirosmg.org.br"
     }
   ]
 }
