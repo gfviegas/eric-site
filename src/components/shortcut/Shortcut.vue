@@ -36,8 +36,7 @@
     padding: 0
     min-height: 10rem
     text-transform: uppercase
-    +mobile, +tablet
-      width: auto
+    width: auto
     +desktop
       width: 22rem
     p

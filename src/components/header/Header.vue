@@ -124,8 +124,7 @@ export default {
           display: flex
           flex-direction: column
           justify-content: flex-end
-          +mobile, +tablet
-            padding: 0 10%
+          padding: 0 10%
           +desktop
             padding: 0
             flex-direction: row
